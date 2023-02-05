@@ -2,9 +2,6 @@ export { Page }
 
 import React from 'react'
 
-import './index.css'
-
-
 function Page() {
   return (
     <>
