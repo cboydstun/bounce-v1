@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "// We need to define a `build` script, otherwise Vercel ignores the static files living at `dist/client/`": "",
+    "build": "echo 'I will never be called because the `vercel-build` script supersedes me'",
+    "// We need to run the entire build in `vercel-build` instead of `build` so that Vercel keeps the `dist/` directory in production (Vercel discards all files generated during the `build` script.)": "",
+    "vercel-build": "vite build",
+    "// For increased dev speed we use the Vite dev server instead of `vercel dev`": "",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^3.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite": "^4.0.3",
+    "vite-plugin-ssr": "0.4.77"
+  },
+  "type": "module"
+}
