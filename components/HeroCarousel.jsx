@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Carousel } from 'react-bootstrap'
 
-import TestImage from '../assets/test-image.png'
+import TestImage from '../images/test-image.png'
 
 export default function HeroCarousel() {
     return (
