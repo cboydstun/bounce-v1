@@ -2,6 +2,7 @@ export { Page }
 
 import React from 'react'
 
+import Hero from '../../components/Hero'
 import LeadForm from '../../components/LeadForm'
 
 
@@ -9,9 +10,10 @@ function Page() {
   return (
 
     <div className='home-page'>
-      <h1>Home</h1>
-      <LeadForm />
-
+      <div className="home-page-container">
+        <Hero />
+        <LeadForm />
+      </div>
     </div>
   )
 }

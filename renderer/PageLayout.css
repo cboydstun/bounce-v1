@@ -1,3 +1,5 @@
+/* ALL OF THE APP */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,15 +8,23 @@
 
 .App {
   background-color: #000;
-  height: 100vh;
   width: 100%;
 }
 
 body {
   background-color: #000;
-  height: 100vh;
+  height: auto;
   width: 100%;
 }
+
+.home-page {
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  width: 100%;
+}
+
+/* NAVIGATION */
 
 nav {
   background-color: #000;
@@ -60,16 +70,68 @@ nav ul li a:hover {
   color: #000;
 }
 
-.home-page {
+/* HERO COMPONENT */
+.hero-component{
+  background-image: url("https://source.unsplash.com/C6oPXOatFD8");
   background-size: cover;
   background-position: center;
-  height: auto;
+  height: 90vh;
   width: 100%;
+
+}
+
+.hero-container{
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.hero-text{
+  color: #fff;
+  text-align: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 1;
+
+}
+
+.hero-overlay{
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.hero-component button {
+  background-color: #fff;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* CONTACT FORM */
+
+.contact-form-component {
+  background-color: #000;
+  height: 90vh;
+  width: 100%;
+  margin-top: 4rem;
 }
 
 .contact-form-container {
   background-color: #000;
-  height: 90vh;
+  height: 100%;
   width: 100%;
 }
 
