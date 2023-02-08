@@ -7,7 +7,7 @@ export default function Hero() {
                 <div className='hero-text'>
                     <h1>Hero Title</h1>
                     <p>Hero Description</p>
-                    <button>Button</button>
+                    <a href='#contact-form'><button>Contact</button></a>
                 </div>
                 <div className='hero-overlay'></div>
             </div>

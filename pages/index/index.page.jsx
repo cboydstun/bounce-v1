@@ -13,7 +13,7 @@ import Carousel from '../../components/CarouselComponent'
 function Page() {
   return (
 
-    <div className='home-page'>
+    <div className='home-page-component'>
       <div className="home-page-container">
         <Navigation />
         <Hero />

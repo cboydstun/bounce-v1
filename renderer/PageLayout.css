@@ -9,24 +9,12 @@
 .App {
   background-color: #000;
   width: 100%;
+  margin-bottom: 10rem;
+
 }
 
 body {
   background-color: #000;
-  height: auto;
-  width: 100%;
-}
-
-.home-page {
-  background-size: cover;
-  background-position: center;
-  height: auto;
-  width: 100%;
-}
-
-.home-page-component {
-  background-color: #000;
-  height: auto;
   width: 100%;
 }
 
@@ -67,45 +55,40 @@ nav ul li a {
   text-decoration: none;
 }
 
-
 /* HERO COMPONENT */
-.hero-component{
+.hero-component {
   background-image: url("https://source.unsplash.com/C6oPXOatFD8");
   background-size: cover;
   background-position: center;
   height: 90vh;
   width: 100%;
-
 }
 
-.hero-container{
-  background-color: rgba(0,0,0,0.5);
+.hero-container {
+  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.hero-text{
+.hero-text {
   color: #fff;
   text-align: center;
   font-size: 50px;
   text-transform: uppercase;
   font-weight: bold;
   z-index: 1;
-
 }
 
-.hero-overlay{
-  background-color: rgba(0,0,0,0.5);
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-
 }
 
 .hero-component button {
@@ -145,7 +128,6 @@ nav ul li a {
   text-align: center;
   text-transform: uppercase;
   color: #000;
-  margin-bottom: 30px;
 }
 
 .contact-form-container form input {
@@ -202,13 +184,11 @@ nav ul li a {
 @media screen and (max-width: 600px) {
   .App {
     background-color: #000;
-    height: 100vh;
     width: 100%;
   }
 
   body {
     background-color: #000;
-    height: 100vh;
     width: 100%;
   }
 
@@ -229,10 +209,8 @@ nav ul li a {
     /* move background image to the left */
     background-position: top right 10px;
   }
-
 }
 
 /* desktop media queries */
 @media screen and (min-width: 901px) and (max-width: 1200px) {
-
 }
