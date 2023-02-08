@@ -3,17 +3,19 @@ export { PageLayout }
 import React from 'react'
 import './PageLayout.css'
 
-import Navigation from '../components/Navigation'
+// import Navigation from '../components/Navigation'
 
 function PageLayout({ children }) {
   return (
     <React.StrictMode>
+      <div className='App'>
       <Navbar>
-        <Navigation />
+        {/* <Navigation /> */}
       </Navbar>
       <Layout>
         <Content>{children}</Content>
       </Layout>
+      </div>
     </React.StrictMode>
   )
 }

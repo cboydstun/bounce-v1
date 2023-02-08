@@ -1,61 +1,162 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-nav{
-    background-color: #000;
-    height: 10vh;
-    width: 100%;
+.App {
+  background-color: #000;
+  height: 100vh;
+  width: 100%;
 }
 
-nav .logo{
-    color: #fff;
-    font-size: 30px;
-    line-height: 80px;
-    padding: 0 100px;
-    float: left;
-    text-transform: uppercase;
-    font-weight: bold;
+body {
+  background-color: #000;
+  height: 100vh;
+  width: 100%;
 }
 
-nav ul{
-    float: right;
-    margin-right: 20px;
+nav {
+  background-color: #000;
+  height: 10vh;
+  width: 100%;
 }
 
-nav ul li{
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
+nav .logo {
+  color: #fff;
+  font-size: 30px;
+  line-height: 80px;
+  padding: 0 100px;
+  float: left;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-nav ul li a{
-    color: #fff;
-    text-decoration: none;
-    padding: 7px 13px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
-    transition: .5s;
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.5s;
 }
 
 nav ul li a.active,
-nav ul li a:hover{
-    background-color: #fff;
-    color: #000;
+nav ul li a:hover {
+  background-color: #fff;
+  color: #000;
 }
 
-.home-page{
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
+.home-page {
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  width: 100%;
+}
+
+.contact-form-container {
+  background-color: #000;
+  height: 90vh;
+  width: 100%;
+}
+
+.contact-form-container form {
+  width: 50%;
+  margin: auto;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.contact-form-container form h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+.contact-form-container form input {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.contact-form-container form input[type="text"],
+.contact-form-container form input[type="email"],
+.contact-form-container form input[type="tel"],
+.contact-form-container form input[type="date"],
+.contact-form-container form input[type="time"],
+.contact-form-container form input[type="datetime-local"],
+.contact-form-container form input[type="month"],
+.contact-form-container form input[type="week"],
+.contact-form-container form input[type="number"],
+.contact-form-container form input[type="url"],
+.contact-form-container form input[type="search"],
+.contact-form-container form input[type="color"],
+.contact-form-container form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.contact-form-container button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.contact-form-container button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.contact-form-container form textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 30px;
 }
 
 /* mobile media queries */
+@media screen and (max-width: 600px) {
+  .App {
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+  }
+
+  body {
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .contact-form-container form {
+    width: 90%;
+    padding: 20px;
+  }
+}
 
 /* tablet media queries */
 
