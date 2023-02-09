@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navigation() {
+export default function Navigation(props) {
     return (
         <div className='navigation-component'>
             <div className='navigation-container'>

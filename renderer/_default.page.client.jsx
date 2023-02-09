@@ -9,7 +9,7 @@ async function render(pageContext) {
   hydrateRoot(
     document.getElementById('page-view'),
     <PageLayout>
-      <Page />
+      <Page props={pageContext} />
     </PageLayout>
   )
 }

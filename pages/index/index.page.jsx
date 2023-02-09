@@ -2,25 +2,20 @@ export { Page }
 
 import React from 'react'
 
-import Navigation from '../../components/Navigation'
 import Hero from '../../components/Hero'
 import LeadForm from '../../components/LeadForm'
-import Carousel from '../../components/CarouselComponent'
+// import Carousel from '../../components/CarouselComponent'
 // import About from '../../components/About'
-// import Bottom from '../../components/Bottom'
 
-
-function Page() {
+function Page(props) {
   return (
 
     <div className='home-page-component'>
       <div className="home-page-container">
-        <Navigation />
-        <Hero />
+        <Hero props={props} />
         {/* <Carousel /> */}
         <LeadForm />
-        {/* <About />
-        <Bottom /> */}
+        {/* <About /> */}
       </div>
     </div>
   )
