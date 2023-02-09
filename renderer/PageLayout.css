@@ -8,15 +8,12 @@
 }
 
 .App {
-  background-color: #000;
-  width: 100%;
   margin-bottom: 10rem;
-
 }
 
 body {
-  background-color: #000;
   width: 100%;
+  background-color: rebeccapurple;
 }
 
 /*======================================================
@@ -30,7 +27,6 @@ body {
 }
 
 .navigation-container {
-  background-color: #000;
   display: flex;
   padding: 0.5rem 1rem;
 }
@@ -60,16 +56,16 @@ nav ul li a {
 /*======================================================
                           HERO
   ======================================================*/
-  .hero-component {
-  background-image: url("https://source.unsplash.com/C6oPXOatFD8");
+.hero-component {
+  background-image: url("https://media3.giphy.com/media/wZQ8RoZAfj82CQFQyW/giphy.gif?cid=6c09b9529ffd590a91ec0c1478287543484f520c19b1d63c&rid=giphy.gif&ct=g");
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 100vh;
   width: 100%;
+  margin-bottom: 4rem;
 }
 
 .hero-container {
-  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   display: flex;
@@ -80,10 +76,20 @@ nav ul li a {
 .hero-text {
   color: #fff;
   text-align: center;
-  font-size: 50px;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
   z-index: 1;
+}
+
+.hero-text h1 {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero-overlay {
@@ -98,21 +104,26 @@ nav ul li a {
 .hero-component button {
   background-color: #fff;
   color: #000;
-  padding: 10px 20px;
+  padding: 25px 75px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.5s;
+  font-size: xx-large;
+}
+
+.hero-component button:hover {
+  background-color: rebeccapurple;
+  color: #fff;
 }
 
 /*======================================================
                    CONTACT FORM
   ======================================================*/
 .contact-form-container {
-  background-color: #000;
   height: 90vh;
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 .contact-form-container form {
@@ -186,10 +197,19 @@ nav ul li a {
 /*======================================================
                   MOBILE MEDIA QUERIES
   ======================================================*/
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .hero-component {
-    /* move background image to the left */
-    background-position: bottom 60px right 0px;
+    background-image: url("http://media.zenfs.com/en-GB/video/video.storyful.com/d95ca99dce782076b131cfd5db77da64");
+  }
+
+  .hero-text h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
   .contact-form-container form {
@@ -201,7 +221,7 @@ nav ul li a {
 /*======================================================
                   TABLET MEDIA QUERIES
   ======================================================*/
-  @media screen and (min-width: 601px) and (max-width: 900px) {
+@media screen and (min-width: 601px) and (max-width: 900px) {
   .hero-component {
     /* move background image to the left */
     background-position: top right 10px;
@@ -216,30 +236,29 @@ nav ul li a {
 /*======================================================
                   DESKTOP MEDIA QUERIES
   ======================================================*/
-  @media screen and (min-width: 901px) and (max-width: 1200px) {
-    .contact-form-container form {
-      width: 85%;
-      padding: 10px;
-    }
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+  .contact-form-container form {
+    width: 85%;
+    padding: 10px;
+  }
 }
 
 /*======================================================
                   LARGE DESKTOP MEDIA QUERIES
   ======================================================*/
-  @media screen and (min-width: 1201px) and (max-width: 1800px) {
-    .contact-form-container form {
-      width: 75%;
-      padding: 10px;
-    }
+@media screen and (min-width: 1201px) and (max-width: 1800px) {
+  .contact-form-container form {
+    width: 75%;
+    padding: 10px;
+  }
 }
 
 /*======================================================
                   EXTRA LARGE DESKTOP MEDIA QUERIES
   ======================================================*/
-  @media screen and (min-width: 1801px) and (max-width: 2500px) {
-    .contact-form-container form {
-      width: 65%;
-      padding: 10px;
-    }
-    
+@media screen and (min-width: 1801px) and (max-width: 2500px) {
+  .contact-form-container form {
+    width: 65%;
+    padding: 10px;
+  }
 }

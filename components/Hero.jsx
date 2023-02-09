@@ -5,8 +5,8 @@ export default function Hero(props) {
         <div className='hero-component'>
             <div className='hero-container'>
                 <div className='hero-text'>
-                    <h1>Hero Title</h1>
-                    <p>Hero Description</p>
+                    <h1>SATX Bounce</h1>
+                    <p>BOUNCE HOUSE <br /> AND <br /> PARTY RENTAL IN SAN ANTONIO</p>
                     <a href='#contact-form'><button>Contact</button></a>
                 </div>
                 <div className='hero-overlay'></div>

@@ -76,7 +76,6 @@ export default function LeadForm() {
     return (
         <div className="contact-form-component">
             <div className='contact-form-container' id='contact-form'>
-                <h1>Lead Form</h1>
                 <form name="contact" onSubmit={e => { handleSubmit(e) }} >
                     <label className='choice-label' htmlFor="choices">Choose your bounce house:</label>
                     <br />
