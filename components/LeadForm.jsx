@@ -59,30 +59,37 @@ export default function LeadForm() {
                     </select>
                     <br />
                     <br />
-                    <label htmlFor="date">Date</label>
-                    <input type="date" name="date" value={date} onChange={e => setDate(e.target.value)} />
+                    <label htmlFor="date">Date
+                        <input type="date" name="date" aria-labelledby="date" value={date} onChange={e => setDate(e.target.value)} />
+                    </label>
                     <br />
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name="name" placeholder='Your Name' value={name} onChange={e => setName(e.target.value)} />
+                    <label htmlFor="name">Name
+                        <input type="text" name="name" aria-labelledby="name" placeholder='Your Name' value={name} onChange={e => setName(e.target.value)} />
+                    </label>
                     <br />
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" placeholder='Valid Email' value={email} onChange={e => setEmail(e.target.value)} />
-                    <br />
-
-                    <label htmlFor="phone">Phone</label>
-                    <input type="tel" name="phone" placeholder='Phone Number' value={phone} onChange={e => setPhone(e.target.value)} />
-                    <br />
-
-                    <label htmlFor="address">Address</label>
-                    <input type="text" name="address" placeholder='Address for delivery' value={address} onChange={e => setAddress(e.target.value)} />
+                    <label htmlFor="email">Email
+                        <input type="email" name="email" aria-labelledby="email" placeholder='Valid Email' value={email} onChange={e => setEmail(e.target.value)} />
+                    </label>
                     <br />
 
-                    <label htmlFor="zipCode">Zip Code</label>
-                    <input type="text" name="zipCode" placeholder='Zip Code' value={zipCode} onChange={e => setZipCode(e.target.value)} />
+                    <label htmlFor="phone">Phone
+                        <input type="tel" name="phone" aria-labelledby="phone" placeholder='Phone Number' value={phone} onChange={e => setPhone(e.target.value)} />
+                    </label>
                     <br />
 
-                    <label htmlFor="message">Message</label>
-                    <textarea name="message" value={message} placeholder='Anything else you would like to share? - Optional' onChange={e => setMessage(e.target.value)} />
+                    <label htmlFor="address">Address
+                        <input type="text" name="address" aria-labelledby="address" placeholder='Address for delivery' value={address} onChange={e => setAddress(e.target.value)} />
+                    </label>
+                    <br />
+
+                    <label htmlFor="zipCode">Zip Code
+                        <input type="text" name="zipCode" aria-labelledby="zipCode" placeholder='Zip Code' value={zipCode} onChange={e => setZipCode(e.target.value)} />
+                    </label>
+                    <br />
+
+                    <label htmlFor="message">Message
+                        <textarea name="message" value={message} aria-labelledby="message" placeholder='Anything else you would like to share? - Optional' onChange={e => setMessage(e.target.value)} />
+                    </label>
                     <br />
 
                     <button type="submit">Submit</button>

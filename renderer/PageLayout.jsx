@@ -9,19 +9,11 @@ import Navigation from '../components/Navigation'
 function PageLayout({ children }) {
   return (
     <React.StrictMode>
-      <Layout test="top level test">
+      <div className="App">
         <Navigation name="Bounce SATX" />
         {children}
         {/* <Bottom /> */}
-      </Layout>
+      </div>
     </React.StrictMode>
-  )
-}
-
-function Layout({ children }) {
-  return (
-    <div className='App'>
-      {children}
-    </div>
   )
 }
