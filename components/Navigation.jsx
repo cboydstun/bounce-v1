@@ -21,6 +21,7 @@ export default function Navigation(props) {
                                 Contact
                             </a>
                         </li>
+
                     </ul>
                 </nav>
             </div>

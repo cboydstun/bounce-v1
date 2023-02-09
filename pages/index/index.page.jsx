@@ -8,6 +8,7 @@ import LeadForm from '../../components/LeadForm'
 // import About from '../../components/About'
 
 function Page(props) {
+
   return (
 
     <div className='home-page-component'>

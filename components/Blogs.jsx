@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-// import Blog from './Blog'
+import Blog from './Blog'
+
 
 export default function Blogs() {
     const [blogs, setBlogs] = useState([]);
@@ -11,30 +12,18 @@ export default function Blogs() {
             .then(data => setBlogs(data))
     }, []);
 
-    console.log(blogs)
-
     return (
-        <div>
+        <div className='blog-container'>
             <h1>Blog Posts</h1>
-            <div>
+            <div className='blogs'>
                 {blogs.map(blog => (
-                    <div key={blog._id}>
-                        <div>
-                            <a><h2>{blog.title}</h2></a>
-                            <p>{blog.author}</p>
+                    <div className='blog' key={blog.id}>
+                        <Blog blog={blog} />
+
+
                         </div>
-                    </div>
                 ))}
             </div>
-        </div>
-    )
-}
-
-function Blog({ blog }) {
-    return (
-        <div>
-            <h2>{blog.title}</h2>
-            <p>{blog.author}</p>
         </div>
     )
 }

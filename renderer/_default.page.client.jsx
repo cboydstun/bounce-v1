@@ -8,8 +8,8 @@ async function render(pageContext) {
   const { Page } = pageContext
   hydrateRoot(
     document.getElementById('page-view'),
-    <PageLayout>
-      <Page props={pageContext} />
-    </PageLayout>
+      <PageLayout>
+        <Page props={pageContext} />
+      </PageLayout>
   )
 }

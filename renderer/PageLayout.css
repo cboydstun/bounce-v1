@@ -173,6 +173,17 @@ nav ul li a {
 }
 
 /*======================================================
+                    BLOGS PAGE
+  ======================================================*/
+
+.blogs-container {
+  background-color: red;
+  height: 90vh;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+/*======================================================
                   MOBILE MEDIA QUERIES
   ======================================================*/
   @media screen and (max-width: 600px) {
@@ -195,10 +206,40 @@ nav ul li a {
     /* move background image to the left */
     background-position: top right 10px;
   }
+
+  .contact-form-container form {
+    width: 95%;
+    padding: 10px;
+  }
 }
 
 /*======================================================
                   DESKTOP MEDIA QUERIES
   ======================================================*/
   @media screen and (min-width: 901px) and (max-width: 1200px) {
+    .contact-form-container form {
+      width: 85%;
+      padding: 10px;
+    }
+}
+
+/*======================================================
+                  LARGE DESKTOP MEDIA QUERIES
+  ======================================================*/
+  @media screen and (min-width: 1201px) and (max-width: 1800px) {
+    .contact-form-container form {
+      width: 75%;
+      padding: 10px;
+    }
+}
+
+/*======================================================
+                  EXTRA LARGE DESKTOP MEDIA QUERIES
+  ======================================================*/
+  @media screen and (min-width: 1801px) and (max-width: 2500px) {
+    .contact-form-container form {
+      width: 65%;
+      padding: 10px;
+    }
+    
 }
