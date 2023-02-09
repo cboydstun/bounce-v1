@@ -1,5 +1,6 @@
-/* ALL OF THE APP */
-
+/*======================================================
+                          MAIN
+  ======================================================*/
 * {
   margin: 0;
   padding: 0;
@@ -18,8 +19,9 @@ body {
   width: 100%;
 }
 
-/* NAVIGATION */
-
+/*======================================================
+                          NAVIGATION
+  ======================================================*/
 .navigation-component {
   position: fixed;
   top: 0;
@@ -55,8 +57,10 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* HERO COMPONENT */
-.hero-component {
+/*======================================================
+                          HERO
+  ======================================================*/
+  .hero-component {
   background-image: url("https://source.unsplash.com/C6oPXOatFD8");
   background-size: cover;
   background-position: center;
@@ -101,19 +105,14 @@ nav ul li a {
   transition: 0.5s;
 }
 
-/* CONTACT FORM */
-
-.contact-form-component {
+/*======================================================
+                   CONTACT FORM
+  ======================================================*/
+.contact-form-container {
   background-color: #000;
   height: 90vh;
   width: 100%;
   margin-top: 4rem;
-}
-
-.contact-form-container {
-  background-color: #000;
-  height: 100%;
-  width: 100%;
 }
 
 .contact-form-container form {
@@ -133,21 +132,14 @@ nav ul li a {
 .contact-form-container form input {
   position: relative;
   margin-bottom: 30px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
 }
 
-.contact-form-container form input[type="text"],
-.contact-form-container form input[type="email"],
-.contact-form-container form input[type="tel"],
-.contact-form-container form input[type="date"],
-.contact-form-container form input[type="time"],
-.contact-form-container form input[type="datetime-local"],
-.contact-form-container form input[type="month"],
-.contact-form-container form input[type="week"],
-.contact-form-container form input[type="number"],
-.contact-form-container form input[type="url"],
-.contact-form-container form input[type="search"],
-.contact-form-container form input[type="color"],
-.contact-form-container form input[type="password"] {
+.choice-dropdown {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -180,18 +172,10 @@ nav ul li a {
   margin-bottom: 30px;
 }
 
-/* mobile media queries */
-@media screen and (max-width: 600px) {
-  .App {
-    background-color: #000;
-    width: 100%;
-  }
-
-  body {
-    background-color: #000;
-    width: 100%;
-  }
-
+/*======================================================
+                  MOBILE MEDIA QUERIES
+  ======================================================*/
+  @media screen and (max-width: 600px) {
   .hero-component {
     /* move background image to the left */
     background-position: bottom 60px right 0px;
@@ -203,14 +187,18 @@ nav ul li a {
   }
 }
 
-/* tablet media queries */
-@media screen and (min-width: 601px) and (max-width: 900px) {
+/*======================================================
+                  TABLET MEDIA QUERIES
+  ======================================================*/
+  @media screen and (min-width: 601px) and (max-width: 900px) {
   .hero-component {
     /* move background image to the left */
     background-position: top right 10px;
   }
 }
 
-/* desktop media queries */
-@media screen and (min-width: 901px) and (max-width: 1200px) {
+/*======================================================
+                  DESKTOP MEDIA QUERIES
+  ======================================================*/
+  @media screen and (min-width: 901px) and (max-width: 1200px) {
 }

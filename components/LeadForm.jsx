@@ -50,25 +50,18 @@ export default function LeadForm() {
             <div className='contact-form-container' id='contact-form'>
                 <h1>Lead Form</h1>
                 <form name="contact" onSubmit={e => { handleSubmit(e) }} >
-
-                    {/* DROPDOWN with options for: large 13x13, X-Large 15x15, XXL w/ Slide 15x25 */}
-                    <label htmlFor="choices">Choose your bounce house:</label>
+                    <label className='choice-label' htmlFor="choices">Choose your bounce house:</label>
                     <br />
-
-                    <select name="choices" value={choices} onChange={e => setChoices(e.target.value)}>
+                    <select className='choice-dropdown' name="choices" value={choices} onChange={e => setChoices(e.target.value)}>
                         <option value="large" defaultValue={true}>Large</option>
                         <option value="x-large">X-Large</option>
                         <option value="xxl">XXL with Slide Combo</option>
                     </select>
                     <br />
-
-                    {/* DATEPICKER */}
+                    <br />
                     <label htmlFor="date">Date</label>
                     <input type="date" name="date" value={date} onChange={e => setDate(e.target.value)} />
-
                     <br />
-
-
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" placeholder='Your Name' value={name} onChange={e => setName(e.target.value)} />
                     <br />
