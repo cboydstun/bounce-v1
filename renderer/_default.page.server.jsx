@@ -27,7 +27,6 @@ async function render(pageContext) {
       <meta name="author" content="SATX Bounce House Rentals and More" />
       <meta name="keywords" content="SATX Bounce House Rentals and More" />
       
-      
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
       <meta name="google" content="notranslate" />
@@ -38,14 +37,12 @@ async function render(pageContext) {
       <meta name="norton-safeweb-site-verification" content="SATX Bounce House Rentals and More" />
       <meta name="alexaVerifyID" content="SATX Bounce House Rentals and More" />
       
-
       <meta property="og:title" content="SATX Bounce House Rentals and More" />
       <meta property="og:description" content="SATX Bounce House Rentals and More" />
       <meta property="og:image" content="https://www.satxbounce.com/images/og-image.png" />
       <meta property="og:url" content="https://www.satxbounce.com" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="SATX Bounce House Rentals and More" />
-
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@satxbouncers" />
