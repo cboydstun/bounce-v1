@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
 export default function LeadForm() {
+    const API_URL = 'https://www.rockettestserver.xyz/api/v1/leads'
+    // const API_URL = 'http://localhost:8080/api/v1/leads'
+
     const [choices, setChoices] = useState('large')
     const [date, setDate] = useState('')
     const [name, setName] = useState('')
@@ -29,7 +32,7 @@ export default function LeadForm() {
             // check that Date is not in the past or less than 3 days from now
             const today = new Date()
             const todayPlus3 = new Date()
-            todayPlus3.setDate(todayPlus3.getDate() + 3)
+            todayPlus3.setDate(todayPlus3.getDate() + 2)
             const dateToCheck = new Date(date)
             if (dateToCheck < today || dateToCheck < todayPlus3) {
                 alert('Please choose a date that is at least 3 days from now')
@@ -44,11 +47,8 @@ export default function LeadForm() {
     }
 
     useEffect(() => {
-        // URL = 'https://www.rockettestserver.xyz/api/v1/leads'
-        URL = 'http://localhost:8080/api/v1/leads'
-
         if (submitted) {
-            fetch(URL, {
+            fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
