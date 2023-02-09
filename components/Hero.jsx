@@ -9,7 +9,6 @@ export default function Hero(props) {
                     <p>BOUNCE HOUSE <br /> AND <br /> PARTY RENTAL IN SAN ANTONIO</p>
                     <a href='#contact-form'><button>Contact</button></a>
                 </div>
-                <div className='hero-overlay'></div>
             </div>
         </div>
     )

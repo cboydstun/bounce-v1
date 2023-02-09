@@ -92,15 +92,6 @@ nav ul li a {
   margin-bottom: 1rem;
 }
 
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .hero-component button {
   background-color: #fff;
   color: #000;
