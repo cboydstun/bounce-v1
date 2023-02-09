@@ -44,19 +44,24 @@ export default function LeadForm() {
     }
 
     useEffect(() => {
+        // URL = 'https://www.rockettestserver.xyz/api/v1/leads'
+        URL = 'http://localhost:8080/api/v1/leads'
+
         if (submitted) {
-            fetch('https://www.rockettestserver.xyz/api/v1/leads', {
+            fetch(URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    address: address,
-                    zipCode: zipCode,
-                    message: message
+                    choices,
+                    date,
+                    name,
+                    email,
+                    phone,
+                    address,
+                    zipCode,
+                    message
                 })
             })
                 .then(response => response.json())
