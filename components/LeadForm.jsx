@@ -13,15 +13,34 @@ export default function LeadForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        try {
+            // check all forms are filled out
+            if (!date || !name || !email || !phone || !address || !zipCode) {
+                alert('Please fill out all fields')
+                return
+            }
 
-        // check all forms are filled out
-        if (!name || !email || !phone || !address || !zipCode) {
-            alert('Please fill out all fields')
-            return
+            // check for valid San Antonio, Tx zip code
+            if (zipCode.length !== 5 || zipCode < 78201 || zipCode > 78299) {
+                alert('Sorry we only service San Antonio, TX')
+                return
+            }
+
+            // check that Date is not in the past or less than 3 days from now
+            const today = new Date()
+            const todayPlus3 = new Date()
+            todayPlus3.setDate(todayPlus3.getDate() + 3)
+            const dateToCheck = new Date(date)
+            if (dateToCheck < today || dateToCheck < todayPlus3) {
+                alert('Please choose a date that is at least 3 days from now')
+                return
+            }
+
+            setSubmitted(true)
+            console.log('submitted')
+        } catch (error) {
+            console.log(error)
         }
-
-        setSubmitted(true)
-        console.log('submitted')
     }
 
     useEffect(() => {
