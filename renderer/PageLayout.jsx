@@ -4,7 +4,7 @@ import React from 'react'
 
 import './PageLayout.css'
 import Navigation from '../components/Navigation'
-// import Bottom from '../components/Bottom'
+import Bottom from '../components/Bottom'
 
 function PageLayout({ children }) {
 
@@ -15,7 +15,7 @@ function PageLayout({ children }) {
       <div className="App">
         <Navigation name="Bounce SATX" />
         {children}
-        {/* <Bottom /> */}
+        <Bottom />
       </div>
     </React.StrictMode>
   )

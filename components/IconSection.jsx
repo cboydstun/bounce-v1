@@ -21,7 +21,7 @@ export default function IconSection() {
                     </div>
                     <div className='icon-section__icon'>
                         <img src='https://cdn-icons-png.flaticon.com/512/950/950299.png' alt='icon3' height={50} width={50} />
-                        <h3>Customer Service</h3>
+                        <h3>Great Customer Service</h3>
 
                         <p>Life happens and we understand. We will be there if the unexpected happens and you can count on us to delivery quality customer service that you would expect from the largest corporations.</p>
                     </div>

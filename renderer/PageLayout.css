@@ -228,7 +228,7 @@ nav ul li a {
 }
 
 .contact-form-section form textarea {
-  padding: 2rem;
+  padding: 1rem;
   font-size: 1rem;
   border-radius: 5px;
   width: 100%;
@@ -253,6 +253,52 @@ nav ul li a {
   font-size: 1rem;
   border-radius: 5px;
   width: 100%;
+}
+
+/*======================================================
+                   BOTTOM FOOTER SECTION
+    ======================================================*/
+footer {
+  height: 100%;
+  width: 100%;
+  background-color: rebeccapurple;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bottom-component {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bottom-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.bottom-container p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.bottom-container a {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
 /*======================================================
@@ -300,14 +346,22 @@ nav ul li a {
   }
 
   .icon-section h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .icon-section__icon h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .icon-section__icon p {
+    font-size: 1.5rem;
+  }
+
+  .bottom-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .bottom-container p {
     font-size: 1rem;
   }
 }
@@ -326,6 +380,14 @@ nav ul li a {
   .icon-section {
     height: 100%;
     width: auto;
+  }
+
+  .icon-section h2 {
+    font-size: 3rem;
+  }
+
+  .icon-section__icon h3 {
+    font-size: 2.25rem;
   }
 
   .icon-section__icon p {
