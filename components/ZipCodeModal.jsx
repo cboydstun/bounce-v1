@@ -1,0 +1,167 @@
+import React, { useState, useEffect } from 'react'
+
+import Modal from 'react-modal'
+
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
+
+const ZipCodeModal = (props) => {
+    //state
+    const [zipCode, setZipCode] = useState('')
+    const [size, setSize] = useState('')
+    const [date, setDate] = useState('')
+    const [submitted, setSubmitted] = useState(false)
+    const [hasScrolled, setHasScrolled] = useState(false)
+    const [modalIsOpen, setIsOpen] = useState(false)
+
+    const handleZipCodeChange = (e) => {
+        setZipCode(e.target.value)
+    }
+
+    const handleSizeChange = (e) => {
+        setSize(e.target.value)
+    }
+
+    const handleDateChange = (e) => {
+        setDate(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        try {
+            e.preventDefault()
+
+            // check if zip code is valid in San Antonio, Texas
+            if (zipCode.length !== 5 || zipCode < 78201 || zipCode > 78299) {
+                alert('Sorry we only service San Antonio, TX')
+                return
+            }
+
+            // check if size is selected
+            if (!size) {
+                alert('Please select a size')
+                return
+            }
+
+            // check if date is select and valid
+            if (!date) {
+                alert('Please select a date')
+                return
+            }
+
+            // check that Date is not in the past or less than 2 days from now
+            const today = new Date()
+            const todayPlus2 = new Date()
+            todayPlus2.setDate(todayPlus2.getDate() + 1)
+            const dateToCheck = new Date(date)
+            if (dateToCheck < today || dateToCheck < todayPlus2) {
+                alert('Please choose a date that is at least 2 days from now')
+                return
+            }
+
+            // give congrats message
+            setSubmitted(true)
+            console.log('submitted')
+            //close modal
+            // setIsOpen(false)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
+    // setIsOpen(true) if user scrolls down 100px and it's been 1 second
+    useEffect(() => {
+        const handleScroll = () => {
+            const position = window.pageYOffset
+            if (position > 200) {
+                setHasScrolled(true)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true })
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
+    useEffect(() => {
+        if (hasScrolled) {
+            setTimeout(() => {
+                setIsOpen(true)
+            }, 1000)
+        }
+    }, [hasScrolled])
+
+    const closeModal = () => {
+        setIsOpen(false)
+    }
+
+
+    return (
+
+        <Modal
+            onRequestClose={props.onRequestClose}
+            isOpen={modalIsOpen}
+            style={customStyles}
+            contentLabel="Availability Check"
+            ariaHideApp={false}
+        >
+            <h2>Check if your house is available right now!</h2>
+            <p>For Free! No Obligation!</p>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="zipCode">
+                    <h3>Enter Zip Code</h3>
+                    <input
+                        type="text"
+                        name="zipCode"
+                        value={zipCode}
+                        onChange={handleZipCodeChange}
+                    />
+                </label>
+                <label htmlFor="">
+                    <h3>Enter Date</h3>
+                    <input type="date" name="date" value={date} onChange={handleDateChange} />
+                </label>
+                <label htmlFor="choices">
+                    <h3>Select Bounce Castle Size</h3>
+                    <select onChange={handleSizeChange}>
+                        <option value="">--Please Select--</option>
+                        <option value="large">Large</option>
+                        <option value="xl">XL</option>
+                        <option value="xxl">XXL</option>
+                    </select>
+                </label>
+
+                <div>
+                    <button type="submit">✅Check</button>
+                    <button onClick={closeModal}>❌Close</button>
+
+                </div>
+            </form>
+
+            {submitted && (
+                <div>
+                    <h2>YES!</h2>
+                    <p>
+                        Your house is available on {date} for a {size} bounce!
+                    </p>
+                </div>
+            )
+            }
+        </Modal>
+
+    )
+}
+
+export default ZipCodeModal 
