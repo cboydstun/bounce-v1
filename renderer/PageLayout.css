@@ -50,7 +50,7 @@ nav ul li {
 nav ul li a {
   color: #fff;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /*======================================================
@@ -258,6 +258,23 @@ nav ul li a {
   .hero-component button {
     padding: 25px 25px;
   }
+
+  .icon-section {
+    height: 100%;
+    background-color: red;
+  }
+
+  .icon-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .icon-section__icon h3 {
+    font-size: 1.25rem;
+  }
+
+  .icon-section__icon p {
+    font-size: 1rem;
+  }
 }
 
 /*======================================================
@@ -270,9 +287,22 @@ nav ul li a {
   .hero-component button {
     padding: 25px 50px;
   }
-  .about-container {
-  }
+
   .icon-section {
+    height: 100%;
+    background-color: yellow;
+  }
+
+  .icon-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .icon-section__icon h3 {
+    font-size: 1.25rem;
+  }
+
+  .icon-section__icon p {
+    font-size: 1rem;
   }
 }
 
@@ -286,9 +316,18 @@ nav ul li a {
   .hero-component button {
     padding: 25px 100px;
   }
-  .about-container {
+
+  .icon-section {
+    height: 100%;
+    width: auto;
+    background-color: green;
+  }
+
+  .icon-section__icon p {
+    font-size: 1.5rem;
   }
 }
+
 /*======================================================
                      TABLET MEDIA QUERIES
     ======================================================*/
