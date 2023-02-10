@@ -196,6 +196,16 @@ nav ul li a {
   flex-direction: column;
 }
 
+.contact-form-section img {
+
+  object-fit: cover;
+  border: 0.5rem solid white;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+
+}
+
 .contact-form-section form {
   display: flex;
   justify-content: center;
@@ -261,7 +271,6 @@ nav ul li a {
 
   .icon-section {
     height: 100%;
-    background-color: red;
   }
 
   .icon-section h2 {
@@ -290,7 +299,6 @@ nav ul li a {
 
   .icon-section {
     height: 100%;
-    background-color: yellow;
   }
 
   .icon-section h2 {
@@ -320,7 +328,6 @@ nav ul li a {
   .icon-section {
     height: 100%;
     width: auto;
-    background-color: green;
   }
 
   .icon-section__icon p {

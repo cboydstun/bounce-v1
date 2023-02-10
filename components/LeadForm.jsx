@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
+const BOUNCE13x13 = 'https://lambertbounceparties.com/wp-content/uploads/2021/09/Screen20Shot202021-09-2620at2012.01.0020PM_1632672367_big.png'
+const BOUNCE15x15 = 'https://files.sysers.com/cp/upload/marylandbounce/items/IMG_5204.jpg'
+const BOUNCE25x15 = 'https://bouncycastlenetwork-res.cloudinary.com/image/upload/f_auto,q_auto,c_limit,w_900/3cab8dad607f8c19548b603bdbb7f69b'
+
 export default function LeadForm() {
     const API_URL = 'https://www.rockettestserver.xyz/api/v1/leads'
     // const API_URL = 'http://localhost:8080/api/v1/leads'
 
-    const [choices, setChoices] = useState('large')
+    const [choices, setChoices] = useState('xxl')
     const [date, setDate] = useState('')
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -13,6 +17,7 @@ export default function LeadForm() {
     const [zipCode, setZipCode] = useState('')
     const [message, setMessage] = useState('')
     const [submitted, setSubmitted] = useState(false)
+    const [image, setImage] = useState(BOUNCE25x15)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -82,7 +87,7 @@ export default function LeadForm() {
                     setAddress('')
                     setZipCode('')
                     setMessage('')
-                    
+
                 })
         }
     }, [submitted])
@@ -93,8 +98,9 @@ export default function LeadForm() {
                 <form name="contact" onSubmit={e => { handleSubmit(e) }} >
                     <label className='choice-label' htmlFor="choices">Choose your bounce house:</label>
                     <br />
-                    <select className='choice-dropdown' name="choices" value={choices} onChange={e => setChoices(e.target.value)}>
-                        <option value="large" defaultValue={true}>Large - 13' x 13' - $40</option>
+                    <img src={image} alt="" height={200} width={200} />
+                    <select className='choice-dropdown' name="choices" value={choices} onChange={e => { setChoices(e.target.value), setImage(e.target.value === 'large' ? BOUNCE13x13 : e.target.value === 'x-large' ? BOUNCE15x15 : BOUNCE25x15) }}>
+                        <option value="large">Large - 13' x 13' - $40</option>
                         <option value="x-large">X-Large - 15' x 15' - $50</option>
                         <option value="xxl">XXL with Slide Combo - 15' x 25' - $60</option>
                     </select>
