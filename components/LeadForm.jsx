@@ -79,7 +79,7 @@ export default function LeadForm() {
                     alert('Thank you for your submission!')
                     setSubmitted(false)
                     // reset form
-                    setChoices('large')
+                    setChoices('xxl')
                     setDate('')
                     setName('')
                     setEmail('')
