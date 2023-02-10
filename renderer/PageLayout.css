@@ -13,17 +13,17 @@
 
 body {
   width: 100%;
-  background-color: rebeccapurple;
 }
 
 /*======================================================
-                          NAVIGATION
-  ======================================================*/
+                            NAVIGATION
+    ======================================================*/
 .navigation-component {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
+  background-color: rebeccapurple;
 }
 
 .navigation-container {
@@ -51,11 +51,12 @@ nav ul li {
 nav ul li a {
   color: #fff;
   text-decoration: none;
+  font-size: 2rem;
 }
 
 /*======================================================
-                          HERO
-  ======================================================*/
+                            HERO
+    ======================================================*/
 .hero-component {
   background-image: url("https://media3.giphy.com/media/wZQ8RoZAfj82CQFQyW/giphy.gif?cid=6c09b9529ffd590a91ec0c1478287543484f520c19b1d63c&rid=giphy.gif&ct=g");
   background-size: cover;
@@ -109,147 +110,230 @@ nav ul li a {
 }
 
 /*======================================================
-                   CONTACT FORM
-  ======================================================*/
-.contact-form-container {
-  height: 90vh;
-  width: 100%;
-  margin-top: 6rem;
+                     ABOUT SECTION
+    ======================================================*/
+
+.about-container {
 }
 
-.contact-form-container form {
-  width: 50%;
-  margin: auto;
-  padding: 50px;
+.about-section {
+}
+
+.about-container h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.about-container p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/*======================================================
+                     ICON SECTION
+    ======================================================*/
+.icon-component {
+  height: 100vh;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.icon-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon-section h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.icon-section__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.icon-section__icon img {
+  margin-bottom: 1rem;
+}
+
+.icon-section__icon h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.icon-section__icon p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/*======================================================
+                     CONTACT FORM
+    ======================================================*/
+
+.contact-form-component {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.contact-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.contact-form-section form {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  padding: 2rem 5rem;
+  border: 1px solid black;
+  background-color: rebeccapurple;
+
+}
+
+.contact-form-section form input {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.contact-form-section label {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.contact-form-section form textarea {
+  padding: 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.contact-form-section form button {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
   background-color: #fff;
-  border-radius: 10px;
-}
-
-.contact-form-container form h2 {
-  text-align: center;
-  text-transform: uppercase;
   color: #000;
-}
-
-.contact-form-container form input {
-  position: relative;
-  margin-bottom: 30px;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-.choice-dropdown {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-.contact-form-container button {
-  background-color: #000;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
   transition: 0.5s;
 }
 
-.contact-form-container button:hover {
-  background-color: #fff;
-  color: #000;
+.choice-label {
+  font-size: 1.5rem;
 }
 
-.contact-form-container form textarea {
-  width: 100%;
-  height: 150px;
-  padding: 10px;
-  border: 1px solid #ccc;
+.choice-dropdown {
+  padding: 1rem;
+  font-size: 1rem;
   border-radius: 5px;
-  outline: none;
-  margin-bottom: 30px;
 }
 
 /*======================================================
-                    BLOGS PAGE
-  ======================================================*/
-
-.blogs-container {
-  background-color: red;
-  height: 90vh;
-  width: 100%;
-  margin-top: 4rem;
+                     SMALL SCREEN MEDIA QUERIES
+    ======================================================*/
+@media screen and (min-width: 320px) {
+  .hero-text h1 {
+    font-size: 4rem;
+  }
+  .hero-component button {
+    padding: 25px 50px;
+  }
+  .about-container {
+  }
+  .about-section {
+  }
 }
 
 /*======================================================
-                  MOBILE MEDIA QUERIES
-  ======================================================*/
-@media screen and (max-width: 600px) {
-  .hero-component {
-    background-image: url("https://media.zenfs.com/en-GB/video/video.storyful.com/d95ca99dce782076b131cfd5db77da64");
+                     MOBILE MEDIA QUERIES
+    ======================================================*/
+@media screen and (min-width: 768px) {
+  .hero-text h1 {
+    font-size: 10rem;
+  }
+  .hero-component button {
+    padding: 25px 100px;
+  }
+  .about-container {
+  }
+  .about-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+/*======================================================
+                     TABLET MEDIA QUERIES
+    ======================================================*/
+@media screen and (min-width: 1024px) {
+  .hero-component button {
+    padding: 25px 150px;
   }
 
   .hero-text h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 12rem;
   }
 
-  .hero-text p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .contact-form-container form {
-    width: 95%;
-    padding: 10px;
+  .about-container {
   }
 }
 
 /*======================================================
-                  TABLET MEDIA QUERIES
-  ======================================================*/
-@media screen and (min-width: 601px) and (max-width: 900px) {
-  .hero-component {
-    /* move background image to the left */
-    background-position: top right 10px;
+                     DESKTOP MEDIA QUERIES
+    ======================================================*/
+@media screen and (min-width: 1280px) {
+  .hero-component button {
+    padding: 25px 200px;
   }
 
-  .contact-form-container form {
-    width: 95%;
-    padding: 10px;
+  .hero-text h1 {
+    font-size: 15rem;
   }
-}
 
-/*======================================================
-                  DESKTOP MEDIA QUERIES
-  ======================================================*/
-@media screen and (min-width: 901px) and (max-width: 1200px) {
-  .contact-form-container form {
-    width: 85%;
-    padding: 10px;
+  .about-container {
   }
 }
 
 /*======================================================
-                  LARGE DESKTOP MEDIA QUERIES
-  ======================================================*/
-@media screen and (min-width: 1201px) and (max-width: 1800px) {
-  .contact-form-container form {
-    width: 75%;
-    padding: 10px;
+                     SUPERWIDE MEDIA QUERIES
+    ======================================================*/
+@media screen and (min-width: 1440px) {
+  .hero-component button {
+    padding: 25px 250px;
   }
-}
 
-/*======================================================
-                  EXTRA LARGE DESKTOP MEDIA QUERIES
-  ======================================================*/
-@media screen and (min-width: 1801px) and (max-width: 2500px) {
-  .contact-form-container form {
-    width: 65%;
-    padding: 10px;
+  .hero-text h1 {
+    font-size: 20rem;
+  }
+
+  .about-container {
+  }
+
+  .icon-section {
+    margin-left: 12rem;
   }
 }

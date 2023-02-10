@@ -55,7 +55,7 @@ export default function LeadForm() {
                     'Access-Control-Allow-Origin': '*',
                     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
                     'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'
-                    
+
                 },
                 body: JSON.stringify({
                     choices,
@@ -75,7 +75,7 @@ export default function LeadForm() {
 
     return (
         <div className="contact-form-component">
-            <div className='contact-form-container' id='contact-form'>
+            <div className='contact-form-section' id='contact-form'>
                 <form name="contact" onSubmit={e => { handleSubmit(e) }} >
                     <label className='choice-label' htmlFor="choices">Choose your bounce house:</label>
                     <br />
@@ -114,7 +114,7 @@ export default function LeadForm() {
                     </label>
                     <br />
 
-                    <label htmlFor="message">Message
+                    <label htmlFor="message">Message <br />
                         <textarea name="message" value={message} aria-labelledby="message" placeholder='Anything else you would like to share? - Optional' onChange={e => setMessage(e.target.value)} />
                     </label>
                     <br />

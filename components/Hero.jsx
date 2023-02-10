@@ -6,7 +6,7 @@ export default function Hero(props) {
             <div className='hero-container'>
                 <div className='hero-text'>
                     <h1>SATX Bounce</h1>
-                    <p>BOUNCE HOUSE <br /> AND <br /> PARTY RENTAL IN SAN ANTONIO</p>
+                    <p>BOUNCE HOUSE <br /> AND <br /> PARTY RENTAL <br /> IN SAN ANTONIO</p>
                     <a href='#contact-form'><button>Contact</button></a>
                 </div>
             </div>

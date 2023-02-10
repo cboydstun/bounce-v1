@@ -4,8 +4,7 @@ import React from 'react'
 
 import Hero from '../../components/Hero'
 import LeadForm from '../../components/LeadForm'
-// import Carousel from '../../components/CarouselComponent'
-// import About from '../../components/About'
+import IconSection from '../../components/IconSection'
 
 function Page(props) {
 
@@ -14,9 +13,13 @@ function Page(props) {
     <div className='home-page-component'>
       <div className="home-page-container">
         <Hero props={props} />
-        {/* <Carousel /> */}
-        <LeadForm />
-        {/* <About /> */}
+
+        <div className="about-container">
+          <section className="about-section" id="about-section">
+            <IconSection />
+            <LeadForm />
+          </section>
+        </div>
       </div>
     </div>
   )

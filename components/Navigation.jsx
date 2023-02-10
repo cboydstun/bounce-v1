@@ -11,11 +11,11 @@ export default function Navigation(props) {
                                 Home
                             </a>
                         </li>
-                        {/* <li>
-                            <a className="navitem" href="#contact-form">
+                        <li>
+                            <a className="navitem" href="#about-section">
                                 About
                             </a>
-                        </li> */}
+                        </li>
                         <li>
                             <a className="navitem" href="#contact-form">
                                 Contact
