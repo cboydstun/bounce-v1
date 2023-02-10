@@ -8,7 +8,6 @@
 }
 
 .App {
-  margin-bottom: 10rem;
 }
 
 body {
@@ -135,7 +134,8 @@ nav ul li a {
 .icon-component {
   height: 100vh;
   width: 100%;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
+
 }
 
 .icon-section {
@@ -143,6 +143,7 @@ nav ul li a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
 }
 
 .icon-section h2 {
@@ -156,6 +157,8 @@ nav ul li a {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+
+
 }
 
 .icon-section__icon {
@@ -178,6 +181,7 @@ nav ul li a {
 .icon-section__icon p {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  
 }
 
 /*======================================================
@@ -204,8 +208,8 @@ nav ul li a {
   align-items: left;
   flex-direction: column;
   padding: 2rem 5rem;
-  border: 1px solid black;
   background-color: rebeccapurple;
+  border-radius: 5px;
 
 }
 
@@ -247,6 +251,9 @@ nav ul li a {
   padding: 1rem;
   font-size: 1rem;
   border-radius: 5px;
+  width: 100%;
+  
+
 }
 
 /*======================================================

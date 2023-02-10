@@ -69,7 +69,21 @@ export default function LeadForm() {
                 })
             })
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    console.log('Success:', data)
+                    alert('Thank you for your submission!')
+                    setSubmitted(false)
+                    // reset form
+                    setChoices('large')
+                    setDate('')
+                    setName('')
+                    setEmail('')
+                    setPhone('')
+                    setAddress('')
+                    setZipCode('')
+                    setMessage('')
+                    
+                })
         }
     }, [submitted])
 
@@ -80,9 +94,9 @@ export default function LeadForm() {
                     <label className='choice-label' htmlFor="choices">Choose your bounce house:</label>
                     <br />
                     <select className='choice-dropdown' name="choices" value={choices} onChange={e => setChoices(e.target.value)}>
-                        <option value="large" defaultValue={true}>Large</option>
-                        <option value="x-large">X-Large</option>
-                        <option value="xxl">XXL with Slide Combo</option>
+                        <option value="large" defaultValue={true}>Large - 13' x 13' - $40</option>
+                        <option value="x-large">X-Large - 15' x 15' - $50</option>
+                        <option value="xxl">XXL with Slide Combo - 15' x 25' - $60</option>
                     </select>
                     <br />
                     <br />
