@@ -87,7 +87,7 @@ export default function LeadForm() {
                     setAddress('')
                     setZipCode('')
                     setMessage('')
-
+                    setImage(BOUNCE25x15)
                 })
         }
     }, [submitted])
@@ -99,7 +99,7 @@ export default function LeadForm() {
                     <label className='choice-label' htmlFor="choices">Choose your bounce house:</label>
                     <br />
                     <img src={image} alt="" height={200} width={200} />
-                    <select className='choice-dropdown' name="choices" value={choices} onChange={e => { setChoices(e.target.value), setImage(e.target.value === 'large' ? BOUNCE13x13 : e.target.value === 'x-large' ? BOUNCE15x15 : BOUNCE25x15) }}>
+                    <select className='choice-dropdown' name="choices" value={choices} onChange={e => {setChoices(e.target.value); setImage(e.target.value === 'xxl' ? BOUNCE25x15 : e.target.value === 'x-large' ? BOUNCE15x15 : BOUNCE13x13)}}>
                         <option value="large">Large - 13' x 13' - $40</option>
                         <option value="x-large">X-Large - 15' x 15' - $50</option>
                         <option value="xxl">XXL with Slide Combo - 15' x 25' - $60</option>

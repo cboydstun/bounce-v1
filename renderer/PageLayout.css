@@ -197,13 +197,11 @@ nav ul li a {
 }
 
 .contact-form-section img {
-
   object-fit: cover;
   border: 0.5rem solid white;
   border-radius: 5px;
   margin: 0 auto;
   margin-bottom: 1rem;
-
 }
 
 .contact-form-section form {
