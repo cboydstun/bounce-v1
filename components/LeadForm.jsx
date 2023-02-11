@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-const BOUNCE13x13 = 'https://lambertbounceparties.com/wp-content/uploads/2021/09/Screen20Shot202021-09-2620at2012.01.0020PM_1632672367_big.png'
-const BOUNCE15x15 = 'https://files.sysers.com/cp/upload/marylandbounce/items/IMG_5204.jpg'
-const BOUNCE25x15 = 'https://bouncycastlenetwork-res.cloudinary.com/image/upload/f_auto,q_auto,c_limit,w_900/3cab8dad607f8c19548b603bdbb7f69b'
+const BOUNCE13x13 = 'https://www.funasfam.com/wp-content/uploads/2023/02/square_bounce_sqma-min.png'
+const BOUNCE15x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/castle_bounce_sqma-min.png'
+const BOUNCE25x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/big_bounce_sqma-min.png'
 
 export default function LeadForm() {
     const API_URL = 'https://www.rockettestserver.xyz/api/v1/leads'
@@ -100,9 +100,9 @@ export default function LeadForm() {
                     <br />
                     <img src={image} alt="" height={200} width={200} />
                     <select className='choice-dropdown' name="choices" value={choices} onChange={e => {setChoices(e.target.value); setImage(e.target.value === 'xxl' ? BOUNCE25x15 : e.target.value === 'x-large' ? BOUNCE15x15 : BOUNCE13x13)}}>
-                        <option value="large">Large - 13' x 13' - $40</option>
-                        <option value="x-large">X-Large - 15' x 15' - $50</option>
-                        <option value="xxl">XXL with Slide Combo - 15' x 25' - $60</option>
+                        <option value="large">Large - 13' x 13' - $80</option>
+                        <option value="x-large">X-Large - 15' x 15' - $100</option>
+                        <option value="xxl">XXL with Slide Combo - 15' x 25' - $120</option>
                     </select>
                     <br />
                     <br />
