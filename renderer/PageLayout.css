@@ -330,6 +330,14 @@ footer {
   z-index: 1000;
 }
 
+.available-bounce {
+  font-size: 2em;
+}
+
+.available-bounce a {
+  color: #fff;
+}
+
 /*======================================================
                      SMALLEST SCREEN MEDIA QUERIES
     ======================================================*/

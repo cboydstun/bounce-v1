@@ -14,7 +14,6 @@ const customStyles = {
 };
 
 const ZipCodeModal = (props) => {
-    //state
     const [zipCode, setZipCode] = useState('')
     const [size, setSize] = useState('')
     const [date, setDate] = useState('')
@@ -38,15 +37,15 @@ const ZipCodeModal = (props) => {
         try {
             e.preventDefault()
 
-            // check if zip code is valid in San Antonio, Texas
-            if (zipCode.length !== 5 || zipCode < 78201 || zipCode > 78299) {
-                alert('Sorry we only service San Antonio, TX')
+            // check if all fields are filled out
+            if (!zipCode || !size || !date) {
+                alert('Please fill out all fields')
                 return
             }
 
-            // check if size is selected
-            if (!size) {
-                alert('Please select a size')
+            // check if zip code is valid in San Antonio, Texas
+            if (zipCode.length !== 5 || zipCode < 78201 || zipCode > 78299) {
+                alert('Sorry we only service San Antonio, TX')
                 return
             }
 
@@ -56,28 +55,28 @@ const ZipCodeModal = (props) => {
                 return
             }
 
+            // check if size is selected
+            if (!size) {
+                alert('Please select a size')
+                return
+            }
+
             // check that Date is not in the past or less than 2 days from now
             const today = new Date()
             const todayPlus2 = new Date()
-            todayPlus2.setDate(todayPlus2.getDate() + 1)
+            todayPlus2.setDate(todayPlus2.getDate())
             const dateToCheck = new Date(date)
             if (dateToCheck < today || dateToCheck < todayPlus2) {
                 alert('Please choose a date that is at least 2 days from now')
                 return
             }
 
-            // give congrats message
             setSubmitted(true)
             console.log('submitted')
-            //close modal
-            // setIsOpen(false)
-
         } catch (error) {
             console.log(error)
         }
     }
-
-
 
     // setIsOpen(true) if user scrolls down 100px and it's been 1 second
     useEffect(() => {
@@ -107,9 +106,15 @@ const ZipCodeModal = (props) => {
         setIsOpen(false)
     }
 
+    const formatDate = (date) => {
+        const d = new Date(date)
+        const month = d.getMonth() + 1
+        const day = d.getDate() + 1
+        const year = d.getFullYear()
+        return `${month}/${day}/${year}`
+    }
 
     return (
-
         <Modal
             onRequestClose={props.onRequestClose}
             isOpen={modalIsOpen}
@@ -152,15 +157,13 @@ const ZipCodeModal = (props) => {
 
             {submitted && (
                 <div>
-                    <h2>YES!</h2>
-                    <p>
-                        Your house is available on {date} for a {size} bounce!
+                    <h2>YES! Your {size.toUpperCase()} bounce house is available on {formatDate(date)}!</h2>
+                    <p className='available-bounce'>
+                        <a href="/#contact-form" onClick={closeModal}>Contact us now</a> to book your party!
                     </p>
                 </div>
-            )
-            }
+            )}
         </Modal>
-
     )
 }
 
