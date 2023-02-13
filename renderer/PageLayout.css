@@ -8,6 +8,7 @@
 }
 
 .App {
+  
 }
 
 body {
@@ -82,14 +83,60 @@ nav ul li a {
   z-index: 1;
 }
 
-.hero-text h1 {
-  font-size: 6rem;
+.hero-title {
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 .hero-text p {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+
+.animated {
+  padding-top: 95px;
+  margin-bottom: 60px;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-100px);
+  }
+  60% {
+    -webkit-transform: translateY(-50px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-100px);
+  }
+  60% {
+    transform: translateY(-50px);
+  }
+}
+
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
 }
 
 .hero-component button {
@@ -305,7 +352,7 @@ footer {
                      POPUP MODAL
     ======================================================*/
 
-.ReactModal__Content{
+.ReactModal__Content {
   background-color: rebeccapurple !important;
   color: #fff;
   border-radius: 5px;
@@ -313,20 +360,20 @@ footer {
   padding: 2rem;
 }
 
-.ReactModal__Content button{
+.ReactModal__Content button {
   background-color: #fff;
   color: #000;
   border-radius: 5px;
   border: none;
-  padding: .5rem;
+  padding: 0.5rem;
   margin: 1rem;
   font-size: 1rem;
   cursor: pointer;
   transition: 0.5s;
 }
 
-.ReactModal__Overlay{
-  background-color: rgba(0,0,0,0.5) !important;
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
   z-index: 1000;
 }
 
@@ -490,7 +537,7 @@ footer {
   }
 
   .hero-text h1 {
-    font-size: 20rem;
+    font-size: 10rem;
   }
 
   .about-container {
