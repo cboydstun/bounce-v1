@@ -12,12 +12,12 @@ export default function Navigation(props) {
                             </a>
                         </li>
                         <li>
-                            <a className="navitem" href="#about-section">
+                            <a className="navitem" href="/#about-section">
                                 About
                             </a>
                         </li>
                         <li>
-                            <a className="navitem" href="#contact-form">
+                            <a className="navitem" href="/#contact-form">
                                 Contact
                             </a>
                         </li>
