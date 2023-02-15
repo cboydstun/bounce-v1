@@ -17,10 +17,11 @@ export default async function handler(req, res) {
     return
   }
 
+  reportWebVitals(sendToVercelAnalytics);
+
   const { body, statusCode, contentType } = httpResponse
   res.statusCode = statusCode
   res.setHeader('content-type', contentType)
   res.end(body)
 }
 
-reportWebVitals(sendToVercelAnalytics);
