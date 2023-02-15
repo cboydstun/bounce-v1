@@ -1,4 +1,6 @@
 import { renderPage } from 'vite-plugin-ssr'
+import { sendToVercelAnalytics } from './vitals';
+
 
 export default async function handler(req, res) {
   const { url } = req
@@ -19,3 +21,5 @@ export default async function handler(req, res) {
   res.setHeader('content-type', contentType)
   res.end(body)
 }
+
+reportWebVitals(sendToVercelAnalytics);

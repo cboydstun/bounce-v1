@@ -12,13 +12,13 @@
     "@brillout/test-e2e": "^0.3.8",
     "@headlessui/react": "^1.7.9",
     "@heroicons/react": "^2.0.14",
-    "@vercel/analytics": "^0.1.8",
     "@vitejs/plugin-react": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "vite": "^4.0.3",
-    "vite-plugin-ssr": "0.4.77"
+    "vite-plugin-ssr": "0.4.77",
+    "web-vitals": "^3.1.1"
   },
   "type": "module"
 }
