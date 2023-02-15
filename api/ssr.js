@@ -1,6 +1,7 @@
 import { renderPage } from 'vite-plugin-ssr'
-import { sendToVercelAnalytics } from './vitals';
 
+import reportWebVitals from './reportWebVitals';
+import { sendToVercelAnalytics } from './vitals';
 
 export default async function handler(req, res) {
   const { url } = req
