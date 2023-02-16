@@ -5,7 +5,7 @@ const BOUNCE15x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/castle_
 const BOUNCE25x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/big_bounce_sqma-min.png'
 
 export default function LeadForm() {
-    const API_URL = 'https://www.rockettestserver.xyz/api/v1/leads' || 'http://localhost:8080/api/v1/leads';
+    const API_URL = 'https://rockettestserver.xyz/api/v1/leads';
 
 
     const [choices, setChoices] = useState('xxl')
