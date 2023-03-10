@@ -25,6 +25,18 @@ export default function IconSection() {
 
                         <p>Life happens and we understand. We will be there if the unexpected happens and you can count on us to delivery quality customer service that you would expect from the largest corporations.</p>
                     </div>
+
+                    <div className='icon-section__icon'>
+                        <img src='https://cdn-icons-png.flaticon.com/512/3037/3037156.png' alt='icon4' height={50} width={50} />
+                        <h3>Daily Pricing</h3>
+                        <p>All prices currently are currnetly reflected in daily amounts. Please let us know if you would like for your rental to extend for more than one day.</p>
+                    </div>
+
+                    <div className='icon-section__icon'>
+                        <img src='https://cdn-icons-png.flaticon.com/512/709/709790.png' alt='icon5' height={50} width={50} />
+                        <h3>Free Delivery & Setup</h3>
+                        <p>Delivery and setup is included in the price of your rental. We will deliver and setup your rental at your location before 8 am and will return to pick it up after 6 pm.</p>
+                    </div>
                 </div>
             </div>
         </div>

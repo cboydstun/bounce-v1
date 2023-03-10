@@ -95,7 +95,7 @@ export default function LeadForm() {
                     setZipCode('')
                     setMessage('')
                     setImage(BOUNCE25x15),
-                    setAgree(false)
+                        setAgree(false)
                 })
         }
     }, [submitted])
@@ -104,7 +104,7 @@ export default function LeadForm() {
         <div className="contact-form-component">
             <div className='contact-form-section' id='contact-form'>
                 <form name="contact" onSubmit={e => { handleSubmit(e) }} >
-                    <label className='choice-label' htmlFor="choices">Choose your bounce house:</label>
+                    <label className='choice-label' htmlFor="choices">Choose your bounce house! Daily prices.</label>
                     <br />
                     <img src={image} alt="" height={200} width={200} />
                     <select className='choice-dropdown' name="choices" value={choices} onChange={e => { setChoices(e.target.value); setImage(e.target.value === 'xxl' ? BOUNCE25x15 : e.target.value === 'x-large' ? BOUNCE15x15 : BOUNCE13x13) }}>
@@ -147,12 +147,12 @@ export default function LeadForm() {
                     </label>
                     <br />
 
-                    <div className='agree-field'>
-                    <label htmlFor="text">I agree to receive SMS text messages.
-                        <input type="checkbox" name="text" aria-labelledby="text" value={agree} onChange={e => setAgree(e.target.value)} />
-                    </label>
+                    <div className='agree-box'>
+                        <label htmlFor="text" style={{float:"right"}}>I agree to receive SMS text messages.
+                            <input type="checkbox" name="text" aria-labelledby="text" className='chkbox' value={agree} onChange={e => setAgree(e.target.value)} />
+                        </label>
                     </div>
-                    
+
 
                     <button type="submit">Submit</button>
                 </form>
