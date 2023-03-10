@@ -17,6 +17,7 @@ export default function LeadForm() {
     const [message, setMessage] = useState('')
     const [submitted, setSubmitted] = useState(false)
     const [image, setImage] = useState(BOUNCE25x15)
+    const [agree, setAgree] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -33,13 +34,20 @@ export default function LeadForm() {
                 return
             }
 
-            // check that Date is not in the past or less than 3 days from now
+            // check that Date is at least tomorrow
             const today = new Date()
-            const todayPlus3 = new Date()
-            todayPlus3.setDate(todayPlus3.getDate() + 2)
-            const dateToCheck = new Date(date)
-            if (dateToCheck < today || dateToCheck < todayPlus3) {
-                alert('Please choose a date that is at least 3 days from now')
+            const tomorrow = new Date(today)
+            tomorrow.setDate(tomorrow.getDate())
+            const dateArr = date.split('-')
+            const dateObj = new Date(dateArr[0], dateArr[1] - 1, dateArr[2])
+            if (dateObj < tomorrow) {
+                alert('Please select a date at least 1 day in advance')
+                return
+            }
+
+            // check that has agreed to text messages
+            if (!agree) {
+                alert('We need to contact you to confirm your reservation. Please check the box to agree to receive text messages.')
                 return
             }
 
@@ -86,7 +94,8 @@ export default function LeadForm() {
                     setAddress('')
                     setZipCode('')
                     setMessage('')
-                    setImage(BOUNCE25x15)
+                    setImage(BOUNCE25x15),
+                    setAgree(false)
                 })
         }
     }, [submitted])
@@ -137,6 +146,13 @@ export default function LeadForm() {
                         <textarea name="message" value={message} aria-labelledby="message" placeholder='Anything else you would like to share? - Optional' onChange={e => setMessage(e.target.value)} />
                     </label>
                     <br />
+
+                    <div className='agree-field'>
+                    <label htmlFor="text">I agree to receive SMS text messages.
+                        <input type="checkbox" name="text" aria-labelledby="text" value={agree} onChange={e => setAgree(e.target.value)} />
+                    </label>
+                    </div>
+                    
 
                     <button type="submit">Submit</button>
                 </form>
