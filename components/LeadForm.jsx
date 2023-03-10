@@ -147,10 +147,10 @@ export default function LeadForm() {
                     </label>
                     <br />
 
-                    <div className='agree-box'>
-                        <label htmlFor="text" style={{float:"right"}}>I agree to receive SMS text messages.
-                            <input type="checkbox" name="text" aria-labelledby="text" className='chkbox' value={agree} onChange={e => setAgree(e.target.value)} />
-                        </label>
+                    <div className='agree-sms'>
+                        <table>
+                            <tr><td><input type="checkbox" name="text" aria-labelledby="text" className='agree-checkbox' value={agree} onChange={e => setAgree(e.target.value)} /></td><td><label htmlFor="text" className='agree-label'>I agree to receive SMS text messages.</label></td></tr>
+                        </table>
                     </div>
 
 
