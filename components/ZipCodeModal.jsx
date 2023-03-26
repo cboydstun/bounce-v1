@@ -13,6 +13,8 @@ const customStyles = {
     }
 };
 
+const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/leads`
+
 const ZipCodeModal = (props) => {
     const [zipCode, setZipCode] = useState('')
     const [size, setSize] = useState('')
@@ -33,7 +35,7 @@ const ZipCodeModal = (props) => {
         setDate(e.target.value)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         try {
             e.preventDefault()
 
@@ -71,12 +73,23 @@ const ZipCodeModal = (props) => {
                 return
             }
 
+            // check if bounce house is available at https://paparaz.me/api/v1/leads/available/{size}?date={date}
+            const response = await fetch(
+                `${API_URL}/available/${size}?date=${date}`
+            )
+            const data = await response.json()
+            if (data.exists) {
+                alert(`Sorry, your ${size.toUpperCase()} bounce house is not available on ${formatDate(date)}. Please choose another date or another size.`)
+                return
+            }
+
+            // if all checks pass, then setSubmitted(true) to show message that bounce house is available
             setSubmitted(true)
-            console.log('submitted')
         } catch (error) {
             console.log(error)
         }
     }
+
 
     // setIsOpen(true) if user scrolls down 100px and it's been 1 second
     useEffect(() => {
