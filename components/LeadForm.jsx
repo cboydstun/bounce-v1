@@ -6,7 +6,6 @@ const BOUNCE25x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/big_bou
 
 export default function LeadForm() {
     const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/leads`
-    // const API_URL = `http://localhost:8080/api/v1/leads`
 
     const [choices, setChoices] = useState('xxl')
     const [date, setDate] = useState('')
@@ -19,6 +18,14 @@ export default function LeadForm() {
     const [submitted, setSubmitted] = useState(false)
     const [image, setImage] = useState(BOUNCE25x15)
     const [agree, setAgree] = useState(false)
+
+    const formatDate = (date) => {
+        const d = new Date(date)
+        const month = d.getMonth() + 1
+        const day = d.getDate() + 1
+        const year = d.getFullYear()
+        return `${month}/${day}/${year}`
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -61,45 +68,53 @@ export default function LeadForm() {
 
     useEffect(() => {
         if (submitted) {
-            fetch(API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'
-
-                },
-                body: JSON.stringify({
-                    choices,
-                    date,
-                    name,
-                    email,
-                    phone,
-                    address,
-                    zipCode,
-                    message
-                })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data)
-                    alert('Thank you for your submission!')
+          // First, check if there is an existing record with the same choices and date
+          fetch(`${API_URL}/available/${choices}?date=${date}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.exists) {
+                    alert(`Sorry, your ${choices.toUpperCase()} bounce house is not available on ${formatDate(date)}. Please choose another date or another size.`)
                     setSubmitted(false)
-                    // reset form
-                    setChoices('xxl')
-                    setDate('')
-                    setName('')
-                    setEmail('')
-                    setPhone('')
-                    setAddress('')
-                    setZipCode('')
-                    setMessage('')
-                    setImage(BOUNCE25x15),
-                    setAgree(false)
-                })
+                    return
+                } else {
+                    // If there is no existing record, create a new one
+                    fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            choices,
+                            date,
+                            name,
+                            email,
+                            phone,
+                            address,
+                            zipCode,
+                            message
+                        })
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            alert(`Thank you for your reservation! We will contact you to confirm your reservation.`)
+                            setSubmitted(false)
+                            setChoices('xxl')
+                            setDate('')
+                            setName('')
+                            setEmail('')
+                            setPhone('')
+                            setAddress('')
+                            setZipCode('')
+                            setMessage('')
+                            setAgree(false)
+                        })
+                }
+            })
         }
     }, [submitted])
+    
+
 
     return (
         <div className="contact-form-component">
