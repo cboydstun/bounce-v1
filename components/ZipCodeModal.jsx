@@ -73,7 +73,7 @@ const ZipCodeModal = (props) => {
                 return
             }
 
-            // check if bounce house is available at https://paparaz.me/api/v1/leads/available/{size}?date={date}
+            // check if bounce house of that size is available on that date
             const response = await fetch(
                 `${API_URL}/available/${size}?date=${date}`
             )

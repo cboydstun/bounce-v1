@@ -6,6 +6,7 @@ const BOUNCE25x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/big_bou
 
 export default function LeadForm() {
     const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/leads`
+    // const API_URL = `http://localhost:8080/api/v1/leads`
 
     const [choices, setChoices] = useState('xxl')
     const [date, setDate] = useState('')
@@ -95,7 +96,7 @@ export default function LeadForm() {
                     setZipCode('')
                     setMessage('')
                     setImage(BOUNCE25x15),
-                        setAgree(false)
+                    setAgree(false)
                 })
         }
     }, [submitted])
