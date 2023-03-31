@@ -5,6 +5,7 @@ import React from 'react'
 import Hero from '../../components/Hero'
 import LeadForm from '../../components/LeadForm'
 import IconSection from '../../components/IconSection'
+import PaypalForm from '../../components/PayPalForm'
 
 function Page(props) {
 
@@ -18,7 +19,8 @@ function Page(props) {
           <section className="about-section" id="about-section">
 
             <IconSection />
-            <LeadForm />
+            {/* <LeadForm /> */}
+            <PaypalForm />
           </section>
 
         </div>
