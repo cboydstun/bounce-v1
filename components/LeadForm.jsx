@@ -68,52 +68,52 @@ export default function LeadForm() {
 
     useEffect(() => {
         if (submitted) {
-          // First, check if there is an existing record with the same choices and date
-          fetch(`${API_URL}/available/${choices}?date=${date}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.exists) {
-                    alert(`Sorry, your ${choices.toUpperCase()} bounce house is not available on ${formatDate(date)}. Please choose another date or another size.`)
-                    setSubmitted(false)
-                    return
-                } else {
-                    // If there is no existing record, create a new one
-                    fetch(API_URL, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            choices,
-                            date,
-                            name,
-                            email,
-                            phone,
-                            address,
-                            zipCode,
-                            message
+            // First, check if there is an existing record with the same choices and date
+            fetch(`${API_URL}/available/${choices}?date=${date}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.exists) {
+                        alert(`Sorry, your ${choices.toUpperCase()} bounce house is not available on ${formatDate(date)}. Please choose another date or another size.`)
+                        setSubmitted(false)
+                        return
+                    } else {
+                        // If there is no existing record, create a new one
+                        fetch(API_URL, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                choices,
+                                date,
+                                name,
+                                email,
+                                phone,
+                                address,
+                                zipCode,
+                                message
+                            })
                         })
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data)
-                            alert(`Thank you for your reservation! We will contact you to confirm your reservation.`)
-                            setSubmitted(false)
-                            setChoices('xxl')
-                            setDate('')
-                            setName('')
-                            setEmail('')
-                            setPhone('')
-                            setAddress('')
-                            setZipCode('')
-                            setMessage('')
-                            setAgree(false)
-                        })
-                }
-            })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                                alert(`Thank you for your reservation! We will contact you to confirm your reservation.`)
+                                setSubmitted(false)
+                                setChoices('xxl')
+                                setDate('')
+                                setName('')
+                                setEmail('')
+                                setPhone('')
+                                setAddress('')
+                                setZipCode('')
+                                setMessage('')
+                                setAgree(false)
+                            })
+                    }
+                })
         }
     }, [submitted])
-    
+
 
 
     return (
