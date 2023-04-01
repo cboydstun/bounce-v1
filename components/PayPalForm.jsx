@@ -3,7 +3,10 @@ import {
     PayPalScriptProvider,
     PayPalButtons,
 } from "@paypal/react-paypal-js";
-import moment from "moment";
+
+const BOUNCE13x13 = 'https://www.funasfam.com/wp-content/uploads/2023/02/square_bounce_sqma-min.png'
+const BOUNCE15x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/castle_bounce_sqma-min.png'
+const BOUNCE25x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/big_bounce_sqma-min.png'
 
 const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/leads`
 
@@ -21,6 +24,8 @@ const BounceForm = () => {
         agreement: false,
     });
 
+    const [image, setImage] = useState(BOUNCE25x15)
+
     const [error, setError] = useState("");
 
     const formRef = useRef();
@@ -31,9 +36,9 @@ const BounceForm = () => {
 
 
     const prices = {
-        large: 120,
-        xLarge: 140,
-        xxl: 160,
+        large: 150,
+        xLarge: 200,
+        xxl: 250,
     };
 
     const resetForm = () => {
@@ -52,15 +57,35 @@ const BounceForm = () => {
     };
 
     const handleChoiceChange = (e) => {
-        const { name, value, options, selectedIndex } = e.target;
+        const { value, options, selectedIndex } = e.target;
         const price = options[selectedIndex].getAttribute("data-price");
+
+        // Set the image based on the selected option
+        let newImage;
+        switch (value) {
+            case "large":
+                newImage = BOUNCE13x13;
+                break;
+            case "xLarge":
+                newImage = BOUNCE15x15;
+                break;
+            case "xxl":
+                newImage = BOUNCE25x15;
+                break;
+            default:
+                newImage = BOUNCE25x15; // Or you can set a default image here
+                break;
+        }
+        setImage(newImage);
+
         setForm({
             ...form,
             choices: value,
             price: parseFloat(price) || 0,
-            choice: value
+            choice: value,
         });
     };
+
 
 
     const handleChange = (e) => {
@@ -174,72 +199,86 @@ const BounceForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            {error && <p className="error-message">{error}</p>}
+        <div className="contact-form-component">
+            <div className='contact-form-section' id='contact-form'>
+                <form name="contact" onSubmit={handleSubmit}>
+                    {error && <p className="error-message">{error}</p>}
+                    <img className="form-image" src={image} alt="" height={400} width={400} />
 
-            {/* Add form fields */}
-            <label htmlFor="choice">Choice</label>
-            <select
-                name="choice"
-                id="choice"
-                value={form.choices}
-                onChange={handleChoiceChange}
-            >
-                <option value="">-- Please choose an option --</option>
-                <option value="large" data-price={prices.large}>Large - 13 x 13 - ${prices.large}</option>
-                <option value="xLarge" data-price={prices.xLarge}>Extra Large - 15 x 15 - ${prices.xLarge}</option>
-                <option value="xxl" data-price={prices.xxl}>XX Large - 25 x 15 - ${prices.xxl}</option>
-            </select>
+                    {/* Add form fields */}
+                    <label className='choice-label' htmlFor="choice">Pick a Bounce House:</label>
+                    <select
+                        name="choice"
+                        id="choice"
+                        value={form.choices}
+                        onChange={handleChoiceChange}
+                        className='choice-dropdown'
+                    >
+                        <option value="">-- Please choose an option --</option>
+                        <option value="large" data-price={prices.large}>Large - 13 x 13 - ${prices.large}</option>
+                        <option value="xLarge" data-price={prices.xLarge}>Extra Large - 15 x 15 - ${prices.xLarge}</option>
+                        <option value="xxl" data-price={prices.xxl}>XXL w/ Slide - 25 x 15 - ${prices.xxl}</option>
+                    </select>
 
-            <label htmlFor="date">Date</label>
-            <input
-                type="date"
-                name="date"
-                id="date"
-                value={form.date}
-                onChange={handleChange}
-            />
+                    <label htmlFor="date">Party Date:</label>
+                    <input
+                        type="date"
+                        name="date"
+                        id="date"
+                        value={form.date}
+                        onChange={handleChange}
+                    />
 
-            <label htmlFor="phone">Phone</label>
-            <input
-                type="tel"
-                name="phone"
-                id="phone"
-                value={form.phone}
-                onChange={handleChange}
-            />
+                    <label htmlFor="zipCode">Zip Code of delivery:</label>
+                    <input
+                        type="text"
+                        name="zipCode"
+                        id="zipCode"
+                        value={form.zipCode}
+                        onChange={handleChange}
+                    />
 
-            <label htmlFor="zipCode">Zip Code</label>
-            <input
-                type="text"
-                name="zipCode"
-                id="zipCode"
-                value={form.zipCode}
-                onChange={handleChange}
-            />
-            <label htmlFor="message">Message</label>
-            <textarea
-                name="message"
-                id="message"
-                value={form.message}
-                onChange={handleChange}
-            />
-            <label htmlFor="agreement">Agree to SMS Text Messages?</label>
-            <input
-                type="checkbox"
-                name="agreement"
-                id="agreement"
-                checked={form.agreement}
-                onChange={handleCheckboxChange}
-            />
+                    <label htmlFor="phone">Phone Number:</label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        value={form.phone}
+                        onChange={handleChange}
+                    />
 
-            {/* Add the PayPal button */}
-            {form.choices && prices[form.choices] && form.date && form.phone && form.zipCode && form.agreement ? (
-                <PayPalButtons createOrder={createOrder} onApprove={onApprove} catchError={onError} />
-            ) : (
-                <p className="error-message">Please tell us about your party!</p>
-            )}
-        </form>
+
+                    <label htmlFor="message">Message for our team:</label>
+                    <textarea
+                        name="message"
+                        id="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        placeholder="Please let us know if you have any special requests."
+                    />
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <label htmlFor="agreement" style={{ marginRight: '10px' }}>
+                            Agree to SMS Text Messages?
+                        </label>
+                        <input
+                            type="checkbox"
+                            name="agreement"
+                            id="agreement"
+                            checked={form.agreement}
+                            onChange={handleCheckboxChange}
+                        />
+                    </div>
+
+
+
+
+                    {/* Add the PayPal button */}
+                    {form.choices && prices[form.choices] && form.date && form.phone && form.zipCode && form.agreement ? (
+                        <PayPalButtons createOrder={createOrder} onApprove={onApprove} catchError={onError} />
+                    ) : (null)}
+                </form>
+            </div>
+        </div>
     );
 };
 
