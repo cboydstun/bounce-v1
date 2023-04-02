@@ -178,11 +178,6 @@ nav ul li a {
 /*======================================================
                      ICON SECTION
     ======================================================*/
-.icon-component {
-  height: 100vh;
-  width: 100%;
-  margin-bottom: 6rem;
-}
 
 .icon-section {
   display: flex;
@@ -440,10 +435,14 @@ footer {
   .icon-component {
     height: 100%;
     width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .icon-section {
     height: 100%;
+    width: 80%;
   }
 
   .icon-section h2 {
@@ -455,7 +454,7 @@ footer {
   }
 
   .icon-section__icon p {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .bottom-container h2 {
@@ -489,11 +488,15 @@ footer {
   .icon-component {
     height: 100%;
     width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 
   .icon-section {
     height: 100%;
-    width: auto;
+    width: 80%;
   }
 
   .icon-section h2 {
@@ -526,7 +529,7 @@ footer {
   }
 
   .icon-container {
-    width: 100%;
+    width: 60%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -537,7 +540,6 @@ footer {
   .icon-component {
     height: 100%;
     width: auto;
-    background-color: blue;
   }
 }
 
@@ -626,24 +628,11 @@ footer {
   }
 
   .contact-form-section img {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
   }
 
-  .contact-form-section form {
-    width: 60%;
-  }
-
-  form {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  form input {
+  .contact-form-section form input {
     width: 100%;
     height: 50px;
     margin-bottom: 1rem;

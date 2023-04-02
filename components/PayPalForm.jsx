@@ -229,7 +229,7 @@ const BounceForm = () => {
                         onChange={handleChange}
                     />
 
-                    <label htmlFor="zipCode">Zip Code of delivery:</label>
+                    <label htmlFor="zipCode">Zip Code of Delivery:</label>
                     <input
                         type="text"
                         name="zipCode"
@@ -248,7 +248,7 @@ const BounceForm = () => {
                     />
 
 
-                    <label htmlFor="message">Message for our team:</label>
+                    <label htmlFor="message">Message for our Team:</label>
                     <textarea
                         name="message"
                         id="message"
