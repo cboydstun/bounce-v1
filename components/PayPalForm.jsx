@@ -39,7 +39,6 @@ const BounceForm = () => {
         large: 150,
         xLarge: 200,
         xxl: 250,
-        test: 10
     };
 
     const resetForm = () => {
@@ -230,7 +229,6 @@ const BounceForm = () => {
                         <option value="large" data-price={prices.large}>Large - 13 x 13 - ${prices.large}</option>
                         <option value="xLarge" data-price={prices.xLarge}>Extra Large - 15 x 15 - ${prices.xLarge}</option>
                         <option value="xxl" data-price={prices.xxl}>XXL w/ Slide - 25 x 15 - ${prices.xxl}</option>
-                        <option value="test" data-price={prices.test}>TEST TEST TEST - ${prices.test}</option>``
                     </select>
 
                     <label htmlFor="date">Party Date:</label>
@@ -286,7 +284,7 @@ const BounceForm = () => {
 
 
                     {/* Add the PayPal button */}
-                    {form.choices && prices[form.choices] && form.date && form.phone && form.zipCode && form.agreement ? (
+                    {form.choices && prices[form.choices] && form.date && form.phone && form.zipCode.length==5 && form.agreement ? (
                         <PayPalButtons createOrder={createOrder} onApprove={onApprove} catchError={onError} />
                     ) : (null)}
                 </form>
