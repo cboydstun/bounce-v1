@@ -40,6 +40,7 @@ async function render(pageContext) {
       <meta name="twitter:image:alt" content="SATX Bounce House Rentals and More">
       <title>SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio</title>
     </head>
+
       <body>
         <div id="page-view">${viewHtml}</div>
       </body>
