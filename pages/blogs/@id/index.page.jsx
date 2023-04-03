@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import fetch from "cross-fetch";
 
 export function Page() {
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const postId = window.location.pathname.split("/")[2];
 
     async function fetchData() {
@@ -27,18 +27,8 @@ export function Page() {
       }
     }
 
-    if (typeof window !== "undefined") {
-      fetchData();
-    }
+    fetchData();
   }, []);
-
-  useEffect(() => {
-    if (post) {
-      const { title, author, content, date } = post;
-      document.title = title;
-      document.querySelector('meta[name="description"]').setAttribute("content", content);
-    }
-  }, [post]);
 
   if (error) {
     return <div>{error}</div>;
@@ -51,11 +41,11 @@ export function Page() {
   const { title, author, content, date } = post;
 
   return (
-    <div>
+    <>
       <h1>{title}</h1>
       <h2>Author: {author}</h2>
       <p>{content}</p>
       <p>Date: {new Date(date).toLocaleDateString()}</p>
-    </div>
+    </>
   );
 }
