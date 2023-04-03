@@ -156,7 +156,7 @@ const ZipCodeModal = (props) => {
                     <select onChange={handleSizeChange}>
                         <option value="">--Please Select--</option>
                         <option value="large">Large</option>
-                        <option value="xl">XL</option>
+                        <option value="xLarge">XL</option>
                         <option value="xxl">XXL</option>
                     </select>
                 </label>
