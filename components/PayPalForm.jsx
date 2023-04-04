@@ -4,9 +4,9 @@ import {
     PayPalButtons,
 } from "@paypal/react-paypal-js";
 
-const BOUNCE13x13 = 'https://www.funasfam.com/wp-content/uploads/2023/02/square_bounce_sqma-min.png'
-const BOUNCE15x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/castle_bounce_sqma-min.png'
-const BOUNCE25x15 = 'https://www.funasfam.com/wp-content/uploads/2023/02/big_bounce_sqma-min.png'
+const BOUNCE13x13 = 'https://www.funasfam.com/wp-content/uploads/2023/04/large-v2.png'
+const BOUNCE15x15 = 'https://www.funasfam.com/wp-content/uploads/2023/04/xlarge-v2.jpg'
+const BOUNCE25x15 = 'https://www.funasfam.com/wp-content/uploads/2023/04/xxl-v2.jpg'
 
 const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/leads`
 

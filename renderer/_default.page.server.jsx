@@ -25,18 +25,18 @@ async function render(pageContext) {
       <meta name="author" content="SATX Bounce House Rentals and More">
       <meta name="robots" content="index, follow">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta property="og:title" content="SATX Bounce House Rentals and More">
-      <meta property="og:description" content="SATX Bounce House & Party Rentals in San Antonio. Get high-quality and affordable rentals for your events. Book now!">
-      <meta property="og:image" content="https://www.satxbounce.com/images/og-image.png">
+      <meta property="og:title" content="SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio">
+      <meta property="og:description" content="Get high-quality and affordable bounce house & party rentals in San Antonio with SATX Bounce House Rentals and More. Book now!">
+      <meta property="og:image" content="https://www.funasfam.com/wp-content/uploads/2023/04/OG-image-min-v2-min.jpg">
       <meta property="og:url" content="https://www.satxbounce.com">
       <meta property="og:type" content="website">
       <meta property="og:site_name" content="SATX Bounce House Rentals and More">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:site" content="@satxbouncers">
       <meta name="twitter:creator" content="@satxbouncers">
-      <meta name="twitter:title" content="SATX Bounce House Rentals and More">
-      <meta name="twitter:description" content="SATX Bounce House & Party Rentals in San Antonio. Get high-quality and affordable rentals for your events. Book now!">
-      <meta name="twitter:image" content="https://www.satxbounce.com/images/og-image.png">
+      <meta name="twitter:title" content="SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio">
+      <meta name="twitter:description" content="Get high-quality and affordable bounce house & party rentals in San Antonio with SATX Bounce House Rentals and More. Book now!">
+      <meta name="twitter:image" content="https://www.funasfam.com/wp-content/uploads/2023/04/OG-image-min-v2-min.jpg">
       <meta name="twitter:image:alt" content="SATX Bounce House Rentals and More">
       <title>SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio</title>
     </head>
