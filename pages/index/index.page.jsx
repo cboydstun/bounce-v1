@@ -14,7 +14,6 @@ function Page(props) {
         <div className="about-container">
           <section className="about-section" id="about-section">
             <IconSection />
-            {/* <LeadForm /> */}
             <PaypalForm />
           </section>
         </div>
