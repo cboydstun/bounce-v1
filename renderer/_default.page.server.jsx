@@ -5,6 +5,8 @@ import { renderToString } from 'react-dom/server'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr'
 import { PageLayout } from './PageLayout'
 
+import HeadWithGtag from '../components/HeadWithGtag'
+
 async function render(pageContext) {
   const { Page } = pageContext
   const viewHtml = dangerouslySkipEscape(
@@ -14,6 +16,8 @@ async function render(pageContext) {
       </PageLayout>
     )
   )
+
+  const headWithGtagHtml = dangerouslySkipEscape(renderToString(<HeadWithGtag />));
 
   return escapeInject`<!DOCTYPE html>
     <html lang="en">
@@ -38,6 +42,7 @@ async function render(pageContext) {
       <meta name="twitter:description" content="Get high-quality and affordable bounce house & party rentals in San Antonio with SATX Bounce House Rentals and More. Book now!">
       <meta name="twitter:image" content="https://www.funasfam.com/wp-content/uploads/2023/04/OG-image-min-v2-min.jpg">
       <meta name="twitter:image:alt" content="SATX Bounce House Rentals and More">
+      ${headWithGtagHtml}
       <title>SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio</title>
     </head>
       <body>

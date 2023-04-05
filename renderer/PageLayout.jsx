@@ -5,13 +5,9 @@ import Navigation from '../components/Navigation'
 import Bottom from '../components/Bottom'
 import ZipCodeModal from '../components/ZipCodeModal'
 
-import HeadWithGtag from '../components/HeadWithGtag'
-
-
 function PageLayout({ children }) {
   return (
     <React.StrictMode>
-      <HeadWithGtag />
       <div className="App">
         <ZipCodeModal />
         <Navigation name="Bounce SATX" />
