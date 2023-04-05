@@ -23,6 +23,15 @@ async function render(pageContext) {
       <meta name="description" content="SATX Bounce House & Party Rentals in San Antonio. Get high-quality and affordable rentals for your events. Book now!">
       <meta name="keywords" content="SATX Bounce House Rentals, party rentals, San Antonio, affordable rentals, event rentals">
       <meta name="author" content="SATX Bounce House Rentals and More">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GOOGLE_ANALYTICS_ID}"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', "${import.meta.env.VITE_GOOGLE_ANALYTICS_ID}");
+      </script>
+    
       <meta name="robots" content="index, follow">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta property="og:title" content="SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio">
