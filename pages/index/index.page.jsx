@@ -3,7 +3,6 @@ export { Page }
 import React from 'react'
 
 import Hero from '../../components/Hero'
-import LeadForm from '../../components/LeadForm'
 import IconSection from '../../components/IconSection'
 import PaypalForm from '../../components/PayPalForm'
 
