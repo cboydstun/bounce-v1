@@ -4,11 +4,19 @@ import {
     PayPalButtons,
 } from "@paypal/react-paypal-js";
 
+import DiscountInput from './DiscountInput';
+
 const BOUNCE13x13 = 'https://www.funasfam.com/wp-content/uploads/2023/04/large-v2.png'
 const BOUNCE15x15 = 'https://www.funasfam.com/wp-content/uploads/2023/04/xlarge-v2.jpg'
 const BOUNCE25x15 = 'https://www.funasfam.com/wp-content/uploads/2023/04/xxl-v2.jpg'
 
 const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/leads`
+
+const prices = {
+    large: 100,
+    xLarge: 150,
+    xxl: 200,
+};
 
 const BounceForm = () => {
     const [form, setForm] = useState({
@@ -26,6 +34,8 @@ const BounceForm = () => {
 
     const [image, setImage] = useState(BOUNCE25x15)
 
+    const [totalPrice, setTotalPrice] = useState(0);
+
     const [error, setError] = useState("");
 
     const formRef = useRef();
@@ -34,12 +44,13 @@ const BounceForm = () => {
         formRef.current = form;
     }, [form]);
 
+    useEffect(() => {
+        if (form.choices && prices[form.choices]) {
+            setTotalPrice(prices[form.choices]);
+        }
+    }, [form.choices, prices]);
 
-    const prices = {
-        large: 150,
-        xLarge: 200,
-        xxl: 250,
-    };
+
 
     const resetForm = () => {
         setForm({
@@ -51,9 +62,12 @@ const BounceForm = () => {
             phone: "",
             address: "",
             zipCode: "",
+            coupon: "",
             message: "",
             agreement: false,
         });
+
+        setTotalPrice(0);
     };
 
     const handleChoiceChange = (e) => {
@@ -77,6 +91,8 @@ const BounceForm = () => {
                 break;
         }
         setImage(newImage);
+
+        setTotalPrice(parseFloat(price) || 0);
 
         setForm({
             ...form,
@@ -258,7 +274,6 @@ const BounceForm = () => {
                         onChange={handleChange}
                     />
 
-
                     <label htmlFor="message">Message for our Team:</label>
                     <textarea
                         name="message"
@@ -267,6 +282,7 @@ const BounceForm = () => {
                         onChange={handleChange}
                         placeholder="Please let us know if you have any special requests."
                     />
+
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <label htmlFor="agreement" style={{ marginRight: '10px' }}>
                             Agree to SMS Text Messages?
@@ -281,13 +297,21 @@ const BounceForm = () => {
                     </div>
 
 
-
+                    {form.choices && prices[form.choices] ? (
+                        <div className='total-price'>
+                            <p>Total Price: ${totalPrice}</p>
+                        </div>
+                    ) : (null)}
 
                     {/* Add the PayPal button */}
-                    {form.choices && prices[form.choices] && form.date && form.phone && form.zipCode.length==5 && form.agreement ? (
-                        <PayPalButtons createOrder={createOrder} onApprove={onApprove} catchError={onError} />
+                    {form.choices && prices[form.choices] && form.date && form.phone && form.zipCode.length == 5 && form.agreement ? (
+                        <>
+                            <DiscountInput form={form} handleChange={handleChange} setTotalPrice={setTotalPrice} prices={prices} />
+                            <PayPalButtons createOrder={createOrder} onApprove={onApprove} catchError={onError} />
+                        </>
                     ) : (null)}
                 </form>
+
             </div>
         </div>
     );

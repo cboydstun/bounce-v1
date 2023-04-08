@@ -300,6 +300,12 @@ nav ul li a {
   width: 25px;
 }
 
+.total-price p {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
 /*======================================================
                    BOTTOM FOOTER SECTION
     ======================================================*/
