@@ -35,10 +35,13 @@ const BounceForm = () => {
     const [image, setImage] = useState(BOUNCE25x15)
 
     const [totalPrice, setTotalPrice] = useState(0);
+    const totalPriceRef = useRef(totalPrice);
+
 
     const [error, setError] = useState("");
 
     const formRef = useRef();
+    
 
     useEffect(() => {
         formRef.current = form;
@@ -50,7 +53,9 @@ const BounceForm = () => {
         }
     }, [form.choices, prices]);
 
-
+    useEffect(() => {
+        totalPriceRef.current = totalPrice;
+    }, [totalPrice]);
 
     const resetForm = () => {
         setForm({
@@ -174,7 +179,7 @@ const BounceForm = () => {
             purchase_units: [
                 {
                     amount: {
-                        value: prices[form.choice],
+                        value: totalPriceRef.current,
                     },
                 },
             ],
