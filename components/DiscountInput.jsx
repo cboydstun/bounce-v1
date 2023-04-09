@@ -8,11 +8,17 @@ const DiscountInput = ({ form, handleChange, setTotalPrice, prices }) => {
       const discountedPrice = prices[form.choices] * 0.8;
       setTotalPrice(Math.max(0, discountedPrice));
       setCouponUsed(true);
-      alert('Coupon has been applied successfully!');
+      alert('20% off coupon has been applied successfully!');
+    } else if (value.toUpperCase() === 'VALIZAPAL') {
+      const discountedPrice = prices[form.choices] * 0.67;
+      setTotalPrice(Math.max(0, discountedPrice));
+      setCouponUsed(true);
+      alert('Friends of Valerie get 33% off!');
     } else {
       setTotalPrice(prices[form.choices]);
     }
   };
+
 
   const handleDiscountChange = (event) => {
     handleChange(event);
