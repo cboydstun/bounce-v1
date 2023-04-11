@@ -9,11 +9,11 @@ const DiscountInput = ({ form, handleChange, setTotalPrice, prices }) => {
       setTotalPrice(Math.max(0, discountedPrice));
       setCouponUsed(true);
       alert('20% off coupon has been applied successfully!');
-    } else if (value.toUpperCase() === 'VALIZAPAL') {
+    } else if (value.toUpperCase() === 'VALIZAPAL' || value.toUpperCase() === 'STROSEOFLIMA') {
       const discountedPrice = prices[form.choices] * 0.67;
       setTotalPrice(Math.max(0, discountedPrice));
       setCouponUsed(true);
-      alert('Friends of Valerie get 33% off!');
+      alert('33% off coupon has been applied successfully!');
     } else {
       setTotalPrice(prices[form.choices]);
     }
