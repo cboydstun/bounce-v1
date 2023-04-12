@@ -41,7 +41,7 @@ const BounceForm = () => {
     const [error, setError] = useState("");
 
     const formRef = useRef();
-    
+
 
     useEffect(() => {
         formRef.current = form;
@@ -106,8 +106,6 @@ const BounceForm = () => {
             choice: value,
         });
     };
-
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -252,66 +250,95 @@ const BounceForm = () => {
                         <option value="xxl" data-price={prices.xxl}>XXL w/ Slide - 25 x 15 - ${prices.xxl}</option>
                     </select>
 
-                    <label htmlFor="date">Party Date:</label>
-                    <input
-                        type="date"
-                        name="date"
-                        id="date"
-                        value={form.date}
-                        onChange={handleChange}
-                    />
 
-                    <label htmlFor="zipCode">Zip Code of Delivery:</label>
-                    <input
-                        type="text"
-                        name="zipCode"
-                        id="zipCode"
-                        value={form.zipCode}
-                        onChange={handleChange}
-                    />
-
-                    <label htmlFor="phone">Phone Number:</label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        value={form.phone}
-                        onChange={handleChange}
-                    />
-
-                    <label htmlFor="message">Message for our Team:</label>
-                    <textarea
-                        name="message"
-                        id="message"
-                        value={form.message}
-                        onChange={handleChange}
-                        placeholder="Please let us know if you have any special requests."
-                    />
-
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <label htmlFor="agreement" style={{ marginRight: '10px' }}>
-                            Agree to SMS Text Messages?
-                        </label>
-                        <input
-                            type="checkbox"
-                            name="agreement"
-                            id="agreement"
-                            checked={form.agreement}
-                            onChange={handleCheckboxChange}
-                        />
-                    </div>
-
-
-                    {form.choices && prices[form.choices] ? (
-                        <div className='total-price'>
-                            <p>Total Price: ${totalPrice}</p>
+                    {/* inline conditional rendering only ask for party date if a choice has been made above */}
+                    {form.choices && (
+                        <div>
+                            <label htmlFor="date">Party Date:</label>
+                            <input
+                                type="date"
+                                name="date"
+                                id="date"
+                                value={form.date}
+                                onChange={handleChange}
+                            />
                         </div>
-                    ) : (null)}
+                    )}
+
+
+
+                    {/* inline conditional rendering only ask for zip code if choice and date have been made above */}
+                    {form.choices && form.date && (
+                        <div>
+                            <label htmlFor="zipCode">Zip Code of Delivery:</label>
+                            <input
+                                type="text"
+                                name="zipCode"
+                                id="zipCode"
+                                value={form.zipCode}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    )}
+
+
+                    {/* inline conditional rendering only ask for phone number if choice, date, and valid zip code have been given above */}
+                    {form.choices && form.date && form.zipCode.length == 5 && (
+                        <div>
+                            <label htmlFor="phone">Phone Number:</label>
+                            <input
+                                type="tel"
+                                name="phone"
+                                id="phone"
+                                value={form.phone}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    )}
+
+
+                    {/* inline conditional rendering only ask for phone number if choice, date, valid zip code, and phone number have been given above */}
+                    {form.choices && form.date && form.zipCode.length == 5 && form.phone && (
+                        <div>
+                            <label htmlFor="message">Message for our Team:</label>
+                            <textarea
+                                name="message"
+                                id="message"
+                                value={form.message}
+                                onChange={handleChange}
+                                placeholder="Please let us know if you have any special requests."
+                            />
+
+
+
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <label htmlFor="agreement" style={{ marginRight: '10px' }}>
+                                    Agree to SMS Text Messages?
+                                </label>
+                                <input
+                                    type="checkbox"
+                                    name="agreement"
+                                    id="agreement"
+                                    checked={form.agreement}
+                                    onChange={handleCheckboxChange}
+                                />
+                            </div>
+
+                            
+
+                            <div className='total-price'>
+                                <p>Total Price: ${totalPrice}</p>
+                            </div>
+                        </div>
+                    )}
+
+
 
                     {/* Add the PayPal button */}
                     {form.choices && prices[form.choices] && form.date && form.phone && form.zipCode.length == 5 && form.agreement ? (
                         <>
                             <DiscountInput form={form} handleChange={handleChange} setTotalPrice={setTotalPrice} prices={prices} />
+
                             <PayPalButtons createOrder={createOrder} onApprove={onApprove} catchError={onError} />
                         </>
                     ) : (null)}
