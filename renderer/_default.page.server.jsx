@@ -29,6 +29,7 @@ async function render(pageContext) {
       <meta name="author" content="SATX Bounce House Rentals and More">
       <meta name="robots" content="index, follow">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
       <meta property="og:title" content="SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio">
       <meta property="og:description" content="Get high-quality and affordable bounce house & party rentals in San Antonio with SATX Bounce House Rentals and More. Book now!">
       <meta property="og:image" content="https://www.funasfam.com/wp-content/uploads/2023/04/OG-image-min-v2-min.jpg">
