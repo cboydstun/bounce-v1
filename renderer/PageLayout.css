@@ -222,89 +222,129 @@ nav ul li a {
 }
 
 /*======================================================
-                     CONTACT FORM
+                     INFO SECTION
     ======================================================*/
 
-.contact-form-component {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 4rem;
-}
-
-.contact-form-section {
+.info-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
 }
 
-.contact-form-section img {
-  object-fit: cover;
-  border: 0.5rem solid white;
-  border-radius: 5px;
-}
-
-.contact-form-section form {
+.info-section {
   display: flex;
   justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  padding: 2rem 5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inventory-grid button {
   background-color: rebeccapurple;
+  color: #fff;
+  padding: 25px 75px;
+  border: none;
   border-radius: 5px;
-}
-
-.contact-form-section form input {
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  width: 100%;
-}
-
-.contact-form-section label {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: white;
-}
-
-.contact-form-section form textarea {
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  width: 100%;
-}
-
-.contact-form-section form button {
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #000;
   cursor: pointer;
   transition: 0.5s;
 }
 
-.choice-label {
+.inventory-grid button:hover a:link, a:visited { 
+  background-color: rebeccapurple;
+  color: #fff;
+  text-decoration: none;
   font-size: 1.5rem;
 }
 
-.choice-dropdown {
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  width: 100%;
+
+.inventory-grid a:link, a:visited { 
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 
-#agreement {
-  height: 25px;
-  width: 25px;
+
+.featured-gif-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+  background-color: rebeccapurple;
+  border-radius: 20px;
 }
 
-.total-price p {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: white;
+.featured-gif-component img {
+  margin: 20px;
+  padding: auto;
+  border-radius: 20px;
 }
+
+/*======================================================
+                   CONTACT FORM SECTION
+    ======================================================*/
+    .contact-form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 1rem;
+    }
+
+    .contact-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      border: 2px solid rebeccapurple;
+    }
+
+    .contact-form h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 2px solid rebeccapurple;
+    }
+
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 2px solid rebeccapurple;
+    }
+
+    .submit-button {
+      background-color: rebeccapurple;
+      color: #fff;
+      padding: 25px 75px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.5s;
+      font-size: xx-large;
+    }
+
+
+
+
 
 /*======================================================
                    BOTTOM FOOTER SECTION
@@ -421,10 +461,33 @@ footer {
     font-size: 1rem;
   }
 
-  .contact-form-section img {
-    width: 200px;
-    height: 200px;
+  .featured-gif-component {
+    height: 100%;
   }
+  
+  .featured-gif-component img {
+    height: 100%;
+    width: 90%;
+  }
+
+  .rental-terms-component {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rental-terms-component h2 {
+    font-size: .75rem;
+  }
+
+  .rental-terms-component li {
+    font-size: 0.5rem;
+  }
+
+
 }
 
 /*======================================================
@@ -463,6 +526,32 @@ footer {
     font-size: 1.25rem;
   }
 
+  .featured-gif-component {
+    height: 100%;
+  }
+  
+  .featured-gif-component img {
+    height: 100%;
+    width: 90%;
+  }
+
+  .rental-terms-component {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rental-terms-component h2 {
+    font-size: 1rem;
+  }
+
+  .rental-terms-component li {
+    font-size: 0.75rem;
+  }
+
   .bottom-container h2 {
     font-size: 1.5rem;
   }
@@ -470,10 +559,9 @@ footer {
   .bottom-container p {
     font-size: 1rem;
   }
-  .contact-form-section img {
-    width: 250px;
-    height: 250px;
-  }
+
+
+
 }
 
 /*======================================================
@@ -497,7 +585,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
 
   .icon-section {
@@ -515,6 +602,15 @@ footer {
 
   .icon-section__icon p {
     font-size: 1.5rem;
+  }
+
+  .featured-gif-component {
+    height: 100%;
+  }
+  
+  .featured-gif-component img {
+    height: 100%;
+    width: 90%;
   }
 }
 
@@ -547,6 +643,55 @@ footer {
     height: 100%;
     width: auto;
   }
+
+  .featured-gif-component {
+    height: 100%;
+  }
+  
+  .featured-gif-component img {
+    height: 100%;
+    width: 90%;
+  }
+
+  .contact-form-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .contact-form h2 {
+    display: none;
+  }
+
+  .form-group {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form-group input {
+    width: 80%;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .form-group textarea {
+    width: 80%;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
 }
 
 /*======================================================
@@ -577,6 +722,55 @@ footer {
   .icon-component {
     height: 100%;
     width: auto;
+  }
+
+  .featured-gif-component {
+    height: 100%;
+    width: 600px;
+  }
+  
+  .featured-gif-component img {
+    height: 100%;
+    width: 90%;
+  }
+
+  .contact-form-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .contact-form h2 {
+    display: none;
+  }
+
+  .form-group {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form-group input {
+    width: 80%;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .form-group textarea {
+    width: 80%;
+    height: 50px;
+    margin-bottom: 20px;
   }
 }
 
@@ -615,16 +809,28 @@ footer {
     margin-top: -2.5rem;
   }
 
-  .contact-form-component {
+  .inventory-component {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
   }
 
-  .contact-form-section {
+  .featured-gif-component {
+    height: 100%;
+    width: 800px;
+    margin-right: 6rem;
+
+  }
+  
+  .featured-gif-component img {
+    height: 100%;
+    width: 90%;
+  }
+
+  .contact-form-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -633,17 +839,33 @@ footer {
     flex-direction: column;
   }
 
-  .contact-form-section img {
-    width: 400px;
-    height: 400px;
+  .contact-form {
+    display: flex;
+    flex-direction: row;
   }
 
-  .contact-form-section form input {
-    width: 100%;
+  .contact-form h2 {
+    display: none;
+  }
+
+  .form-group {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form-group input {
+    width: 80%;
     height: 50px;
-    margin-bottom: 1rem;
-    padding: 0 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .form-group textarea {
+    width: 80%;
+    height: 50px;
+    margin-bottom: 20px;
   }
 }

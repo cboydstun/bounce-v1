@@ -1,0 +1,66 @@
+/* Inventory.css */
+.inventory-component {
+  padding: 20px;
+  background-color: rebeccapurple;
+  border-radius: 20px;
+}
+
+.inventory-component h2 {
+  text-align: center;
+  color: white;
+}
+
+.inventory-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item-card {
+  flex: 0 0 calc(33.333% - 20px);
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.item-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.item-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.item-card p {
+  font-size: 14px;
+  color: #333;
+}
+
+.item-card button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .item-card {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .item-card {
+    flex: 0 0 100%;
+  }
+}

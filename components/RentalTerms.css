@@ -1,0 +1,26 @@
+.rental-terms-component {
+
+
+}
+
+.rental-terms-component h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.rental-terms-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.rental-terms-list li {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.rental-terms-list li::before {
+    content: "✔";
+    display: inline-block;
+    margin-right: 8px;
+}
