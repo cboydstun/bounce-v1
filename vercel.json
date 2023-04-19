@@ -5,14 +5,44 @@
       "destination": "/api/ssr.js"
     },
     { "source": "/sitemap.xml", "destination": "/public/sitemap.xml" },
-    { "source": "/apple-touch-icon.png", "destination": "/public/apple-touch-icon.png" },
-    { "source": "/favicon-32x32.png", "destination": "/public/favicon-32x32.png" },
-    { "source": "/favicon-16x16.png", "destination": "/public/favicon-16x16.png" },
-    {"source" : "/android-chrome-192x192.png", "destination": "/public/android-chrome-192x192.png"},
-    {"source" : "/android-chrome-512x512.png", "destination": "/public/android-chrome-512x512.png"},
-    {"source" : "/favicon.ico", "destination": "/public/favicon.ico"},
-    {"source" : "/site.webmanifest", "destination": "/public/site.webmanifest"},
-    {"source" : "/robots.txt", "destination": "/public/robots.txt"}
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/public/apple-touch-icon.png"
+    },
+    {
+      "source": "/favicon-32x32.png",
+      "destination": "/public/favicon-32x32.png"
+    },
+    {
+      "source": "/favicon-16x16.png",
+      "destination": "/public/favicon-16x16.png"
+    },
+    {
+      "source": "/android-chrome-192x192.png",
+      "destination": "/public/android-chrome-192x192.png"
+    },
+    {
+      "source": "/android-chrome-512x512.png",
+      "destination": "/public/android-chrome-512x512.png"
+    },
+    { "source": "/favicon.ico", "destination": "/public/favicon.ico" },
+    {
+      "source": "/site.webmanifest",
+      "destination": "/public/site.webmanifest"
+    },
+    { "source": "/robots.txt", "destination": "/public/robots.txt" },
+    {
+      "source": "/folding-chair.jpg",
+      "destination": "/public/folding-chair.jpg"
+    },
+    { "source": "/generator.jpg", "destination": "/public/generator.jpg" },
+    { "source": "/large-v2.png", "destination": "/public/large-v2.png" },
+    {
+      "source": "/six-foot-table.jpeg",
+      "destination": "/public/six-foot-table.jpeg"
+    },
+    { "source": "/xlarge-v2.jpg", "destination": "/public/xlarge-v2.jpg" },
+    { "source": "/xxl-v2.jpg", "destination": "/public/xxl-v2.jpg" }
   ],
   "trailingSlash": true
 }

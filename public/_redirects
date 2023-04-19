@@ -7,3 +7,10 @@
 /robots.txt /public/robots.txt 200
 /site.webmanifest /public/site.webmanifest 200
 /sitemap.xml /public/sitemap.xml 200
+
+/folding-chair.jpg /public/folding-chair.jpg 200
+/generator.jpg /public/generator.jpg 200
+/large-v2.png /public/large-v2.png 200
+/six-foot-table.jpeg /public/six-foot-table.jpeg 200
+/xlarge-v2.jpg /public/xlarge-v2.jpg 200
+/xxl-v2.jpg /public/xxl-v2.jpg 200
