@@ -7,3 +7,73 @@
     font-size: 3rem;
     color: rebeccapurple;
 }
+
+.truck-moves {
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-name: truck_animation;
+  animation-direction: alternate;
+  transform: translateX(-100%);
+}
+
+@keyframes truck_animation {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.grow-shrink {
+  animation: grow-shrink 2s infinite;
+}
+
+@keyframes grow-shrink {
+  0% {
+    transform: scale(0.66);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.66);
+  }
+}
+
+
+.rotates {
+  animation: rotate 2s infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bounce-wiggles {
+  animation: bounce-wiggle 2s infinite;
+}
+
+@keyframes bounce-wiggle {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
