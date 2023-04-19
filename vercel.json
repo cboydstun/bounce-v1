@@ -3,12 +3,8 @@
     {
       "source": "/((?!assets/).*)",
       "destination": "/api/ssr.js"
-    }
+    },
+    { "source": "/sitemap.xml", "destination": "/public/sitemap.xml" }
   ],
-  "routes": [
-    {
-      "src": "/sitemap.xml",
-      "dest": "/public/sitemap.xml"
-    }
-  ]
+  "trailingSlash": true
 }
