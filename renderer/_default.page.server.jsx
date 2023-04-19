@@ -44,11 +44,11 @@ async function render(pageContext) {
         <meta name="twitter:image" content="https://www.funasfam.com/wp-content/uploads/2023/04/OG-image-min-v2-min.jpg">
         <meta name="twitter:image:alt" content="SATX Bounce House Rentals and More">
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
-        <link rel="sitemap" type="application/xml" href="assets/sitemap.xml" />
+        <link rel="sitemap" type="application/xml" href="public/sitemap.xml" />
         ${headWithGtagHtml}
         <title>SATX Bounce House & Inflatable Rentals - San Antonio, TX</title>
       </head>

@@ -8,7 +8,7 @@
   "routes": [
     {
       "src": "/sitemap.xml",
-      "dest": "/assets/sitemap.xml"
+      "dest": "/public/sitemap.xml"
     }
   ]
 }

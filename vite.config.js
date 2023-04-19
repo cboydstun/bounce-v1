@@ -3,5 +3,5 @@ import ssr from 'vite-plugin-ssr/plugin'
 
 export default {
   plugins: [react(), ssr()],
-  publicDir: 'assets'
+  publicDir: 'public'
 }
