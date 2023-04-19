@@ -17,7 +17,7 @@ export default function Hero(props) {
                             });
                         }}
                         >
-                            Contact
+                            Contact Now
                         </button>
 
                     </a>
