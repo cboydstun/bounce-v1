@@ -44,7 +44,7 @@ async function render(pageContext) {
       <meta name="twitter:image" content="https://www.funasfam.com/wp-content/uploads/2023/04/OG-image-min-v2-min.jpg">
       <meta name="twitter:image:alt" content="SATX Bounce House Rentals and More">
       ${headWithGtagHtml}
-      <title>SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio</title>
+      <title>SATX Bounce House Party Rental in San Antonio, TX</title>
     </head>
       <body>
         <div id="page-view">${viewHtml}</div>
