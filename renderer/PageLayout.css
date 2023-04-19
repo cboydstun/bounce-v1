@@ -230,7 +230,6 @@ nav ul li a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
 .info-section {
@@ -250,20 +249,20 @@ nav ul li a {
   transition: 0.5s;
 }
 
-.inventory-grid button:hover a:link, a:visited { 
+.inventory-grid button:hover a:link,
+a:visited {
   background-color: rebeccapurple;
   color: #fff;
   text-decoration: none;
   font-size: 1.5rem;
 }
 
-
-.inventory-grid a:link, a:visited { 
+.inventory-grid a:link,
+a:visited {
   color: #fff;
   text-decoration: none;
   font-size: 1.5rem;
 }
-
 
 .featured-gif-component {
   display: flex;
@@ -284,67 +283,65 @@ nav ul li a {
 /*======================================================
                    CONTACT FORM SECTION
     ======================================================*/
-    .contact-form-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin: 1rem;
-    }
+.contact-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+}
 
-    .contact-form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-      border: 2px solid rebeccapurple;
-    }
+.contact-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 0 10px 5px purple, 0 0 20px 7px rebeccapurple,
+    0 0 25px 20px lavender, 0 0 30px 25px whitesmoke;
+  margin: 2.5rem;
+}
 
-    .contact-form h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
+.contact-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
 
-    .form-group {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+.form-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-    .form-group input {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      box-sizing: border-box;
-      border: none;
-      border-bottom: 2px solid rebeccapurple;
-    }
+.form-group input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rebeccapurple;
+}
 
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      box-sizing: border-box;
-      border: none;
-      border-bottom: 2px solid rebeccapurple;
-    }
+.form-group textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rebeccapurple;
+}
 
-    .submit-button {
-      background-color: rebeccapurple;
-      color: #fff;
-      padding: 25px 75px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.5s;
-      font-size: xx-large;
-    }
-
-
-
-
+.submit-button {
+  background-color: rebeccapurple;
+  color: #fff;
+  padding: 25px 75px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: xx-large;
+}
 
 /*======================================================
                    BOTTOM FOOTER SECTION
@@ -464,7 +461,7 @@ footer {
   .featured-gif-component {
     height: 100%;
   }
-  
+
   .featured-gif-component img {
     height: 100%;
     width: 90%;
@@ -480,14 +477,12 @@ footer {
   }
 
   .rental-terms-component h2 {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 
   .rental-terms-component li {
     font-size: 0.5rem;
   }
-
-
 }
 
 /*======================================================
@@ -529,7 +524,7 @@ footer {
   .featured-gif-component {
     height: 100%;
   }
-  
+
   .featured-gif-component img {
     height: 100%;
     width: 90%;
@@ -559,9 +554,6 @@ footer {
   .bottom-container p {
     font-size: 1rem;
   }
-
-
-
 }
 
 /*======================================================
@@ -607,7 +599,7 @@ footer {
   .featured-gif-component {
     height: 100%;
   }
-  
+
   .featured-gif-component img {
     height: 100%;
     width: 90%;
@@ -647,7 +639,7 @@ footer {
   .featured-gif-component {
     height: 100%;
   }
-  
+
   .featured-gif-component img {
     height: 100%;
     width: 90%;
@@ -691,7 +683,6 @@ footer {
     height: 50px;
     margin-bottom: 20px;
   }
-
 }
 
 /*======================================================
@@ -730,12 +721,11 @@ footer {
     margin-right: 4rem;
   }
 
-
   .featured-gif-component {
     height: 100%;
     width: 600px;
   }
-  
+
   .featured-gif-component img {
     height: 100%;
     width: 90%;
@@ -829,9 +819,8 @@ footer {
     height: 100%;
     width: 800px;
     margin-right: 6rem;
-
   }
-  
+
   .featured-gif-component img {
     height: 100%;
     width: 90%;
