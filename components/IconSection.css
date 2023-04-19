@@ -1,0 +1,9 @@
+.icon-section__icon {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.icon-section__icon i {
+    font-size: 3rem;
+    color: rebeccapurple;
+}
