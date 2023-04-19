@@ -1,1 +1,9 @@
+/android-chrome-192x192.png /public/android-chrome-192x192.png 200
+/android-chrome-512x512.png /public/android-chrome-512x512.png 200
+/apple-touch-icon.png /public/apple-touch-icon.png 200
+/favicon-16x16.png /public/favicon-16x16.png 200
+/favicon-32x32.png /public/favicon-32x32.png 200
+/favicon.ico /public/favicon.ico 200
+/robots.txt /public/robots.txt 200
+/site.webmanifest /public/site.webmanifest 200
 /sitemap.xml /public/sitemap.xml 200
