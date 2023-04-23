@@ -25,7 +25,7 @@ async function render(pageContext) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="SATX Bounce House & Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Book now!">
-        <meta name="keywords" content="bounce house rentals, inflatable rentals, party rentals, San Antonio, affordable rentals, event rentals, san antonio bounce house rentals, chair rentals near me">
+        <meta name="keywords" content="bounce house rental San Antonio, San Antonio bounce house rentals, inflatable rentals, party rentals, event rentals, satx bounce">        
         <meta name="author" content="SATX Bounce House Rentals and More">
         <meta name="robots" content="index, follow">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">

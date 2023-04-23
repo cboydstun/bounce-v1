@@ -6,9 +6,8 @@ export default function Hero(props) {
             <div className='hero-container'>
                 <div className='hero-text'>
                     <div className="animated bounce">
-                        <h1 className='hero-title'>SATX Bounce <br /> House Rentals and More</h1>
+                        <h1 className='hero-title'>SATX Bounce <br /><span style={{fontSize:"x-large"}}>San Antonio Bounce House Rentals and More</span></h1>
                     </div>
-                    <p>BOUNCE HOUSE <br /> AND <br /> PARTY RENTAL <br /> IN SAN ANTONIO</p>
                     <a href='#contact-form'>
                         <button onClick={() => {
                             gtag('event', 'click', {
