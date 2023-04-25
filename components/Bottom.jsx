@@ -5,7 +5,7 @@ export default function Bottom() {
     <footer>
       <div className="bottom-component">
         <div className="bottom-container">
-          <h2>See you at the party! 🥳</h2>
+          <h3>See you at the party! 🥳</h3>
           <p>© 2023 <a href="mailto:satxbounce@gmail.com">SATX Bounce</a>
             <a href="https://www.facebook.com/profile.php?id=100091608496923" target="_blank" rel="noopener noreferrer" aria-label='SATX Bounce on Facebook Social Media App' style={{ marginLeft: '10px' }}>
               <i className="fab fa-facebook-f"></i>
@@ -16,7 +16,12 @@ export default function Bottom() {
             <a href="https://nextdoor.com/pages/satx-bounce-san-antonio-tx/" target="_blank" rel="noopener noreferrer" aria-label='SATX Bounce on Nextdoor Social Media App' style={{ marginLeft: '10px' }}>
               <i className="fa-solid fa-house-chimney fa-flip-horizontal"></i>
             </a>
+
+            <a href="https://goo.gl/maps/JxW8ggQbXubbgsWZ8" target="_blank" rel="noopener noreferrer" aria-label='SATX Bounce on Google My Business' style={{ marginLeft: '10px' }}>
+              <i className="fab fa-google"></i>
+            </a>
           </p>
+          
         </div>
       </div>
     </footer>

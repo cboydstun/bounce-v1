@@ -26,8 +26,14 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Check for important data
-        if (!formData.bouncer || !formData.email || !formData.partyDate || agreeSMS === false) {
-            alert('Please fill out at least your favorite bouncer, email, and party date. Remember to agree to messages. Thanks!');
+        if (!formData.bouncer || !formData.email || !formData.partyDate) {
+            alert('Please fill out at least your favorite bouncer, email, and party date. Thanks!');
+            return;
+        }
+
+        // Check agree to SMS
+        if (!agreeSMS) {
+            alert('Please agree to receive SMS messages. Thanks!');
             return;
         }
 
