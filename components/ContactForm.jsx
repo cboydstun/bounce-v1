@@ -92,12 +92,12 @@ const ContactForm = () => {
                             required
                         >
                             <option value="">Select a bouncer</option>
-                            <option value="Kids Bounce with WET Water Park - $80">WET - 18 x 20 - Kids Bounce with WET Water Park - $80</option>
-                            <option value="Medium Bounce Castle - $100">DRY - 13 x 13 - Medium Bounce Castle - $100</option>
-                            <option value="Princess Bounce Castle - $100">DRY - 13 x 13 - Princess Bounce Castle - $100</option>
-                            <option value="Large Bounce Castle - $150">DRY - 15 x 15 - Large Bounce Castle - $150</option>
-                            <option value="Extra Large DRY Castle with Slide - $175">DRY - 25 x 15 - Extra Large Bounce Castle with Slide - $175</option>
-                            <option value="Extra Large WET Water Slide - $200">WET - 25 x 15 - Extra Large Water Slide - $200</option>
+                            <option value="DRY XL Castle w/ Slide - $200">DRY XL Castle w/ Slide - 25 x 15 - $200</option>
+                            <option value="DRY Large Castle - $150">DRY Large Castle - 15 x 15 - $150</option>
+                            <option value="DRY Medium Castle - $100">DRY Medium Castle - 13 x 13 - $100</option>
+                            <option value="DRY Princess Castle - $100">DRY Princess Castle - 13 x 13 - $100</option>
+                            <option value="WET Medium Bounce - $100">WET Medium Bounce - 19 x 12 - $100</option>
+                            <option value="WET XL Water Slide - $200">WET XL Water Slide - 30 x 10 - $200</option>
                         </select>
                     </div>
 

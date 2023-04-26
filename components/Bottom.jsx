@@ -7,7 +7,7 @@ export default function Bottom() {
         <div className="bottom-container">
           <h3>See you at the party! 🥳</h3>
           <p>© 2023 <a href="mailto:satxbounce@gmail.com">SATX Bounce</a>
-            <a href="https://www.facebook.com/profile.php?id=100091608496923" target="_blank" rel="noopener noreferrer" aria-label='SATX Bounce on Facebook Social Media App' style={{ marginLeft: '10px' }}>
+            <a href="https://www.facebook.com/profile.php?id=100092313486945" target="_blank" rel="noopener noreferrer" aria-label='SATX Bounce on Facebook Social Media App' style={{ marginLeft: '10px' }}>
               <i className="fab fa-facebook-f"></i>
             </a>
             <a href="https://twitter.com/satxbounce" target="_blank" rel="noopener noreferrer" aria-label='SATX Bounce on Twitter Social Media App' style={{ marginLeft: '10px' }}>

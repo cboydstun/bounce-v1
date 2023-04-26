@@ -1,26 +1,28 @@
 import React from 'react';
 import './Inventory.css';
 
-const BOUNCE13x13 = '../large-v2.png'
-const BOUNCE15x15 = '../xlarge-v2.jpg'
-const BOUNCE25x15 = '../xxl-v2.jpg'
-const TABLE = '../six-foot-table.jpeg'
-const CHAIRS = '../folding-chair.jpg'
-const GENERATOR = '../generator.jpg'
-const COMING_SOON = '../coming-soon.jpg'
+const DRY_XL = "../satx-bounce-house-rental-san-antonio-dry-xl.png"
+const DRY_LARGE = "../satx-bounce-house-rental-san-antonio-dry-large.png"
+const DRY_MED = "../satx-bounce-house-rental-san-antonio-dry-med.png"
+const DRY_PRINCESS = "../satx-bounce-house-rental-san-antonio-dry-princess.png"
+const WET_XL = "../satx-bounce-house-rental-san-antonio-wet-xl.png"
+const WET_MED = "../satx-bounce-house-rental-san-antonio-wet-med.png"
+const GENERATOR = "../satx-bounce-house-rental-san-antonio-generator.png"
+const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs.png"
+const POPCORN_MAKER = "../satx-bounce-house-rental-san-antonio-popcorn-maker.png"
+
 
 export default function Inventory() {
     const items = [
-        { id: 1, name: 'DRY Castle w/ Slide', size: '25 x 15', price: 200, imgUrl: BOUNCE25x15 },
-        { id: 2, name: 'Extra Large Castle', size: '15 x 15', price: 150, imgUrl: BOUNCE15x15 },
-        { id: 3, name: 'Large Castle', size: '13 x 13', price: 100, imgUrl: BOUNCE13x13 },
-        { id: 4, name: 'Portable Generator', size: '4000W', price: 100, imgUrl: GENERATOR },
-        { id: 5, name: 'Folding Table', size: '6 foot', price: 10, imgUrl: TABLE },
-        { id: 6, name: 'Folding Chairs', size: '6 count', price: 10, imgUrl: CHAIRS },
-        { id: 7, name: 'WET Castle w/ Slide', size: '25 x 15', price: 200, imgUrl: COMING_SOON },
-        { id: 8, name: 'Princess Castle', size: '13 x 13', price: 150, imgUrl: COMING_SOON },
-        { id: 9, name: 'WET Kids Bounce', size: 'TBA', price: 100, imgUrl: COMING_SOON },
-        { id: 10, name: 'Popcorn Machine', size: 'TBA', price: 50, imgUrl: COMING_SOON },
+        { id: 1, name: 'DRY XL Castle w/ Slide', size: '25 x 15', price: 200, imgUrl: DRY_XL },
+        { id: 2, name: 'DRY Large Castle', size: '15 x 15', price: 150, imgUrl: DRY_LARGE },
+        { id: 3, name: 'DRY Medium Castle', size: '13 x 13', price: 100, imgUrl: DRY_MED },
+        { id: 4, name: 'Portable Generator', size: '4000W', price: 50, imgUrl: GENERATOR },
+        { id: 5, name: 'Folding Table and Chairs', size: '6 foot and 6 count', price: 20, imgUrl: TABLES_CHAIRS },
+        { id: 6, name: 'Popcorn Maker', size: '1 unit', price: 50, imgUrl: POPCORN_MAKER },
+        { id: 7, name: 'WET XL Water Slide', size: '25 x 15', price: 200, imgUrl: WET_XL },
+        { id: 8, name: 'DRY Princess Castle', size: '13 x 13', price: 100, imgUrl: DRY_PRINCESS },
+        { id: 9, name: 'WET Medium Bounce', size: '19 x 12', price: 100, imgUrl: WET_MED },
     ];
 
     return (
