@@ -154,10 +154,12 @@ const ZipCodeModal = (props) => {
                 <label htmlFor="choices">
                     <h3>Select Bounce Castle Size</h3>
                     <select onChange={handleSizeChange}>
-                        <option value="">--Please Select--</option>
-                        <option value="large">Large</option>
-                        <option value="xLarge">XL</option>
-                        <option value="xxl">XXL</option>
+                    <option value="DRY - XL Castle w/ Slide - $200">DRY - XL Castle w/ Slide - 25 x 15 - $200</option>
+                            <option value="DRY - Large Castle - $150">DRY - Large Castle - 15 x 15 - $150</option>
+                            <option value="DRY - Medium Castle - $100">DRY - Medium Castle - 13 x 13 - $100</option>
+                            <option value="DRY - Princess Castle - $100">DRY - Princess Castle - 13 x 13 - $100</option>
+                            <option value="WET - Medium Bounce - $100">WET - Medium Bounce - 19 x 12 - $100</option>
+                            <option value="WET-  XL Water Slide - $200">WET - XL Water Slide - 30 x 10 - $200</option>
                     </select>
                 </label>
 
