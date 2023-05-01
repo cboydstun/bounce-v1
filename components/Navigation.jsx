@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
 import './Navigation.css'
 
 export default function Navigation(props) {
@@ -37,8 +36,9 @@ export default function Navigation(props) {
                         </li>
                     </ul>
                     <div className='nav-icon' onClick={handleMobileMenuToggle}>
-                        {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+                        {mobileMenuOpen ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
                     </div>
+
                 </nav>
             </div>
         </div>
