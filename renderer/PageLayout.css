@@ -15,45 +15,6 @@ body {
 }
 
 /*======================================================
-                            NAVIGATION
-    ======================================================*/
-.navigation-component {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  background-color: rebeccapurple;
-}
-
-.navigation-container {
-  display: flex;
-  padding: 0.5rem 1rem;
-}
-
-nav {
-  width: 100%;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: flex-end;
-}
-
-nav ul li {
-  margin: 0 1rem;
-  font-size: large;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-
-/*======================================================
                             HERO
     ======================================================*/
 .hero-component {
