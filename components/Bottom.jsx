@@ -20,13 +20,15 @@ export default function Bottom() {
             <a href="https://goo.gl/maps/JxW8ggQbXubbgsWZ8" target="_blank" rel="noopener noreferrer" aria-label='SATX Bounce on Google My Business' style={{ marginLeft: '10px' }}>
               <i className="fab fa-google"></i>
             </a>
+
+            <a href="https://www.yelp.com/biz/satx-bounce-no-title" target="_blank" rel="noopener noreferrer" aria-label='SATX Bounce on Yelp' style={{ marginLeft: '10px' }}>
+              <i className="fab fa-yelp"></i>
+            </a>
           </p>
 
-          <div className="phone-numer">
             <a href="tel:512-210-0194" aria-label='SATX Bounce Phone Number'>
               <i className="fas fa-phone-alt"></i> 512-210-0194
             </a>
-          </div>
         </div>
       </div>
     </footer>
