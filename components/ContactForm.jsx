@@ -80,7 +80,6 @@ const ContactForm = () => {
 
             if (response.ok) {
                 const jsonResponse = await response.json();
-                console.log('Form submission successful:', jsonResponse);
                 // Handle successful form submission (e.g., show success message or clear form)
                 setFormData({
                     bouncer: '',
@@ -94,6 +93,7 @@ const ContactForm = () => {
                     message: ''
                 });
                 setAgreeSMS(false);
+                setBouncerImage('');
 
                 alert('Thank you for your submission!');
             } else {
