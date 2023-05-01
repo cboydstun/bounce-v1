@@ -24,9 +24,11 @@
 }
 
 .logo-container a {
-  text-decoration: none;
-  font-size: 2.5rem;
+    text-decoration: none;
+    color: #fff; /* Add color style */
+    font-size: 2.5rem;
 }
+
 
 .logo {
   margin-left: 20px;
@@ -53,6 +55,7 @@ nav {
   text-decoration: none;
   padding: 0 15px;
   font-size: 1.5rem;
+    
 }
 
 .nav-icon {

@@ -8,10 +8,14 @@ const ContactForm = () => {
         email: '',
         partyDate: '',
         phone: '',
+        partyZipCode: '',
         tablesChairs: false,
         generator: false,
         popcornMachine: false,
+        message: ''
     });
+
+    const [bouncerImage, setBouncerImage] = useState('');
 
     const [agreeSMS, setAgreeSMS] = useState(false);
 
@@ -21,13 +25,39 @@ const ContactForm = () => {
             ...formData,
             [name]: type === 'checkbox' ? checked : value,
         });
+
+        if (name === 'bouncer') {
+            switch (value) {
+                case 'DRY - XL Castle w/ Slide - $200':
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-xl.png');
+                    break;
+                case 'DRY - Large Castle - $150':
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-large.png');
+                    break;
+                case 'DRY - Medium Castle - $100':
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-med.png');
+                    break;
+                case 'DRY - Princess Castle - $100':
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-princess.png');
+                    break;
+                case 'WET - Medium Bounce - $100':
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-med.png');
+                    break;
+                case 'WET-  XL Water Slide - $200':
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl.png');
+                    break;
+                default:
+                    setBouncerImage('');
+                    break;
+            }
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Check for important data
-        if (!formData.bouncer || !formData.email || !formData.partyDate) {
-            alert('Please fill out at least your favorite bouncer, email, and party date. Thanks!');
+        if (!formData.bouncer || !formData.email || !formData.partyDate || !formData.partyZipCode) {
+            alert('Please fill out at least your favorite bouncer, email, party date, and zip code. Thanks!');
             return;
         }
 
@@ -57,9 +87,11 @@ const ContactForm = () => {
                     email: '',
                     partyDate: '',
                     phone: '',
+                    partyZipCode: '',
                     tablesChairs: false,
                     generator: false,
                     popcornMachine: false,
+                    message: ''
                 });
                 setAgreeSMS(false);
 
@@ -81,6 +113,13 @@ const ContactForm = () => {
         <div className="contact-form-component">
             <div className="contact-form-container" id='contact-form'>
                 <h2>☎️Contact Us Now☎️</h2>
+                <p >Your bouncer is <span className='fade-in-out'><em>FREE</em></span> if a live person in San Antonio, TX doesn't respond in one hour or less during normal business hours!</p>
+
+                <div className="bouncer-image">
+                    {bouncerImage && <img src={`/${bouncerImage}`} alt={formData.bouncer} />}
+                </div>
+
+
                 <form onSubmit={handleSubmit}>
                     <div className='bouncer form-control'>
                         <label htmlFor="bouncer">⭐ Favorite Bouncer<em>(required)</em>:</label>
@@ -123,21 +162,33 @@ const ContactForm = () => {
                         />
                     </div>
 
-                    <div className='form-control'>
-                        <label htmlFor="partyDate">📅 The Party Date<em>(required)</em>:</label>
-                        <input
-                            type="date"
-                            id="partyDate"
-                            name="partyDate"
-                            value={formData.partyDate}
-                            onChange={handleChange}
-                            required
-                        />
+                    <div className="form-control">
+                        <label htmlFor="partyDate">📅Date and Zip Code<em>(required)</em>:</label>
+                        <div className="input-row">
+                            <input
+                                type="date"
+                                id="partyDate"
+                                name="partyDate"
+                                value={formData.partyDate}
+                                onChange={handleChange}
+                                required
+                            />
+                            <input
+                                type="text"
+                                id="partyZipCode"
+                                name="partyZipCode"
+                                placeholder="Zip Code"
+                                value={formData.partyZipCode}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
                     </div>
+
 
                     <div className="extras-section">
                         <div className='form-control'>
-                            <label htmlFor="tablesChairs">🪑 Tables & Chairs:</label>
+                            <label htmlFor="tablesChairs">🪑 Tables & Chairs - $20:</label>
                             <input
                                 type="checkbox"
                                 id="tablesChairs"
@@ -147,7 +198,7 @@ const ContactForm = () => {
                             />
                         </div>
                         <div className='form-control'>
-                            <label htmlFor="generator">🔌 Portable Electric Generator:</label>
+                            <label htmlFor="generator">🔌 Portable Generator - $50:</label>
                             <input
                                 type="checkbox"
                                 id="generator"
@@ -157,7 +208,7 @@ const ContactForm = () => {
                             />
                         </div>
                         <div className='form-control'>
-                            <label htmlFor="popcornMachine">🍿 Popcorn Machine:</label>
+                            <label htmlFor="popcornMachine">🍿 Popcorn Machine - $50:</label>
                             <input
                                 type="checkbox"
                                 id="popcornMachine"
@@ -168,9 +219,20 @@ const ContactForm = () => {
                         </div>
                     </div>
 
+                    <div className="form-control">
+                        <label htmlFor="message">📝 Message:</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder='Anything else we should know?'
+                        />
+                    </div>
+
                     <div className="sms-form-control">
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <label htmlFor="agreeSMS" style={{ marginRight: '10px' }}>Agree to SMS / Email communication <em>(required)</em>:</label>
+                        <div >
+                            <label htmlFor="agreeSMS" style={{ marginRight: '10px' }}><strong>Agree to SMS / Email communication</strong> <em>(required)</em>:</label>
                             <input
                                 type="checkbox"
                                 id="agreeSMS"
@@ -187,7 +249,6 @@ const ContactForm = () => {
                         Submit
                     </button>
 
-                    <p className='fade-in-out'>Your bouncer is <em>free</em> if a live person in San Antonio, TX doesn't respond in 30 minutes or less!</p>
 
                 </form>
             </div>
