@@ -28,6 +28,8 @@ export default function IconSection() {
                         <p>Our commitment to exceptional customer service ensures that you can rely on us to be there when you need us. Whether it's a minor issue or a major challenge, we will do everything in our power to make things right. With SATX Bounce House Rentals, you can trust that our wet and dry inflatables, slides, and party rentals will adapt to your changing circumstances.</p>
                     </div>
 
+
+
                     <div className='icon-section__icon'>
                         <i className="fas fa-dollar-sign rotates"></i>
                         <h3>Affordable Daily Pricing</h3>
