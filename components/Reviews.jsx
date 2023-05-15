@@ -3,7 +3,7 @@ import './Reviews.css';
 
 const Reviews = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const images = Array(5).fill(0).map((_, i) => `../public/satx-bounce-house-rental-san-antonio-review-${i + 1}.png`);
+    const images = Array(5).fill(0).map((_, i) => `../satx-bounce-house-rental-san-antonio-review-${i + 1}.png`);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
