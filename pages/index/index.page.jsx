@@ -9,6 +9,7 @@ import RentalTerms from '../../components/RentalTerms'
 import Graphic from '../../components/Graphic'
 import SocialMedia from '../../components/SocialMedia'
 import ContactForm from '../../components/ContactForm'
+import Reviews from '../../components/Reviews'
 
 function Page(props) {
   return (
@@ -31,6 +32,8 @@ function Page(props) {
           <section className="contact-section" id="contact-section">
             {/* <SocialMedia /> */}
             <ContactForm />
+            <Reviews />
+
           </section>
         </div>
       </div>
