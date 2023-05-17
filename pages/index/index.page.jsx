@@ -7,9 +7,8 @@ import IconSection from '../../components/IconSection'
 import Inventory from '../../components/Inventory'
 import RentalTerms from '../../components/RentalTerms'
 import Graphic from '../../components/Graphic'
-import SocialMedia from '../../components/SocialMedia'
+import LocalComponent from '../../components/LocalComponent'
 import ContactForm from '../../components/ContactForm'
-import Reviews from '../../components/Reviews'
 
 function Page(props) {
   return (
@@ -27,13 +26,14 @@ function Page(props) {
             <Graphic />
             <RentalTerms />
           </section>
+
         </div>
         <div className="contact-container">
+          <section className="local-section" id="local-section">
+            <LocalComponent />
+          </section>
           <section className="contact-section" id="contact-section">
-            {/* <SocialMedia /> */}
             <ContactForm />
-            <Reviews />
-
           </section>
         </div>
       </div>

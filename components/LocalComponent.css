@@ -1,0 +1,11 @@
+.local-component {
+padding: 2rem;
+background-color: rebeccapurple;
+border-radius: 10px;
+margin: 1rem;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.carousel__image {
+width: 100%;
+}

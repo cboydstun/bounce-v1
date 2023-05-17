@@ -233,16 +233,36 @@ a:visited {
   margin: 1rem;
   background-color: rebeccapurple;
   border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
 .featured-gif-component img {
   margin: 20px;
   padding: auto;
   border-radius: 20px;
+
 }
 
 /*======================================================
-                   CONTACT FORM SECTION
+                   CONTACT SECTION
+    ======================================================*/
+    .contact-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+    }
+
+
+
+/*======================================================
+                   LOCAL SECTION
+    ======================================================*/
+
+/*======================================================
+                   CONTACT FORM
     ======================================================*/
 .contact-form-container {
   display: flex;
@@ -427,6 +447,7 @@ footer {
 
   .featured-gif-component {
     height: 100%;
+
   }
 
   .featured-gif-component img {
@@ -802,6 +823,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   }
 
   .featured-gif-component {
