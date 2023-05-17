@@ -4,11 +4,11 @@ import { GoogleMap, LoadScript, MarkerF, InfoWindow } from '@react-google-maps/a
 const MapComponent = () => {
   const mapStyles = {
     height: "20rem",
-    width: "100%"
+    width: "100%",
   };
   const defaultCenter = {
-    lat: 29.417160,
-    lng: -98.693100
+    lat: 29.4500,
+    lng: -98.610,
   };
   const businesses = [
     {
@@ -44,11 +44,15 @@ const MapComponent = () => {
             clickable={true}
             onCloseClick={() => setSelected({})}
           >
-            <div>
+            <div className='info-window-container'>
               <h2>{selected.name}</h2>
               <a href={selected.link} target="_blank" rel="noopener noreferrer">
-                Visit Google My Business Page
+                See Google Reviews!
+
               </a>
+              <div>
+                ⭐⭐⭐⭐⭐
+              </div>
             </div>
           </InfoWindow>
         )}

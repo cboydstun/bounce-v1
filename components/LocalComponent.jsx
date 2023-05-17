@@ -10,8 +10,9 @@ export default function LocalComponent() {
         <div className='local-component'>
             <div className="local-container">
                 <section className="local-section" id="local-section">
-                    <MapComponent />
                     <Reviews />
+
+                    <MapComponent />
                 </section>
             </div>
         </div>
