@@ -29,9 +29,9 @@ function Page(props) {
 
         </div>
         <div className="contact-container">
-          <section className="local-section" id="local-section">
+          {/* <section className="local-section" id="local-section">
             <LocalComponent />
-          </section>
+          </section> */}
           <section className="contact-section" id="contact-section">
             <ContactForm />
           </section>
