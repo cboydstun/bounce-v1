@@ -472,16 +472,6 @@ footer {
     font-size: 0.5rem;
   }
 
-  .extras-section {
-    height: 100%;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
-    font: 0.5rem sans-serif;
-  }
 }
 
 /*======================================================
@@ -546,16 +536,7 @@ footer {
     font-size: 1.25rem;
   }
 
-  .extras-section {
-    height: 100%;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
-    font: 1rem sans-serif;
-  }
+
 
   .bottom-container h2 {
     font-size: 1.5rem;

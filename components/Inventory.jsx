@@ -17,7 +17,7 @@ const OBSTACLE_COURSE = "/satx-bounce-house-rental-san-antonio-obstacle-course.p
 
 export default function Inventory() {
     const items = [
-        { id: 1, name: 'DRY - XL Castle w/ Slide', size: '25 x 15', price: 200, imgUrl: DRY_XL },
+        { id: 1, name: 'DRY - XL Castle w Slide', size: '25 x 15', price: 200, imgUrl: DRY_XL },
         { id: 2, name: 'DRY - Large Castle', size: '15 x 15', price: 150, imgUrl: DRY_LARGE },
         { id: 3, name: 'DRY - Medium Castle', size: '13 x 13', price: 100, imgUrl: DRY_MED },
         { id: 4, name: 'Portable Generator', size: '4000W', price: 50, imgUrl: GENERATOR },

@@ -13,7 +13,7 @@ const customStyles = {
     }
 };
 
-const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/leads`
+const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/contacts`
 
 const ZipCodeModal = (props) => {
     const [zipCode, setZipCode] = useState('')
@@ -63,23 +63,15 @@ const ZipCodeModal = (props) => {
                 return
             }
 
-            // check that Date is not in the past or less than 2 days from now
-            const today = new Date()
-            const todayPlus2 = new Date()
-            todayPlus2.setDate(todayPlus2.getDate())
-            const dateToCheck = new Date(date)
-            if (dateToCheck < today || dateToCheck < todayPlus2) {
-                alert('Please choose a date that is at least 2 days from now')
-                return
-            }
-
             // check if bounce house of that size is available on that date
             const response = await fetch(
-                `${API_URL}/available/${size}?date=${date}`
+                `${API_URL}/available/${date}/${size}`
             )
             const data = await response.json()
-            if (data.exists) {
-                alert(`Sorry, your ${size.toUpperCase()} bounce house is not available on ${formatDate(date)}. Please choose another date or another size.`)
+
+            // if bounce house is not available, alert user
+            if (!data.available) {
+                alert('Sorry, that bounce house is not available on that date')
                 return
             }
 
@@ -154,12 +146,15 @@ const ZipCodeModal = (props) => {
                 <label htmlFor="choices">
                     <h3>Select Bounce Castle Size</h3>
                     <select onChange={handleSizeChange}>
-                    <option value="DRY - XL Castle w/ Slide - $200">DRY - XL Castle w/ Slide - 25 x 15 - $200</option>
-                            <option value="DRY - Large Castle - $150">DRY - Large Castle - 15 x 15 - $150</option>
-                            <option value="DRY - Medium Castle - $100">DRY - Medium Castle - 13 x 13 - $100</option>
-                            <option value="DRY - Princess Castle - $100">DRY - Princess Castle - 13 x 13 - $100</option>
-                            <option value="WET - Medium Bounce - $100">WET - Medium Bounce - 19 x 12 - $100</option>
-                            <option value="WET-  XL Water Slide - $200">WET - XL Water Slide - 30 x 10 - $200</option>
+                        <option value="">--Please Select--</option>
+                        <option value="DRY-CastleWSlide">DRY - XL Castle w/ Slide - 25 x 15</option>
+                        <option value="DRY-Large">DRY - Large Castle - 15 x 15</option>
+                        <option value="DRY-Medium">DRY - Medium Castle - 13 x 13 </option>
+                        <option value="DRY-Princess">DRY - Princess Castle - 13 x 13 </option>
+                        <option value="WET-Junior">WET - Junior Bounce - 19 x 12</option>
+                        <option value="WET-Lime">WET - XL Lime Water Slide - 30 x 10</option>
+                        <option value="WET-Red">WET - XL Red Water Slide - 20 x 15</option>
+                        <option value="WET-Obstacle">WET - XL Obstacle Course - 40 x 20 </option>
                     </select>
                 </label>
 
@@ -172,7 +167,7 @@ const ZipCodeModal = (props) => {
 
             {submitted && (
                 <div>
-                    <h2>YES! Your {size.toUpperCase()} bounce house is available on {formatDate(date)}!</h2>
+                    <h2>YES! Your bounce house is available on {formatDate(date)}!</h2>
                     <p className='available-bounce'>
                         <a href="/#contact-form" onClick={closeModal}>Contact us now</a> to book your party!
                     </p>

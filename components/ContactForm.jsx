@@ -28,28 +28,28 @@ const ContactForm = () => {
 
         if (name === 'bouncer') {
             switch (value) {
-                case 'DRY - XL Castle w/ Slide - $200':
+                case 'DRY - XL Castle w Slide':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-xl.png');
                     break;
-                case 'DRY - Large Castle - $150':
+                case 'DRY - Large Castle':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-large.png');
                     break;
-                case 'DRY - Medium Castle - $100':
+                case 'DRY - Medium Castle':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-med.png');
                     break;
-                case 'DRY - Princess Castle - $100':
+                case 'DRY - Princess Castle':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-princess.png');
                     break;
-                case 'WET - Junior Bounce - $100':
+                case 'WET - Junior Bounce':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-med.png');
                     break;
-                case 'WET - XL Lime Water Slide - $200':
+                case 'WET - XL Lime Water Slide':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl.png');
                     break;
-                case 'WET - XL Red Water Slide - $200':
+                case 'WET - XL Red Water Slide':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl-red.png');
                     break;
-                case 'WET - Obstacle Course - $250':
+                case 'WET - Obstacle Course':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-obstacle-course.png');
                     break;
 
@@ -97,6 +97,8 @@ const ContactForm = () => {
                     tablesChairs: false,
                     generator: false,
                     popcornMachine: false,
+                    cottonCandyMachine: false,
+                    overnight: false,
                     message: ''
                 });
                 setAgreeSMS(false);
@@ -137,16 +139,15 @@ const ContactForm = () => {
                             onChange={handleChange}
                             required
                         >
-
                             <option value="">--Please Select--</option>
-                            <option value="DRY - XL Castle w/ Slide - $200">DRY - XL Castle w/ Slide - 25 x 15 - $200</option>
-                            <option value="DRY - Large Castle - $150">DRY - Large Castle - 15 x 15 - $150</option>
-                            <option value="DRY - Medium Castle - $100">DRY - Medium Castle - 13 x 13 - $100</option>
-                            <option value="DRY - Princess Castle - $100">DRY - Princess Castle - 13 x 13 - $100</option>
-                            <option value="WET - Junior Bounce - $100">WET - Junior Bounce - 19 x 12 - $100</option>
-                            <option value="WET - XL Lime Water Slide - $200">WET - XL Lime Water Slide - 30 x 10 - $200</option>
-                            <option value="WET - XL Red Water Slide - $200">WET - XL Red Water Slide - 20 x 15 - $200</option>
-                            <option value="WET - Obstacle Course - $250">WET - XL Obstacle Course - 40 x 20 - $250</option>
+                            <option value="DRY-CastleWSlide">DRY - XL Castle w/ Slide - 25 x 15 - $200</option>
+                            <option value="DRY-Large">DRY - Large Castle - 15 x 15 - $150</option>
+                            <option value="DRY-Medium">DRY - Medium Castle - 13 x 13 - $100</option>
+                            <option value="DRY-Princess">DRY - Princess Castle - 13 x 13 - $100</option>
+                            <option value="WET-Junior">WET - Junior Bounce - 19 x 12 - $100</option>
+                            <option value="WET-Lime">WET - XL Lime Water Slide - 30 x 10 - $200</option>
+                            <option value="WET-Red">WET - XL Red Water Slide - 20 x 15 - $200</option>
+                            <option value="WET-Obstacle">WET - XL Obstacle Course - 40 x 20 - $250</option>
                         </select>
                     </div>
 
@@ -195,11 +196,11 @@ const ContactForm = () => {
                         </div>
                     </div>
 
-                    <h3 style={{color: 'white'}}>🎉 Extras:</h3>
+                    <h3 style={{ color: 'white' }}>🎉 Extras:</h3>
 
                     <div className="extras-section">
                         <div className='form-control'>
-                            <label htmlFor="tablesChairs">🪑 Tables & Chairs - $20:</label>
+                            <label htmlFor="tablesChairs">🪑 Tables & Chairs:</label>
                             <input
                                 type="checkbox"
                                 id="tablesChairs"
@@ -209,7 +210,7 @@ const ContactForm = () => {
                             />
                         </div>
                         <div className='form-control'>
-                            <label htmlFor="generator">🔌 Portable Generator - $50:</label>
+                            <label htmlFor="generator">🔌 Portable Generator:</label>
                             <input
                                 type="checkbox"
                                 id="generator"
@@ -219,7 +220,7 @@ const ContactForm = () => {
                             />
                         </div>
                         <div className='form-control'>
-                            <label htmlFor="popcornMachine">🍿 Popcorn Machine - $50:</label>
+                            <label htmlFor="popcornMachine">🍿 Popcorn Machine:</label>
                             <input
                                 type="checkbox"
                                 id="popcornMachine"
@@ -231,7 +232,7 @@ const ContactForm = () => {
 
                         <div className="form-control">
                             {/* cotton candy maker */}
-                            <label htmlFor="cottonCandyMachine">🍭 Cotton Candy Machine - $20:</label>
+                            <label htmlFor="cottonCandyMachine">🍭 Cotton Candy Machine:</label>
                             <input
                                 type="checkbox"
                                 id="cottonCandyMachine"
@@ -240,7 +241,36 @@ const ContactForm = () => {
                                 onChange={handleChange}
                             />
                         </div>
+
+                        <div className="form-control">
+                            {/* overnight */}
+                            <label htmlFor="overnight">🌙 Overnight:</label>
+                            <input
+                                type="checkbox"
+                                id="overnight"
+                                name="overnight"
+                                checked={formData.overnight}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="form-control">
+                            {/* pinata */}
+                            <label htmlFor="pinata">🐎  Piñata:</label>
+                            <input
+                                type="checkbox"
+                                id="pinata"
+                                name="pinata"
+                                checked={formData.pinata}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+
                     </div>
+
+
+
 
                     <div className="form-control">
                         <label htmlFor="message">📝 Message:</label>
@@ -271,8 +301,6 @@ const ContactForm = () => {
                     >
                         Submit
                     </button>
-
-
                 </form>
             </div>
         </div>

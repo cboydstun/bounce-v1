@@ -128,23 +128,31 @@
 }
 
 .extras-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin: 5px;
 }
 
-.extras-section .form-control {
+.extras-section label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.extras-section input {
+  width: 100%;
+  height: 1.5rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
-  background-color: white;
-  color: #333;
-}
-
-.extras-section .form-control label {
-  color: #333;
-  font-size: 0.75rem;
 }
 
 .sms-form-control {
@@ -175,7 +183,6 @@
   border-color: rebeccapurple;
   box-shadow: 0 0 3px rgba(102, 51, 153, 0.4);
 }
-
 
 .contact-form-container button {
   width: 100%;

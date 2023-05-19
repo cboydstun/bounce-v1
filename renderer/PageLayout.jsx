@@ -9,7 +9,7 @@ function PageLayout({ children }) {
   return (
     <React.StrictMode>
       <div className="App">
-        {/* <ZipCodeModal /> */}
+        <ZipCodeModal />
         <Navigation name="Bounce SATX" />
         {children}
         <Bottom />
