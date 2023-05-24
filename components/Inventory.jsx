@@ -21,9 +21,9 @@ export default function Inventory() {
         { id: 2, name: 'DRY - Large Castle', size: '15 x 15', price: 150, imgUrl: DRY_LARGE },
         { id: 3, name: 'DRY - Medium Castle', size: '13 x 13', price: 100, imgUrl: DRY_MED },
         { id: 4, name: 'Portable Generator', size: '4000W', price: 50, imgUrl: GENERATOR },
-        { id: 5, name: 'Folding Table and Chairs', size: '6 foot and 6 count', price: 20, imgUrl: TABLES_CHAIRS },
-        { id: 6, name: 'Popcorn Maker', size: '1 unit', price: 50, imgUrl: POPCORN_MAKER },
-        { id: 7, name: 'Cotton Candy Maker', size: '1 unit', price: 20, imgUrl: COTTON_CANDY },
+        { id: 5, name: 'Folding Table and Chairs', size: '6 foot table and 6 chairs', price: 20, imgUrl: TABLES_CHAIRS },
+        { id: 6, name: 'Popcorn Maker', size: '50 servings', price: 50, imgUrl: POPCORN_MAKER },
+        { id: 7, name: 'Cotton Candy Maker', size: '25 servings', price: 50, imgUrl: COTTON_CANDY },
         { id: 8, name: 'WET - XL Lime Water Slide', size: '30 x 10', price: 200, imgUrl: WET_XL },
         { id: 9, name: 'DRY - Princess Castle', size: '13 x 13', price: 100, imgUrl: DRY_PRINCESS },
         { id: 10, name: 'WET - Junior Bounce', size: '19 x 12', price: 100, imgUrl: WET_MED },
@@ -32,14 +32,14 @@ export default function Inventory() {
     ];
 
     return (
-        <div className="inventory-component">
+        <div className="inventory-component" id='inventory-component'>
             <h2>Our Inventory</h2>
             <div className="inventory-grid">
                 {items.map((item) => (
                     <div key={item.id} className="item-card">
                         <img src={item.imgUrl} alt={item.name} height={100} width={100} />
                         <h3>{item.name}</h3>
-                        <p>Size: {item.size}</p>
+                        <p>Inluded: {item.size}</p>
                         <p>Price: ${item.price}</p>
                         <button><a href='#contact-form'>Contact Now</a></button>
                     </div>

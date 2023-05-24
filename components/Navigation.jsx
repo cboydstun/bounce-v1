@@ -30,6 +30,11 @@ export default function Navigation(props) {
                             </a>
                         </li>
                         <li>
+                            <a className="navitem" href="/#inventory-component">
+                                Inventory
+                            </a>
+                        </li>
+                        <li>
                             <a className="navitem" href="/#contact-form">
                                 Contact
                             </a>
