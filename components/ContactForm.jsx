@@ -12,6 +12,9 @@ const ContactForm = () => {
         tablesChairs: false,
         generator: false,
         popcornMachine: false,
+        cottonCandyMachine: false,
+        overnight: false,
+        pinata: false,
         message: ''
     });
 
@@ -28,28 +31,28 @@ const ContactForm = () => {
 
         if (name === 'bouncer') {
             switch (value) {
-                case 'DRY - XL Castle w Slide':
+                case 'DRY-CastleWSlide':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-xl.png');
                     break;
-                case 'DRY - Large Castle':
+                case 'DRY-Large':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-large.png');
                     break;
-                case 'DRY - Medium Castle':
+                case 'DRY-Medium':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-med.png');
                     break;
-                case 'DRY - Princess Castle':
+                case 'DRY-Princess':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-princess.png');
                     break;
-                case 'WET - Junior Bounce':
+                case 'WET-Junior':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-med.png');
                     break;
-                case 'WET - XL Lime Water Slide':
+                case 'WET-Lime':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl.png');
                     break;
-                case 'WET - XL Red Water Slide':
+                case 'WET-Red':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl-red.png');
                     break;
-                case 'WET - Obstacle Course':
+                case 'WET-Obstacle':
                     setBouncerImage('./satx-bounce-house-rental-san-antonio-obstacle-course.png');
                     break;
 
