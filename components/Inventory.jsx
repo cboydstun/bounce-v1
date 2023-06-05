@@ -1,18 +1,18 @@
 import React from 'react';
 import './Inventory.css';
 
-const DRY_XL = "../satx-bounce-house-rental-san-antonio-dry-xl.png"
-const DRY_LARGE = "../satx-bounce-house-rental-san-antonio-dry-large.png"
-const DRY_MED = "../satx-bounce-house-rental-san-antonio-dry-med.png"
-const DRY_PRINCESS = "../satx-bounce-house-rental-san-antonio-dry-princess.png"
-const WET_XL = "../satx-bounce-house-rental-san-antonio-wet-xl.png"
-const WET_MED = "../satx-bounce-house-rental-san-antonio-wet-med.png"
+const DRY_XL = "../satx-bounce-house-rental-san-antonio-dry-xl.jpg"
+const DRY_LARGE = "../satx-bounce-house-rental-san-antonio-dry-large.jpg"
+const DRY_MED = "../satx-bounce-house-rental-san-antonio-dry-med.jpg"
+const DRY_PRINCESS = "../satx-bounce-house-rental-san-antonio-dry-princess.jpg"
+const WET_XL = "../satx-bounce-house-rental-san-antonio-wet-xl.jpg"
+const WET_MED = "../satx-bounce-house-rental-san-antonio-wet-med.jpg"
 const GENERATOR = "../satx-bounce-house-rental-san-antonio-generator.png"
-const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs.png"
-const POPCORN_MAKER = "../satx-bounce-house-rental-san-antonio-popcorn-maker.png"
-const COTTON_CANDY = "../satx-bounce-house-rental-san-antonio-cotton-candy-maker.png"
-const WET_RED_SLIDE = "/satx-bounce-house-rental-san-antonio-wet-xl-red.png"
-const OBSTACLE_COURSE = "/satx-bounce-house-rental-san-antonio-obstacle-course.png"
+const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs.jpg"
+const POPCORN_MAKER = "../satx-bounce-house-rental-san-antonio-popcorn-maker.jpg"
+const COTTON_CANDY = "../satx-bounce-house-rental-san-antonio-cotton-candy-maker.jpg"
+const WET_RED_SLIDE = "/satx-bounce-house-rental-san-antonio-wet-xl-red.jpg"
+const OBSTACLE_COURSE = "/satx-bounce-house-rental-san-antonio-obstacle-course-2.jpg"
 
 
 export default function Inventory() {

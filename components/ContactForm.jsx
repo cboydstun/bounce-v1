@@ -32,28 +32,28 @@ const ContactForm = () => {
         if (name === 'bouncer') {
             switch (value) {
                 case 'DRY-CastleWSlide':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-xl.png');
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-xl.jpg');
                     break;
                 case 'DRY-Large':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-large.png');
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-large.jpg');
                     break;
                 case 'DRY-Medium':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-med.png');
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-med.jpg');
                     break;
                 case 'DRY-Princess':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-princess.png');
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-princess.jpg');
                     break;
                 case 'WET-Junior':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-med.png');
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-med.jpg');
                     break;
                 case 'WET-Lime':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl.png');
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl.jpg');
                     break;
                 case 'WET-Red':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl-red.png');
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl-red.jpg');
                     break;
                 case 'WET-Obstacle':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-obstacle-course.png');
+                    setBouncerImage('./satx-bounce-house-rental-san-antonio-obstacle-course.jpg');
                     break;
 
                 default:
