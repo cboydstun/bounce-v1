@@ -19,21 +19,24 @@ export default function IconSection() {
                         <i className="fas fa-shield-alt grow-shrink"></i>
                         <h3>Safe & Clean Inflatable Rentals</h3>
                         <p>At SATX Bounce House Rentals, we understand that planning a party can be stressful, with numerous details to consider. To ease your worries, we prioritize the safety of your guests during your event in San Antonio. We take safety seriously with our water slides, dry slides, combo units, and bounce houses.</p>
+                        <button><a href='/#contact-form'>Contact Now</a></button>
                         <p>Our commitment to safety includes using high-quality, well-maintained equipment for all our party rentals. We follow strict safety protocols for our wet and dry inflatables ensuring a successful and secure event. With SATX Bounce House Rentals, you can rest easy knowing we've done everything in our power to create a fun and safe environment for your party.</p>
                     </div>
+
                     <div className='icon-section__icon'>
                         <i className="fas fa-users"></i>
                         <h3>Great Customer Service for Event Rentals</h3>
                         <p>At SATX Bounce House Rentals, we recognize that life can be unpredictable, and plans may change. That's why we emphasize flexibility for our party rentals in San Antonio, including water slides, wet and dry combo units, and great slide options. If you encounter unexpected changes and need to adjust your rental, we will collaborate with you to find the best solution for your needs.</p>
+                        <button><a href='/faq'>Frequently Asked Questions</a></button>
                         <p>Our commitment to exceptional customer service ensures that you can rely on us to be there when you need us. Whether it's a minor issue or a major challenge, we will do everything in our power to make things right. With SATX Bounce House Rentals, you can trust that our wet and dry inflatables, slides, and party rentals will adapt to your changing circumstances.</p>
                     </div>
-
-
 
                     <div className='icon-section__icon'>
                         <i className="fas fa-dollar-sign rotates"></i>
                         <h3>Affordable Daily Pricing</h3>
                         <p>At SATX Bounce House Rentals, we pride ourselves on transparency in pricing for our bounce house rentals, chair rentals, and great combo units near you. We clearly state that all our prices are based on daily rates. If you need your rental for more than one day, we're more than happy to work with you to find a budget-friendly solution.</p>
+                        <button><a href='/#contact-form'>Contact Now</a></button>
+
                         <p>Our goal is to ensure you feel comfortable with your rental agreement and fully understand what you're paying for. If you have any questions about pricing for our wet and dry inflatables, or water slides, please don't hesitate to ask.</p>
                     </div>
 

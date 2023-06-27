@@ -1,26 +1,64 @@
 .rental-terms-component {
-
-
 }
 
 .rental-terms-component h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 .rental-terms-list {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .rental-terms-list li {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
 }
 
 .rental-terms-list li::before {
-    content: "✔";
-    display: inline-block;
-    margin-right: 8px;
+  content: "✔";
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.faq-link-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.faq-link-container button {
+  background-color: rebeccapurple;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+  animation: pulse 2s infinite;
+}
+
+.faq-link-container a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.faq-link-container button:hover {
+  background-color: #4b2e83;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
