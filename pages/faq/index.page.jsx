@@ -1,6 +1,9 @@
 export { Page }
 
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+
+import ContactForm from '../../components/ContactForm';
 
 import './faq.css'
 
@@ -47,7 +50,55 @@ function Page() {
     {
       question: 'Is there a minimum age requirement for using the bounce houses?',
       answer: 'While there is no strict minimum age requirement, we recommend that children using the bounce houses are supervised and of appropriate age for safe enjoyment.'
-    }
+    },
+    {
+      question: 'Do you offer discounts for multiple rentals?',
+      answer: 'Yes, we offer discounts for multiple rentals. Please contact us for more information.'
+    },
+    {
+      question: 'Do you offer discounts for non-profit organizations?',
+      answer: 'Yes, we offer discounts for non-profit organizations. Please contact us for more information.'
+    },
+    {
+      question: 'Do you offer discounts for military personnel?',
+      answer: 'Yes, we offer discounts for military personnel. Please contact us for more information.'
+    },
+    {
+      question: 'Do you offer discounts for first responders?',
+      answer: 'Yes, we offer discounts for first responders. Please contact us for more information.'
+    },
+    {
+      question: 'Do you offer discounts for teachers?',
+      answer: 'Yes, we offer discounts for teachers. Please contact us for more information.'
+    },
+    {
+      question: 'Do you offer discounts for healthcare workers?',
+      answer: 'Yes, we offer discounts for healthcare workers. Please contact us for more information.'
+    },
+    {
+      question: 'How do I book a bounce house?',
+      answer: 'You can book a bounce house by calling us at (512) 210-0194 or by filling out the contact form on our website.'
+    },
+    {
+      question: 'How far in advance should I book a bounce house?',
+      answer: 'We recommend booking at least 2 weeks in advance to ensure availability. However, we can sometimes accommodate last-minute requests. Please contact us for more information.'
+    },
+    {
+      question: 'Do you offer gift certificates?',
+      answer: 'No, we do not offer gift certificates at this time.'
+    },
+    {
+      question: 'Are there deals on party packages?',
+      answer: 'Yes, we offer party packages. Please contact us for more information.'
+    },
+    {
+      question: 'What about party supplies?',
+      answer: 'Yes, we have cotton candy machines, popcorn machines, pinatas, and more. Please contact us for more information.'
+    },
+    {
+      question: 'Are tables and chairs available for rental?',
+      answer: 'Yes, we offer tables and chairs. Each folding table comes with six folding chairs. Please contact us for more information.'
+    },
   ];
 
   const handleClick = (index) => {
@@ -60,7 +111,30 @@ function Page() {
 
   return (
     <div className="faq-container">
-      <h1>FAQs</h1>
+      <Helmet>
+        <title>FAQs - SATX Bounce House Rentals and More</title>
+        <meta
+          name="description"
+          content="Find answers to frequently asked questions about SATX Bounce House Rentals and More."
+        />
+        <meta
+          name="keywords"
+          content="faq, faqs, frequently asked questions, bounce house rental San Antonio, San Antonio bounce house rentals, inflatable rentals, water slide rental, party rentals, event rentals, satx bounce"
+        />
+
+        <meta property="og:title" content="FAQs - SATX Bounce House Rentals and More" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://satx-bounce-house-rentals-and-more.com/faq" />
+        {/* <meta property="og:image" content="https://satx-bounce-house-rentals-and-more.com/images/faq.jpg" /> */}
+        <meta property="og:description" content="Find answers to frequently asked questions about SATX Bounce House Rentals and More. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more." />
+
+        <meta name="twitter:title" content="FAQs - SATX Bounce House Rentals and More" />
+        <meta name="twitter:description" content="Find answers to frequently asked questions about SATX Bounce House Rentals and More. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more." />
+        {/* <meta name="twitter:image" content="https://satx-bounce-house-rentals-and-more.com/images/faq.jpg" /> */}
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+      <h1>SATX Bounce Frequently Asked Questions</h1>
+      <h2>Find answers to frequently asked questions about SATX Bounce House Rentals and More. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more...</h2>
       {faqs.map((faq, index) => (
         <div
           key={index}
@@ -71,6 +145,8 @@ function Page() {
           <p>{faq.answer}</p>
         </div>
       ))}
+
+      <ContactForm />
     </div>
   );
 }

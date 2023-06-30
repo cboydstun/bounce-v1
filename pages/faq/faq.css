@@ -31,7 +31,20 @@
 }
 
 .faq-item.open p {
-  max-height: 100px;
+  min-height: 2rem;
+  height: auto;
+  max-height: 6000px;
+}
+
+.contact-button {
+  background-color: rebeccapurple;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
 }
 
 @media only screen and (max-width: 600px) {
