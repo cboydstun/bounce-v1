@@ -22,7 +22,7 @@ export default function Inventory() {
         { id: 3, name: 'DRY - Princess Castle', size: '14 x 14', price: 150, imgUrl: DRY_PRINCESS },
         { id: 4, name: 'DRY - Medium Castle', size: '13 x 13', price: 150, imgUrl: DRY_MED },
         { id: 5, name: 'WET - Junior Bounce', size: '19 x 12', price: 150, imgUrl: WET_MED },
-        { id: 6, name: 'WET - XL Lime Water Slide', size: '30 x 10', price: 225, imgUrl: WET_XL },
+        { id: 6, name: 'WET - XL Lime Water Slide', size: '30 x 10', price: 250, imgUrl: WET_XL },
         { id: 7, name: 'WET - XL Red Water Slide', size: '20 x 15', price: 250, imgUrl: WET_RED_SLIDE },
         { id: 8, name: 'WET - XL Obstacle Course', size: '40 x 20', price: 300, imgUrl: OBSTACLE_COURSE },
         { id: 9, name: 'Folding Table and Chairs', size: '6 foot table and 6 chairs', price: 20, imgUrl: TABLES_CHAIRS },
