@@ -8,30 +8,42 @@ import { PageLayout } from './PageLayout'
 import HeadWithGtag from '../components/HeadWithGtag'
 
 async function render(pageContext) {
-  const { Page } = pageContext
+  const { Page } = pageContext;
   const viewHtml = dangerouslySkipEscape(
     renderToString(
       <PageLayout>
         <Page />
       </PageLayout>
     )
-  )
+  );
 
   const headWithGtagHtml = dangerouslySkipEscape(renderToString(<HeadWithGtag />));
+
+  let pageTitle = "SATX Bounce House & Inflatable Rentals - San Antonio, TX";
+  let pageDescription = "SATX Bounce House & Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Book now!";
+
+  if (pageContext.urlPathname === "/") {
+    // Homepage specific head elements
+    pageTitle = "SATX Bounce House & Inflatable Rentals - San Antonio, TX - Homepage";
+    pageDescription = "SATX Bounce House & Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Book now!";
+  } else if (pageContext.urlPathname === "/faq") {
+    // FAQ page specific head elements
+    pageTitle = "SATX Bounce House & Inflatable Rentals - San Antonio, TX - FAQ";
+    pageDescription = "Find answers to frequently asked questions about SATX Bounce House & Inflatable Rentals in San Antonio, TX. Learn more about our services, rental options, pricing, and how to make reservations. Get all the information you need to plan your next event or party with us.";
+  }
 
   return escapeInject`<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="SATX Bounce House & Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Book now!">
-        <meta name="keywords" content="bounce house rental San Antonio, San Antonio bounce house rentals, inflatable rentals, water slide rental, party rentals, event rentals, satx bounce">        
+        <meta name="description" content="${pageDescription}">
         <meta name="author" content="SATX Bounce House Rentals and More">
         <meta name="robots" content="index, follow">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <meta property="og:title" content="SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio">
-        <meta property="og:description" content="Get high-quality and affordable bounce house, inflatable, and party rentals in San Antonio with SATX Bounce House Rentals and More. Book now!">
+        <meta property="og:title" content="${pageTitle}">
+        <meta property="og:description" content="${pageDescription}">
         <meta property="og:image" content="https://www.satxbounce.com/satx-bounce-house-rental-san-antonio-og-image.jpg">
         <meta property="og:url" content="https://www.satxbounce.com">
         <meta property="og:type" content="website">
@@ -39,8 +51,8 @@ async function render(pageContext) {
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@satxbounce">
         <meta name="twitter:creator" content="@satxbounce">
-        <meta name="twitter:title" content="SATX Bounce House Rentals and More - Affordable Party Rentals in San Antonio">
-        <meta name="twitter:description" content="Get high-quality and affordable bounce house, inflatable, and party rentals in San Antonio with SATX Bounce House Rentals and More. Book now!">
+        <meta name="twitter:title" content="${pageTitle}">
+        <meta name="twitter:description" content="${pageDescription}">
         <meta name="twitter:image" content="https://www.satxbounce.com/satx-bounce-house-rental-san-antonio-og-image.jpg">
         <meta name="twitter:image:alt" content="SATX Bounce House Rentals and More">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -50,10 +62,10 @@ async function render(pageContext) {
         <link rel="manifest" href="site.webmanifest">
         <link rel="sitemap" type="application/xml" href="sitemap.xml" />
         ${headWithGtagHtml}
-        <title>SATX Bounce House & Inflatable Rentals - San Antonio, TX</title>
+        <title>${pageTitle}</title>
       </head>
       <body>
         <div id="page-view">${viewHtml}</div>
       </body>
-    </html>`
+    </html>`;
 }

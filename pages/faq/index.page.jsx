@@ -1,7 +1,6 @@
 export { Page }
 
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
 
 import ContactForm from '../../components/ContactForm';
 
@@ -111,28 +110,6 @@ function Page() {
 
   return (
     <div className="faq-container">
-      <Helmet>
-        <title>FAQs - SATX Bounce House Rentals and More</title>
-        <meta
-          name="description"
-          content="Find answers to frequently asked questions about SATX Bounce House Rentals and More."
-        />
-        <meta
-          name="keywords"
-          content="faq, faqs, frequently asked questions, bounce house rental San Antonio, San Antonio bounce house rentals, inflatable rentals, water slide rental, party rentals, event rentals, satx bounce"
-        />
-
-        <meta property="og:title" content="FAQs - SATX Bounce House Rentals and More" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://satx-bounce-house-rentals-and-more.com/faq" />
-        {/* <meta property="og:image" content="https://satx-bounce-house-rentals-and-more.com/images/faq.jpg" /> */}
-        <meta property="og:description" content="Find answers to frequently asked questions about SATX Bounce House Rentals and More. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more." />
-
-        <meta name="twitter:title" content="FAQs - SATX Bounce House Rentals and More" />
-        <meta name="twitter:description" content="Find answers to frequently asked questions about SATX Bounce House Rentals and More. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more." />
-        {/* <meta name="twitter:image" content="https://satx-bounce-house-rentals-and-more.com/images/faq.jpg" /> */}
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
       <h1>SATX Bounce Frequently Asked Questions</h1>
       <h2>Find answers to frequently asked questions about SATX Bounce House Rentals and More. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more...</h2>
       {faqs.map((faq, index) => (
