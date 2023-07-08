@@ -38,6 +38,7 @@ async function render(pageContext) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="${pageDescription}">
+        <meta name="keywords" content="bounce house rental San Antonio, San Antonio bounce house rentals, inflatable rentals, water slide rental, party rentals, event rentals, satx bounce">        
         <meta name="author" content="SATX Bounce House Rentals and More">
         <meta name="robots" content="index, follow">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
