@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Navigation.css'
 
-export default function Navigation(props) {
+export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     const handleMobileMenuToggle = () => {

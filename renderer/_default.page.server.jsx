@@ -20,16 +20,16 @@ async function render(pageContext) {
   const headWithGtagHtml = dangerouslySkipEscape(renderToString(<HeadWithGtag />));
 
   let pageTitle = "SATX Bounce House & Inflatable Rentals - San Antonio, TX";
-  let pageDescription = "SATX Bounce House & Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Book now!";
+  let pageDescription = "SATX Bounce House & Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Contact now!";
 
   if (pageContext.urlPathname === "/") {
     // Homepage specific head elements
     pageTitle = "SATX Bounce House & Inflatable Rentals - San Antonio, TX ";
-    pageDescription = "SATX Bounce House & Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Book now!";
+    pageDescription = "SATX Bounce House & Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Contact now!";
   } else if (pageContext.urlPathname === "/faq/") {
     // FAQ page specific head elements
     pageTitle = "SATX Bounce House & Inflatable Rentals - FAQ";
-    pageDescription = "Find answers to frequently asked questions about SATX Bounce House & Inflatable Rentals in San Antonio, TX. Learn more about our services, rental options, pricing, and how to make reservations. Get all the information you need to plan your next event or party with us.";
+    pageDescription = "Find answers to frequently asked questions about SATX Bounce House & Inflatable Rentals in San Antonio, TX. Learn about our services, rentals, and more.";
   }
 
   return escapeInject`<!DOCTYPE html>

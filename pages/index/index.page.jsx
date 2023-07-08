@@ -7,7 +7,6 @@ import IconSection from '../../components/IconSection'
 import Inventory from '../../components/Inventory'
 import RentalTerms from '../../components/RentalTerms'
 import Graphic from '../../components/Graphic'
-import LocalComponent from '../../components/LocalComponent'
 import ContactForm from '../../components/ContactForm'
 
 function Page(props) {
@@ -29,9 +28,6 @@ function Page(props) {
 
         </div>
         <div className="contact-container">
-          {/* <section className="local-section" id="local-section">
-            <LocalComponent />
-          </section> */}
           <section className="contact-section" id="contact-section">
             <ContactForm />
           </section>

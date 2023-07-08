@@ -4,8 +4,6 @@ import React from 'react'
 import { hydrateRoot } from 'react-dom/client'
 import { PageLayout } from './PageLayout'
 
-
-
 async function render(pageContext) {
   const { Page } = pageContext
   hydrateRoot(

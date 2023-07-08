@@ -2,8 +2,6 @@ export { Page }
 
 import React, { useState } from 'react';
 
-import ContactForm from '../../components/ContactForm';
-
 import './faq.css'
 
 function Page() {
@@ -110,20 +108,22 @@ function Page() {
 
   return (
     <div className="faq-container">
-      <h1>SATX Bounce Frequently Asked Questions</h1>
-      <h2>Find answers to frequently asked questions about SATX Bounce House Rentals and More. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more...</h2>
+      <h1>SATX Bounce FAQ - Frequently Asked Questions</h1>
+      <p>Find answers to frequently asked questions about SATX Bounce House and Inflatable Rentals. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more...</p>
       {faqs.map((faq, index) => (
         <div
           key={index}
           className={`faq-item ${openIndex === index ? 'open' : ''}`}
           onClick={() => handleClick(index)}
         >
-          <h3>{faq.question}</h3>
-          <p>{faq.answer}</p>
+          <p className='faq-question'>{faq.question}</p>
+          <p className='faq-answer'>{faq.answer}</p>
         </div>
       ))}
 
-      <ContactForm />
+      <button><a href='/#contact-form'>Contact Now</a></button>
+
+
     </div>
   );
 }

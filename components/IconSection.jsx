@@ -44,6 +44,7 @@ export default function IconSection() {
                         <i className="fas fa-gift bounce-wiggles"></i>
                         <h3>Free Delivery & Setup for Party Rentals</h3>
                         <p>At SATX Bounce House Rentals, we believe in providing a hassle-free experience for our customers in San Antonio. That's why we include delivery and setup in the price of your bounce houses and slide rentals. We will collaborate with you to schedule a convenient delivery time, and our team will arrive promptly before 8 am to set up your rental.</p>
+                        <button><a href='/faq'>Frequently Asked Questions</a></button>
                         <p>Once your event has concluded, we will return after 6 pm to pick up the slide or bounce house. With us, you won't have to worry about a thing; we've got you covered from start to finish, ensuring a smooth and enjoyable party rental experience.</p>
                     </div>
                 </div>
