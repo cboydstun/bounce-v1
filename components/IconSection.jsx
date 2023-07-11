@@ -27,7 +27,7 @@ export default function IconSection() {
                         <i className="fas fa-users"></i>
                         <h3>Great Customer Service for Event Rentals</h3>
                         <p>At SATX Bounce House Rentals, we recognize that life can be unpredictable, and plans may change. That's why we emphasize flexibility for our party rentals in San Antonio, including water slides, wet and dry combo units, and great slide options. If you encounter unexpected changes and need to adjust your rental, we will collaborate with you to find the best solution for your needs.</p>
-                        <button><a href='/faq'>Frequently Asked Questions</a></button>
+                        <button><a href='/faq/'>Frequently Asked Questions</a></button>
                         <p>Our commitment to exceptional customer service ensures that you can rely on us to be there when you need us. Whether it's a minor issue or a major challenge, we will do everything in our power to make things right. With SATX Bounce House Rentals, you can trust that our wet and dry inflatables, slides, and party rentals will adapt to your changing circumstances.</p>
                     </div>
 
@@ -44,7 +44,7 @@ export default function IconSection() {
                         <i className="fas fa-gift bounce-wiggles"></i>
                         <h3>Free Delivery & Setup for Party Rentals</h3>
                         <p>At SATX Bounce House Rentals, we believe in providing a hassle-free experience for our customers in San Antonio. That's why we include delivery and setup in the price of your bounce houses and slide rentals. We will collaborate with you to schedule a convenient delivery time, and our team will arrive promptly before 8 am to set up your rental.</p>
-                        <button><a href='/faq'>Frequently Asked Questions</a></button>
+                        <button><a href='/faq/'>Frequently Asked Questions</a></button>
                         <p>Once your event has concluded, we will return after 6 pm to pick up the slide or bounce house. With us, you won't have to worry about a thing; we've got you covered from start to finish, ensuring a smooth and enjoyable party rental experience.</p>
                     </div>
                 </div>

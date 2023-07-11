@@ -24,7 +24,7 @@ export default function RentalTerms() {
             </ul>
 
             <div className='faq-link-container'>
-                <button className='faq-link'><a href='/faq'>FAQ Page</a></button>
+                <button className='faq-link'><a href='/faq/'>FAQ Page</a></button>
             </div>
 
         </div>
