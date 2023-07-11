@@ -19,11 +19,7 @@ export default function Navigation() {
 
                 <nav>
                     <ul className={`nav-menu ${mobileMenuOpen ? 'nav-menu-mobile' : ''}`}>
-                        <li>
-                            <a className="navitem" href="/">
-                                Home
-                            </a>
-                        </li>
+
                         <li>
                             <a className="navitem" href="/#about-section">
                                 About
@@ -32,6 +28,11 @@ export default function Navigation() {
                         <li>
                             <a className="navitem" href="/#inventory-component">
                                 Inventory
+                            </a>
+                        </li>
+                        <li>
+                            <a className="navitem" href="/faq">
+                                FAQ
                             </a>
                         </li>
                         <li>
