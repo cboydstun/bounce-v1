@@ -116,7 +116,7 @@ function Page() {
           className={`faq-item ${openIndex === index ? 'open' : ''}`}
           onClick={() => handleClick(index)}
         >
-          <p className='faq-question'>{faq.question}</p>
+          <h2 className='faq-question'>{faq.question}</h2>
           <p className='faq-answer'>{faq.answer}</p>
         </div>
       ))}

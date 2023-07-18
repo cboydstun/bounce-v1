@@ -31,7 +31,7 @@ export default function Navigation() {
                             </a>
                         </li>
                         <li>
-                            <a className="navitem" href="/faq">
+                            <a className="navitem" href="/faq/">
                                 FAQ
                             </a>
                         </li>
