@@ -39,8 +39,8 @@ export default function Inventory() {
                     <div key={item.id} className="item-card">
                         <img src={item.imgUrl} alt={item.name} height={100} width={100} />
                         <h3>{item.name}</h3>
-                        <p>Inluded: {item.size}</p>
-                        <p>Price: ${item.price}</p>
+                        <p>{item.size}</p>
+                        <p>Price: ${item.price} / day</p>
                         <button><a href='#contact-form'>Contact Now</a></button>
                     </div>
                 ))}
