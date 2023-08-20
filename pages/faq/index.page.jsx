@@ -90,12 +90,16 @@ function Page() {
     },
     {
       question: 'What about party supplies?',
-      answer: 'Yes, we have cotton candy machines, popcorn machines, pinatas, and more. Please contact us for more information.'
+      answer: 'Yes, we have cotton candy machines, popcorn machines, snow cone maker and more. Please contact us for more information.'
     },
     {
       question: 'Are tables and chairs available for rental?',
       answer: 'Yes, we offer tables and chairs. Each folding table comes with six folding chairs. Please contact us for more information.'
     },
+    {
+      question: 'Do you offer pony rides or petting zoos?',
+      answer: 'Yes, we are partnered with GIDDY UP PONY PARTIES AND PETTING ZOOS, LLC to offer pony rides and petting zoo experiences!'
+    }
   ];
 
   const handleClick = (index) => {

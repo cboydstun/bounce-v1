@@ -21,6 +21,9 @@ export default function RentalTerms() {
                 <li>
                     No shoes allowed! Jump in with bare or socked feet only. 👟
                 </li>
+                <li>
+                    Pony rides and petting zoo provided by <br /><a className='pony-link' href="https://giddyupponyparties.com/">GIDDY UP PONY PARTIES AND PETTING ZOOS, LLC</a>. 🐴
+                </li>
             </ul>
 
             <div className='faq-link-container'>

@@ -14,7 +14,10 @@ const ContactForm = () => {
         popcornMachine: false,
         cottonCandyMachine: false,
         overnight: false,
-        pinata: false,
+        snowConeMachine: false,
+        pettingZoo: false,
+        ponyRides: false,
+        dj: false,
         message: ''
     });
 
@@ -102,6 +105,10 @@ const ContactForm = () => {
                     popcornMachine: false,
                     cottonCandyMachine: false,
                     overnight: false,
+                    snowConeMachine: false,
+                    pettingZoo: false,
+                    ponyRides: false,
+                    dj: false,
                     message: ''
                 });
                 setAgreeSMS(false);
@@ -143,14 +150,14 @@ const ContactForm = () => {
                             required
                         >
                             <option value="">--Please Select--</option>
-                            <option value="DRY-CastleWSlide">DRY - XL Castle w/ Slide - 25 x 15 - $250</option>
-                            <option value="DRY-Large">DRY - Large Castle - 15 x 15 - $200</option>
-                            <option value="DRY-Medium">DRY - Medium Castle - 13 x 13 - $150</option>
-                            <option value="DRY-Princess">DRY - Princess Castle - 13 x 13 - $150</option>
-                            <option value="WET-Junior">WET - Junior Bounce - 19 x 12 - $150</option>
-                            <option value="WET-Lime">WET - XL Lime Water Slide - 30 x 10 - $250</option>
-                            <option value="WET-Red">WET - XL Red Water Slide - 20 x 15 - $250</option>
-                            <option value="WET-Obstacle">WET - XL Obstacle Course - 40 x 20 - $300</option>
+                            <option value="DRY-CastleWSlide">DRY - XL Castle w/ Slide - 25 x 15 - $300</option>
+                            <option value="DRY-Large">DRY - Large Castle - 15 x 15 - $250</option>
+                            <option value="DRY-Medium">DRY - Medium Castle - 13 x 13 - $200</option>
+                            <option value="DRY-Princess">DRY - Princess Castle - 13 x 13 - $200</option>
+                            <option value="WET-Junior">WET - Junior Bounce - 19 x 12 - $200</option>
+                            <option value="WET-Lime">WET - XL Lime Water Slide - 30 x 10 - $300</option>
+                            <option value="WET-Red">WET - XL Red Water Slide - 20 x 15 - $325</option>
+                            <option value="WET-Obstacle">WET - XL Obstacle Course - 40 x 20 - $350</option>
                         </select>
                     </div>
 
@@ -246,6 +253,54 @@ const ContactForm = () => {
                         </div>
 
                         <div className="form-control">
+                            {/* snow cone machine */}
+                            <label htmlFor="snowConeMachine">🍧 Snow Cone Machine:</label>
+                            <input
+                                type="checkbox"
+                                id="snowConeMachine"
+                                name="snowConeMachine"
+                                checked={formData.snowConeMachine}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="form-control">
+                            {/* petting zoo */}
+                            <label htmlFor="pettingZoo">🐐 Petting Zoo:</label>
+                            <input
+                                type="checkbox"
+                                id="pettingZoo"
+                                name="pettingZoo"
+                                checked={formData.pettingZoo}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="form-control">
+                            {/* pony rides */}
+                            <label htmlFor="ponyRides">🐴 Pony Rides:</label>
+                            <input
+                                type="checkbox"
+                                id="ponyRides"
+                                name="ponyRides"
+                                checked={formData.ponyRides}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="form-control">
+                            {/* dj */}
+                            <label htmlFor="dj">🎧 DJ:</label>
+                            <input
+                                type="checkbox"
+                                id="dj"
+                                name="dj"
+                                checked={formData.dj}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="form-control">
                             {/* overnight */}
                             <label htmlFor="overnight">🌙 Overnight:</label>
                             <input
@@ -256,24 +311,7 @@ const ContactForm = () => {
                                 onChange={handleChange}
                             />
                         </div>
-
-                        <div className="form-control">
-                            {/* pinata */}
-                            <label htmlFor="pinata">🐎  Piñata:</label>
-                            <input
-                                type="checkbox"
-                                id="pinata"
-                                name="pinata"
-                                checked={formData.pinata}
-                                onChange={handleChange}
-                            />
-                        </div>
-
-
                     </div>
-
-
-
 
                     <div className="form-control">
                         <label htmlFor="message">📝 Message:</label>
