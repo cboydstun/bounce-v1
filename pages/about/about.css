@@ -1,0 +1,143 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.about-title {
+  color: rebeccapurple;
+  cursor: pointer;
+  text-align: center;
+}
+
+.about-story-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-story-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  border: 10px solid rebeccapurple;
+}
+
+.about-story-text {
+  text-align: center;
+  padding: 0; /* This adds some space on left and right for small screens */
+}
+
+.about-promise-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.promise-cards {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.promise-card {
+  background-color: #f9f9f9; /* light grey background */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+}
+
+.promise-card h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.about-team-container {
+  width: 100%; /* Take full width of the parent container */
+  max-width: 800px; /* Set a maximum width for readability on larger screens */
+  margin: 0 auto; /* Auto margins on left and right for centering */
+  padding: 20px; /* A bit of spacing around the content */
+  text-align: center; /* Center the text */
+}
+
+/* Heading Styling */
+.about-team-container h3 {
+  font-size: 1.8rem; /* Make the heading a bit larger */
+  color: #333; /* A dark gray color */
+  margin-bottom: 20px; /* Some spacing below the heading */
+}
+
+/* Paragraph Styling */
+.about-team-container p {
+  font-size: 1.2rem; /* Set font-size for readability */
+  line-height: 1.5; /* Good line spacing for readability */
+  color: #555; /* A lighter gray for the text */
+  margin-bottom: 20px; /* Spacing below each paragraph */
+}
+
+/* To remove margin-bottom from the last paragraph in each container to ensure consistent spacing */
+.about-team-container p:last-child {
+  margin-bottom: 0;
+}
+
+.about-container button {
+  background-color: rebeccapurple;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+  animation: pulse 2s infinite;
+  margin: 1rem;
+}
+
+.about-container a {
+  color: white;
+  text-decoration: none;
+}
+
+.about-container button:hover {
+  background-color: #4b2e83;
+}
+
+@media (min-width: 768px) {
+  /* This value can be adjusted based on your design breakpoint */
+  .about-story-container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .about-story-image {
+    flex: 1; /* This ensures image and text sections share available space equally. Adjust if needed. */
+    max-width: 50%; /* Limits the width for larger images */
+    margin-left: 15rem;
+  }
+
+  .about-story-text {
+    flex: 1; /* This ensures image and text sections share available space equally. Adjust if needed. */
+    text-align: left;
+    padding: 0; /* Removes the padding on the left and right for desktop */
+    margin-top: 2rem;
+    margin-right: 15rem;
+  }
+
+  .promise-cards {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .promise-card {
+    flex: 1;
+    text-align: left;
+  }
+}

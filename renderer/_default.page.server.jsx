@@ -6,6 +6,7 @@ import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr'
 import { PageLayout } from './PageLayout'
 
 import HeadWithGtag from '../components/HeadWithGtag'
+import { page } from '@brillout/test-e2e'
 
 async function render(pageContext) {
   const { Page } = pageContext;
@@ -30,6 +31,10 @@ async function render(pageContext) {
     // FAQ page specific head elements
     pageTitle = "SATX Bounce House & Inflatable Rentals - FAQ";
     pageDescription = "Find answers to frequently asked questions about SATX Bounce House & Inflatable Rentals in San Antonio, TX. Learn about our services, rentals, and more.";
+  } else if (pageContext.urlPathname === "/about/") {
+    // About page specific head elements
+    pageTitle = "SATX Bounce House & Inflatable Rentals - About Us";
+    pageDescription = "Learn about SATX Bounce House & Inflatable Rentals in San Antonio, TX. Read about our story, our promise, and why you should choose us for your next event.";
   }
 
   return escapeInject`<!DOCTYPE html>

@@ -21,7 +21,7 @@ export default function Navigation() {
                     <ul className={`nav-menu ${mobileMenuOpen ? 'nav-menu-mobile' : ''}`}>
 
                         <li>
-                            <a className="navitem" href="/#about-section">
+                            <a className="navitem" href="/about/">
                                 About
                             </a>
                         </li>
