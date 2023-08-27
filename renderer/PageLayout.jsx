@@ -9,7 +9,7 @@ function PageLayout({ children }) {
   return (
     <React.StrictMode>
       <div className="App">
-        <TopBanner text="Get 25% off our entire inventory for LABOR DAY - September 4th, 2023! While inventory lasts!" />
+        <TopBanner text="Hurry! Get 25% off our entire inventory for LABOR DAY - September 4th, 2023! Only while supplies last!" />
         <Navigation />
         {children}
         <Bottom />
