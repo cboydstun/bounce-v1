@@ -6,7 +6,6 @@ import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr'
 import { PageLayout } from './PageLayout'
 
 import HeadWithGtag from '../components/HeadWithGtag'
-import { page } from '@brillout/test-e2e'
 
 async function render(pageContext) {
   const { Page } = pageContext;
@@ -65,7 +64,7 @@ async function render(pageContext) {
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
+        <link rel="manifest" href="/site.webmanifest">
         <link rel="sitemap" type="application/xml" href="sitemap.xml" />
         ${headWithGtagHtml}
         <title>${pageTitle}</title>

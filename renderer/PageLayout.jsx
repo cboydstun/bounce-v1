@@ -1,3 +1,14 @@
+/**
+ * PageLayout component renders the common page wrapper and layout.
+ * 
+ * @component
+ * 
+ * @param {Object} props - Component props
+ * @param {ReactNode} props.children - Child components to render inside the page layout
+ * 
+ * @returns {ReactComponent} React component
+ */
+
 import React from 'react'
 
 import './PageLayout.css'
