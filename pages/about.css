@@ -133,11 +133,26 @@
 
   .promise-cards {
     flex-direction: row;
-    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .promise-card {
-    flex: 1;
-    text-align: left;
+    flex-basis: calc(
+      50% - 10px
+    ); /* subtract half the gap to ensure proper spacing */
+  }
+
+  .promise-card {
+    background-color: #f9f9f9; /* light grey background */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    max-width: 400px;
+  }
+
+  .promise-card h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
   }
 }
