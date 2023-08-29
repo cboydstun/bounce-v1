@@ -20,21 +20,18 @@ const PETTING_ZOO = "/satx-bounce-house-rental-san-antonio-petting-zoo.png"
 
 export default function Inventory() {
     const items = [
-        { id: 1, name: 'DRY - XL Castle w Slide', size: '25 x 15', price: 300, imgUrl: DRY_XL },
-        { id: 2, name: 'DRY - Large Castle', size: '15 x 15', price: 250, imgUrl: DRY_LARGE },
-        { id: 3, name: 'DRY - Princess Castle', size: '14 x 14', price: 200, imgUrl: DRY_PRINCESS },
-        { id: 4, name: 'DRY - Medium Castle', size: '13 x 13', price: 200, imgUrl: DRY_MED },
-        { id: 5, name: 'WET - Junior Bounce', size: '19 x 12', price: 200, imgUrl: WET_MED },
-        { id: 6, name: 'WET - XL Lime Water Slide', size: '30 x 10', price: 300, imgUrl: WET_XL },
-        { id: 7, name: 'WET - XL Red Water Slide', size: '20 x 15', price: 325, imgUrl: WET_RED_SLIDE },
-        { id: 8, name: 'WET - XL Obstacle Course', size: '40 x 20', price: 350, imgUrl: OBSTACLE_COURSE },
+        { id: 1, name: 'DRY - XL Castle w Slide', size: '25 x 15', price: 200, imgUrl: DRY_XL },
+        { id: 2, name: 'DRY - Large Castle', size: '15 x 15', price: 150, imgUrl: DRY_LARGE },
+        { id: 3, name: 'DRY - Princess Castle', size: '14 x 14', price: 150, imgUrl: DRY_PRINCESS },
+        { id: 4, name: 'DRY - Medium Castle', size: '13 x 13', price: 150, imgUrl: DRY_MED },
+        { id: 5, name: 'WET - Junior Bounce', size: '19 x 12', price: 150, imgUrl: WET_MED },
+        { id: 6, name: 'WET - XL Lime Water Slide', size: '30 x 10', price: 200, imgUrl: WET_XL },
+        { id: 7, name: 'WET - XL Red Water Slide', size: '20 x 15', price: 200, imgUrl: WET_RED_SLIDE },
+        { id: 8, name: 'Obstacle Course', size: '40 x 20', price: 200, imgUrl: OBSTACLE_COURSE },
         { id: 9, name: 'Folding Table and Chairs', size: '6 foot table and 6 chairs', price: 20, imgUrl: TABLES_CHAIRS },
         { id: 10, name: 'Popcorn Maker', size: '50 servings', price: 50, imgUrl: POPCORN_MAKER },
         { id: 11, name: 'Cotton Candy Maker', size: '25 servings', price: 50, imgUrl: COTTON_CANDY },
         { id: 12, name: 'Snow Cone Machine', size: '50 servings', price: 50, imgUrl: SNOW_CONE },
-        { id: 13, name: 'Portable Generator', size: '4000W', price: 50, imgUrl: GENERATOR },
-        { id: 14, name: 'Pony Rides', size: '1 hour', price: 200, imgUrl: PONY_RIDES },
-        { id: 15, name: 'Petting Zoo', size: '1 hour', price: 200, imgUrl: PETTING_ZOO },
     ];
 
     return (

@@ -150,14 +150,14 @@ const ContactForm = () => {
                             required
                         >
                             <option value="">--Please Select--</option>
-                            <option value="DRY-CastleWSlide">DRY - XL Castle w/ Slide - 25 x 15 - $300</option>
-                            <option value="DRY-Large">DRY - Large Castle - 15 x 15 - $250</option>
-                            <option value="DRY-Medium">DRY - Medium Castle - 13 x 13 - $200</option>
-                            <option value="DRY-Princess">DRY - Princess Castle - 13 x 13 - $200</option>
-                            <option value="WET-Junior">WET - Junior Bounce - 19 x 12 - $200</option>
-                            <option value="WET-Lime">WET - XL Lime Water Slide - 30 x 10 - $300</option>
-                            <option value="WET-Red">WET - XL Red Water Slide - 20 x 15 - $325</option>
-                            <option value="WET-Obstacle">WET - XL Obstacle Course - 40 x 20 - $350</option>
+                            <option value="DRY-CastleWSlide">DRY - XL Castle w/ Slide - 25 x 15</option>
+                            <option value="DRY-Large">DRY - Large Castle - 15 x 15</option>
+                            <option value="DRY-Medium">DRY - Medium Castle - 13 x 13</option>
+                            <option value="DRY-Princess">DRY - Princess Castle - 13 x 13</option>
+                            <option value="WET-Junior">WET - Junior Bounce - 19 x 12</option>
+                            <option value="WET-Lime">WET - XL Lime Water Slide - 30 x 10</option>
+                            <option value="WET-Red">WET - XL Red Water Slide - 20 x 15</option>
+                            <option value="WET-Obstacle">WET - XL Obstacle Course - 40 x 20</option>
                         </select>
                     </div>
 
