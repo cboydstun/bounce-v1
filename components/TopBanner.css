@@ -1,5 +1,5 @@
 .banner {
-  background-color: #9966CC;
+  background-color: #9966cc;
   padding: 10px 0;
   position: fixed;
   top: 0;
@@ -12,17 +12,33 @@
 .scrolling-text {
   display: inline-block;
   white-space: nowrap;
-  padding-left: 50%;
   font-size: 1.5rem;
   color: white;
-  animation: scrollText 12s linear infinite;
+  animation: scrollTextDesktop 6s linear infinite;
 }
 
-@keyframes scrollText {
+@keyframes scrollTextDesktop {
   from {
     transform: translateX(100%);
   }
   to {
     transform: translateX(-100%);
+  }
+}
+
+/* Adjust scrolling speed for mobile devices */
+@media (max-width: 768px) {
+  .scrolling-text {
+    padding-left: 0%;
+    animation: scrollTextMobile 6s linear infinite;
+  }
+
+  @keyframes scrollTextMobile {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 }
