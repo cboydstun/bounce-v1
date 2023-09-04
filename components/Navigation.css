@@ -5,7 +5,7 @@
   background-color: rebeccapurple;
   height: 60px;
   position: sticky;
-  top: 40px;
+  top: 0px;
   z-index: 100;
   font-size: 2rem;
 }
