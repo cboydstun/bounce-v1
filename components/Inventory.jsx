@@ -33,7 +33,7 @@ export default function Inventory() {
         { id: 12, name: 'DRY - Balloon Combo', size: '20 x 15', price: 274.95, imgUrl: BALLOON_COMBO },
         { id: 13, name: 'DRY - Basketball Shoot', size: '10 x 8', price: 149.95, imgUrl: BASKETBALL_SHOOT },
         { id: 14, name: 'DRY - Mini Bounce', size: '10 x 10', price: 174.95, imgUrl: MINI_BOUNCE },
-        { id: 15, name: 'Tables and Chairs', size: '1 table / 6 chairs', price: 20, imgUrl: TABLES_CHAIRS },
+        { id: 15, name: 'Tables and Chairs', size: '1 table / 6 chairs', price: 19.95, imgUrl: TABLES_CHAIRS },
     ];
 
     return (
