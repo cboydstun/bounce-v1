@@ -2,6 +2,21 @@ import React, { useState } from 'react';
 
 import './ContactForm.css';
 
+const DRY_XL = "../satx-bounce-house-rental-san-antonio-dry-xl.jpg"
+const DRY_LARGE = "../satx-bounce-house-rental-san-antonio-dry-large.jpg"
+const DRY_MED = "../satx-bounce-house-rental-san-antonio-dry-med.jpg"
+const WET_LIME = "../satx-bounce-house-rental-san-antonio-wet-xl.jpg"
+const JUNIOR_BOUNCE = "../satx-bounce-house-rental-san-antonio-junior-bounce.jpg"
+const JUNIOR_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-junior-waterslide.jpg"
+const WET_RED_SLIDE = "../satx-bounce-house-rental-san-antonio-wet-xl-red.jpg"
+const OBSTACLE_COURSE = "../satx-bounce-house-rental-san-antonio-obstacle-course-2.jpg"
+const ARCH_CASTLE = "../satx-bounce-house-rental-san-antonio-arch-castle.png"
+const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.png"
+const BALLOON_BOUNCE = "../satx-bounce-house-rental-san-antonio-balloon-bounce.png"
+const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.png"
+const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.png"
+const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.png"
+
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         bouncer: '',
@@ -35,36 +50,57 @@ const ContactForm = () => {
         if (name === 'bouncer') {
             switch (value) {
                 case 'DRY-CastleWSlide':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-xl.jpg');
+                    setBouncerImage(DRY_XL);
                     break;
                 case 'DRY-Large':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-large.jpg');
+                    setBouncerImage(DRY_LARGE);
                     break;
                 case 'DRY-Medium':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-med.jpg');
+                    setBouncerImage(DRY_MED);
                     break;
-                case 'DRY-Princess':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-dry-princess.jpg');
+                case 'DRY-JuniorBounce':
+                    setBouncerImage(JUNIOR_BOUNCE);
                     break;
-                case 'WET-Junior':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-med.jpg');
+                case 'WET-JuniorWaterslide':
+                    setBouncerImage(JUNIOR_WATERSLIDE);
                     break;
                 case 'WET-Lime':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl.jpg');
+                    setBouncerImage(WET_LIME);
                     break;
                 case 'WET-Red':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-wet-xl-red.jpg');
+                    setBouncerImage(WET_RED_SLIDE);
                     break;
-                case 'WET-Obstacle':
-                    setBouncerImage('./satx-bounce-house-rental-san-antonio-obstacle-course.jpg');
+                case 'OBSTACLE-Course':
+                    setBouncerImage(OBSTACLE_COURSE);
                     break;
-
+                case 'ARCH-Castle':
+                    setBouncerImage(ARCH_CASTLE);
+                    break;
+                case 'PINK-Bounce':
+                    setBouncerImage(PINK_BOUNCE);
+                    break;
+                case 'BALLOON-Bounce':
+                    setBouncerImage(BALLOON_BOUNCE);
+                    break;
+                case 'BALLOON-Combo':
+                    setBouncerImage(BALLOON_COMBO);
+                    break;
+                case 'BASKETBALL-Shoot':
+                    setBouncerImage(BASKETBALL_SHOOT);
+                    break;
+                case 'MINI-Bounce':
+                    setBouncerImage(MINI_BOUNCE);
+                    break;
                 default:
                     setBouncerImage('');
                     break;
             }
         }
     };
+
+
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -150,14 +186,22 @@ const ContactForm = () => {
                             required
                         >
                             <option value="">--Please Select--</option>
-                            <option value="DRY-CastleWSlide">DRY - XL Castle w/ Slide - 25 x 15</option>
+                            <option value="DRY-CastleWSlide">DRY - Castle w/ Slide - 25 x 15</option>
                             <option value="DRY-Large">DRY - Large Castle - 15 x 15</option>
                             <option value="DRY-Medium">DRY - Medium Castle - 13 x 13</option>
-                            <option value="DRY-Princess">DRY - Princess Castle - 13 x 13</option>
-                            <option value="WET-Junior">WET - Junior Bounce - 19 x 12</option>
-                            <option value="WET-Lime">WET - XL Lime Water Slide - 30 x 10</option>
-                            <option value="WET-Red">WET - XL Red Water Slide - 20 x 15</option>
-                            <option value="WET-Obstacle">WET - XL Obstacle Course - 40 x 20</option>
+                            <option value="DRY-JuniorBounce">DRY - Junior Bounce - 19 x 12</option>
+                            <option value="WET-JuniorWaterslide">WET - Junior Waterslide - 16 x 8</option>
+                            <option value="WET-Lime">WET - Lime Water Slide - 30 x 10</option>
+                            <option value="WET-Red">WET - Red Water Slide - 20 x 15</option>
+                            <option value="OBSTACLE-Course">WET - Obstacle Course - 40 x 20</option>
+                            <option value="ARCH-Castle">DRY - Arch Castle - 14 x 14</option>
+                            <option value="PINK-Bounce">DRY - Pink Castle - 14 x 14</option>
+                            <option value="BALLOON-Bounce">DRY - Balloon Bounce - 15 x 15</option>
+                            <option value="BALLOON-Combo">DRY - Balloon Combo - 20 x 15</option>
+                            <option value="BASKETBALL-Shoot">DRY - Basketball Shoot - 10 x 8</option>
+                            <option value="MINI-Bounce">DRY - Mini Bounce - 10 x 10</option>
+
+
                         </select>
                     </div>
 
