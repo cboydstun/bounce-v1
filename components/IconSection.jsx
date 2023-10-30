@@ -12,6 +12,7 @@ export default function IconSection() {
                         <i className="fas fa-truck truck-moves"></i>
                         <h3>Professional and Timely Bounce House Rentals</h3>
                         <p>At SATX Bounce House Rentals, we prioritize exceptional customer service and a fantastic inflatable experience. We specialize in providing great bounce houses, wet and dry slides, combo units, and inflatables for parties in San Antonio. Our dedicated team understands that your time is precious, so we ensure prompt delivery and efficient setup for every rental.</p>
+                        <button><a href='/about/'>About Us</a></button>
                         <p>When you choose our party service, we are committed to offering the highest level of customer satisfaction. From the moment you book with us, you can expect a seamless and enjoyable experience with our water slides, bounce houses, or both! Our goal is to make your event memorable and fun with our wide range of wet inflatables, dry inflatables, and bounce houses.</p>
                     </div>
 
