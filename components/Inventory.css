@@ -10,6 +10,30 @@
   color: white;
 }
 
+.inventory-component button {
+  background-color: #ffcc00; /* A bright, contrasting color */
+  color: black; /* Black text for readability */
+  padding: 10px 15px; /* Padding around the text */
+  border: 2px solid black; /* Solid black border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+  font-size: 1em; /* Font size */
+  font-weight: bold; /* Bold text */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.inventory-component button:hover {
+  background-color: #ffd633; /* A slightly lighter shade on hover */
+  color: #333; /* Darker text color for contrast */
+  border-color: #333; /* Darker border color */
+}
+
+.inventory-component button:active {
+  background-color: #ffb900; /* An even lighter shade when clicked */
+  box-shadow: 0 3px #666; /* Add a shadow to make it look like the button is pressed */
+  transform: translateY(2px); /* Slightly shift the button down */
+}
+
 .inventory-grid {
   display: flex;
   flex-wrap: wrap;
@@ -36,12 +60,17 @@
 }
 
 .item-card p {
-  font-size: 14px;
+  font-size: 1rem;
   color: #333;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
 .item-card button {
-  display: block;
+  display: inline-block;
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -53,14 +82,49 @@
   cursor: pointer;
 }
 
+.item-card button:hover {
+  background-color: rebeccapurple;
+  color: black;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(2px);
+  box-shadow: 0 3px #666;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.item-card button:active {
+  background-color: #ffb900;
+  box-shadow: 0 3px #666;
+  transform: translateY(2px);
+  font-weight: bold;
+}
+
+
 @media (max-width: 768px) {
   .item-card {
     flex: 0 0 calc(50% - 20px);
+  }
+
+  /* Center the button */
+  .inventory-component button {
+    display: inline-block; /* Make the button a block element */
+    margin: 0 auto; /* Auto margin on both sides to center */
+    width: fit-content; /* Button width according to content */
   }
 }
 
 @media (max-width: 480px) {
   .item-card {
     flex: 0 0 100%;
+  }
+
+  /* Center the button (rules are the same as above, but included for clarity) */
+  .inventory-component button {
+    display: inline-block; /* Make the button a block element */
+    margin: 0 auto; /* Auto margin on both sides to center */
+    width: fit-content; /* Button width according to content */
   }
 }

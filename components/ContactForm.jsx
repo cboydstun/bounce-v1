@@ -11,11 +11,11 @@ const JUNIOR_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-junior-waters
 const WET_RED_SLIDE = "../satx-bounce-house-rental-san-antonio-wet-xl-red.jpg"
 const OBSTACLE_COURSE = "../satx-bounce-house-rental-san-antonio-obstacle-course-2.jpg"
 const ARCH_CASTLE = "../satx-bounce-house-rental-san-antonio-arch-castle.png"
-const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.png"
+const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.jpg"
 const BALLOON_BOUNCE = "../satx-bounce-house-rental-san-antonio-balloon-bounce.png"
 const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.png"
 const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.png"
-const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.png"
+const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -186,20 +186,20 @@ const ContactForm = () => {
                             required
                         >
                             <option value="">--Please Select--</option>
-                            <option value="DRY-CastleWSlide">DRY - Castle w/ Slide - 25 x 15</option>
-                            <option value="DRY-Large">DRY - Large Castle - 15 x 15</option>
-                            <option value="DRY-Medium">DRY - Medium Castle - 13 x 13</option>
-                            <option value="DRY-JuniorBounce">DRY - Junior Bounce - 19 x 12</option>
-                            <option value="WET-JuniorWaterslide">WET - Junior Waterslide - 16 x 8</option>
-                            <option value="WET-Lime">WET - Lime Water Slide - 30 x 10</option>
-                            <option value="WET-Red">WET - Red Water Slide - 20 x 15</option>
-                            <option value="OBSTACLE-Course">WET - Obstacle Course - 40 x 20</option>
-                            <option value="ARCH-Castle">DRY - Arch Castle - 14 x 14</option>
-                            <option value="PINK-Bounce">DRY - Pink Castle - 14 x 14</option>
-                            <option value="BALLOON-Bounce">DRY - Balloon Bounce - 15 x 15</option>
-                            <option value="BALLOON-Combo">DRY - Balloon Combo - 20 x 15</option>
-                            <option value="BASKETBALL-Shoot">DRY - Basketball Shoot - 10 x 8</option>
-                            <option value="MINI-Bounce">DRY - Mini Bounce - 10 x 10</option>
+                            <option value="DRY-CastleWSlide">Castle w/ Slide - 25 x 15</option>
+                            <option value="DRY-Large">Large Castle - 15 x 15</option>
+                            <option value="DRY-Medium">Medium Castle - 13 x 13</option>
+                            <option value="DRY-JuniorBounce">Junior Bounce - 19 x 12</option>
+                            <option value="WET-JuniorWaterslide">Junior Waterslide - 16 x 8</option>
+                            <option value="WET-Lime">Lime Water Slide - 30 x 10</option>
+                            <option value="WET-Red">Red Water Slide - 20 x 15</option>
+                            <option value="OBSTACLE-Course">Obstacle Course - 40 x 20</option>
+                            <option value="ARCH-Castle">Arch Castle - 15 x 15</option>
+                            <option value="PINK-Bounce">Pink Castle - 15 x 15</option>
+                            <option value="BALLOON-Bounce">Balloon Bounce - 15 x 15</option>
+                            <option value="BALLOON-Combo">Balloon w/ Slide - 20 x 15</option>
+                            <option value="BASKETBALL-Shoot">Basketball Shoot - 8 x 6</option>
+                            <option value="MINI-Bounce">Mini Bounce - 6 x 6</option>
 
 
                         </select>
