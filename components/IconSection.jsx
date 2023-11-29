@@ -4,7 +4,7 @@ import './IconSection.css'
 
 export default function IconSection() {
     return (
-        <div className='icon-component'>
+        <div id="why-us" className='icon-component'>
             <div className='icon-section'>
                 <h2>Why Choose Us?</h2>
                 <div className="icon-container">

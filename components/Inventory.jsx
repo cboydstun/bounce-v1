@@ -22,28 +22,32 @@ export default function Inventory() {
     const [filter, setFilter] = useState('DRY');
 
     const items = [
-        { id: 1, name: 'Castle with Slide', size: '25 x 15', price: 249.95, tag: "DRY", imgUrl: DRY_XL },
-        { id: 2, name: 'Large Castle', size: '15 x 15', price: 224.95, tag: "DRY", imgUrl: DRY_LARGE },
-        { id: 3, name: 'Medium Castle', size: '13 x 13', price: 199.95, tag: "DRY", imgUrl: DRY_MED },
-        { id: 4, name: 'Junior Bounce', size: '19 x 12', price: 149.95, tag: "DRY", imgUrl: JUNIOR_BOUNCE },
-        { id: 5, name: 'Junior Waterslide', size: '16 x 8', price: 149.95, tag: "WET", imgUrl: JUNIOR_WATERSLIDE },
-        { id: 6, name: 'Lime Water Slide', size: '30 x 10', price: 224.95, tag: "WET", imgUrl: WET_XL },
-        { id: 7, name: 'Red Water Slide', size: '20 x 15', price: 274.95, tag: "WET", imgUrl: WET_RED_SLIDE },
-        { id: 8, name: 'Obstacle Course', size: '40 x 20', price: 299.95, tag: "DRY", imgUrl: OBSTACLE_COURSE },
-        { id: 9, name: 'Arch Bounce', size: '15 x 15', price: 224.95, tag: "DRY", imgUrl: ARCH_CASTLE },
-        { id: 10, name: 'Pink Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: PINK_BOUNCE },
-        { id: 11, name: 'Balloon Bounce', size: '15 x 15', price: 224.95, tag: "DRY", imgUrl: BALLOON_BOUNCE },
-        { id: 12, name: 'Balloon with Slide', size: '20 x 15', price: 249.95, tag: "DRY", imgUrl: BALLOON_COMBO },
-        { id: 13, name: 'Basketball Shoot', size: '8 x 6', price: 124.95, tag: "DRY", imgUrl: BASKETBALL_SHOOT },
-        { id: 14, name: 'Mini Bounce', size: '6 x 6', price: 124.95, tag: "DRY", imgUrl: MINI_BOUNCE },
-        { id: 15, name: 'Tables and Chairs', size: '1 table / 6 chairs', tag: "DRY", price: 19.95, imgUrl: TABLES_CHAIRS },
+        { id: 1, name: 'Castle with Slide', size: '25 x 15', price: 249.95, tag: "DRY", imgUrl: DRY_XL, url: "/rentals/castle-with-slide" },
+        { id: 2, name: 'Large Castle', size: '15 x 15', price: 224.95, tag: "DRY", imgUrl: DRY_LARGE, url: "/rentals/large-castle" },
+        { id: 3, name: 'Medium Castle', size: '13 x 13', price: 199.95, tag: "DRY", imgUrl: DRY_MED, url: "/rentals/medium-castle" },
+        { id: 4, name: 'Junior Bounce', size: '19 x 12', price: 149.95, tag: ["DRY", "WET"], imgUrl: JUNIOR_BOUNCE, url: "/rentals/junior-bounce" },
+        { id: 5, name: 'Junior Waterslide', size: '16 x 8', price: 149.95, tag: "WET", imgUrl: JUNIOR_WATERSLIDE, url: "/rentals/junior-waterslide" },
+        { id: 6, name: 'Lime Water Slide', size: '30 x 10', price: 224.95, tag: "WET", imgUrl: WET_XL, url: "/rentals/lime-waterslide" },
+        { id: 7, name: 'Red Water Slide', size: '20 x 15', price: 274.95, tag: "WET", imgUrl: WET_RED_SLIDE, url: "/rentals/red-waterslide" },
+        { id: 8, name: 'Obstacle Course', size: '40 x 20', price: 299.95, tag: ["DRY", "WET"], imgUrl: OBSTACLE_COURSE, url: "/rentals/obstacle-course" },
+        { id: 9, name: 'Arch Bounce', size: '15 x 15', price: 224.95, tag: "DRY", imgUrl: ARCH_CASTLE, url: "/rentals/arch-bounce" },
+        { id: 10, name: 'Pink Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: PINK_BOUNCE, url: "/rentals/pink-bounce" },
+        { id: 11, name: 'Balloon Bounce', size: '15 x 15', price: 224.95, tag: "DRY", imgUrl: BALLOON_BOUNCE, url: "/rentals/balloon-bounce" },
+        { id: 12, name: 'Balloon with Slide', size: '20 x 15', price: 249.95, tag: "DRY", imgUrl: BALLOON_COMBO, url: "/rentals/balloon-with-slide" },
+        { id: 13, name: 'Basketball Shoot', size: '8 x 6', price: 124.95, tag: "DRY", imgUrl: BASKETBALL_SHOOT, url: "/rentals/basketball-shoot" },
+        { id: 14, name: 'Mini Bounce', size: '6 x 6', price: 124.95, tag: ["DRY", "WET"], imgUrl: MINI_BOUNCE, url: "/rentals/mini-bounce" },
+        { id: 15, name: 'Tables and Chairs', size: '1 table / 6 chairs', tag: ["DRY", "WET"], price: 19.95, imgUrl: TABLES_CHAIRS, url: "/rentals/tables-chairs" },
     ];
 
     const sortedAndFilteredItems = useMemo(() => {
-        // First, filter the items
-        let filteredItems = filter === 'ALL' ? items : items.filter(item => item.tag === filter);
+        let filteredItems = items;
 
-        // Then, sort the filtered items by price
+        // Filter items that contain the selected tag
+        if (filter !== 'ALL') {
+            filteredItems = items.filter(item => item.tag.includes(filter));
+        }
+
+        // Sort the filtered items by price
         return filteredItems.sort((a, b) => sortAscending ? a.price - b.price : b.price - a.price);
     }, [sortAscending, items, filter]);
 
@@ -59,10 +63,9 @@ export default function Inventory() {
         <div className="inventory-component" id='inventory-component'>
             <h2>Our Inventory</h2>
             <div className='button-container'>
-
-            <button onClick={toggleSortOrder}>
-                Sort by Price: {sortAscending ? '↑' : '↓'}
-            </button>
+                <button onClick={toggleSortOrder}>
+                    Sort by Price: {sortAscending ? '↑' : '↓'}
+                </button>
                 <button onClick={() => handleFilterChange('ALL')} className={filter === 'ALL' ? 'active' : ''}>
                     ALL
                 </button>

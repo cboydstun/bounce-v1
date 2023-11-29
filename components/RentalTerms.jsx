@@ -3,7 +3,7 @@ import './RentalTerms.css';
 
 export default function RentalTerms() {
     return (
-        <div className="rental-terms-component">
+        <div id="rental-terms" className="rental-terms-component">
             <h2>🎉 SATX Bounce Rental Terms 🎉</h2>
             <ul className="rental-terms-list">
                 <li>
