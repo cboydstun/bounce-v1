@@ -5,8 +5,6 @@ import React, { useState } from 'react';
 import './faq.css'
 
 function Page() {
-  const [openIndex, setOpenIndex] = useState(null);
-
   const faqs = [
     {
       question: 'Where do you offer bounce house rentals?',
@@ -106,27 +104,17 @@ function Page() {
     }
   ];
 
-  const handleClick = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(null);
-    } else {
-      setOpenIndex(index);
-    }
-  };
-
   return (
     <div className="faq-container">
       <h1>SATX Bounce FAQ - Frequently Asked Questions</h1>
       <p>Find answers to frequently asked questions about SATX Bounce House and Inflatable Rentals. Learn about delivery timings, payment methods, safety guidelines, rental duration, cancellation policies, and more...</p>
       {faqs.map((faq, index) => (
-        <div
-          key={index}
-          className={`faq-item ${openIndex === index ? 'open' : ''}`}
-          onClick={() => handleClick(index)}
-        >
-          <h2 className='faq-question'>{faq.question}</h2>
-          <p className='faq-answer'>{faq.answer}</p>
-        </div>
+        <details key={index} className="faq-item">
+          <summary className="faq-question">{faq.question}</summary>
+          <div>
+            <p>{faq.answer}</p>
+          </div>
+        </details>
       ))}
 
       <button><a href='/#contact-form'>Contact Now</a></button>
