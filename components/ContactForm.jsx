@@ -35,9 +35,7 @@ const ContactForm = () => {
         dj: false,
         message: ''
     });
-
     const [bouncerImage, setBouncerImage] = useState('');
-
     const [agreeSMS, setAgreeSMS] = useState(false);
 
     const handleChange = (e) => {
@@ -97,10 +95,6 @@ const ContactForm = () => {
             }
         }
     };
-
-
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -309,44 +303,8 @@ const ContactForm = () => {
                         </div>
 
                         <div className="form-control">
-                            {/* petting zoo */}
-                            <label htmlFor="pettingZoo">🐐 Petting Zoo:</label>
-                            <input
-                                type="checkbox"
-                                id="pettingZoo"
-                                name="pettingZoo"
-                                checked={formData.pettingZoo}
-                                onChange={handleChange}
-                            />
-                        </div>
-
-                        <div className="form-control">
-                            {/* pony rides */}
-                            <label htmlFor="ponyRides">🐴 Pony Rides:</label>
-                            <input
-                                type="checkbox"
-                                id="ponyRides"
-                                name="ponyRides"
-                                checked={formData.ponyRides}
-                                onChange={handleChange}
-                            />
-                        </div>
-
-                        <div className="form-control">
-                            {/* dj */}
-                            <label htmlFor="dj">🎧 DJ:</label>
-                            <input
-                                type="checkbox"
-                                id="dj"
-                                name="dj"
-                                checked={formData.dj}
-                                onChange={handleChange}
-                            />
-                        </div>
-
-                        <div className="form-control">
                             {/* overnight */}
-                            <label htmlFor="overnight">🌙 Overnight:</label>
+                            <label htmlFor="overnight">🌙 Overnight Rental:</label>
                             <input
                                 type="checkbox"
                                 id="overnight"
