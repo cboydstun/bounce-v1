@@ -13,7 +13,7 @@ const OBSTACLE_COURSE = "../satx-bounce-house-rental-san-antonio-obstacle-course
 const ARCH_CASTLE = "../satx-bounce-house-rental-san-antonio-arch-castle.png"
 const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.jpg"
 const BALLOON_BOUNCE = "../satx-bounce-house-rental-san-antonio-balloon-bounce.png"
-const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.png"
+const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.jpg"
 const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.png"
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 
@@ -191,7 +191,7 @@ const ContactForm = () => {
                             <option value="ARCH-Castle">Arch Castle - 15 x 15</option>
                             <option value="PINK-Bounce">Pink Castle - 15 x 15</option>
                             <option value="BALLOON-Bounce">Balloon Bounce - 15 x 15</option>
-                            <option value="BALLOON-Combo">Balloon w/ Slide - 20 x 15</option>
+                            <option value="BALLOON-Combo">Balloon w/ Slide - 20 x 20</option>
                             <option value="BASKETBALL-Shoot">Basketball Shoot - 8 x 6</option>
                             <option value="MINI-Bounce">Mini Bounce - 6 x 6</option>
 
