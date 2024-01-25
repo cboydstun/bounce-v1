@@ -6,7 +6,7 @@ export default function Hero(props) {
             <div className='hero-container'>
                 <div className='hero-text'>
                     <div className="animated bounce">
-                        <h1 className='hero-title'>SATX Bounce <br /><span style={{fontSize:"x-large"}}>San Antonio Bounce House Rentals and More</span></h1>
+                        <h1 className='hero-title'>SATX Bounce <br /><span style={{ fontSize: "x-large" }}><span className='fade-in-out'>Free Delivery! No Deposit!</span> <br />San Antonio Bounce House Rentals</span></h1>
                     </div>
                     <a href='#contact-form'>
                         <button onClick={() => {

@@ -24,7 +24,7 @@ export default function Inventory() {
     const items = [
         { id: 1, name: 'Castle with Slide', size: '25 x 15', price: 224.95, tag: "DRY", imgUrl: DRY_XL, url: "/rentals/castle-with-slide" },
         { id: 2, name: 'Large Castle', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: DRY_LARGE, url: "/rentals/large-castle" },
-        { id: 3, name: 'Medium Castle', size: '13 x 13', price: 175.95, tag: "DRY", imgUrl: DRY_MED, url: "/rentals/medium-castle" },
+        { id: 3, name: 'Medium Castle', size: '13 x 13', price: 174.95, tag: "DRY", imgUrl: DRY_MED, url: "/rentals/medium-castle" },
         { id: 4, name: 'Junior Bounce', size: '19 x 12', price: 149.95, tag: ["DRY", "WET"], imgUrl: JUNIOR_BOUNCE, url: "/rentals/junior-bounce" },
         { id: 5, name: 'Junior Waterslide', size: '16 x 8', price: 149.95, tag: "WET", imgUrl: JUNIOR_WATERSLIDE, url: "/rentals/junior-waterslide" },
         { id: 6, name: 'Lime Water Slide', size: '30 x 10', price: 224.95, tag: "WET", imgUrl: WET_XL, url: "/rentals/lime-waterslide" },
