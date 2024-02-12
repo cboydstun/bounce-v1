@@ -187,7 +187,6 @@ const ContactForm = () => {
                             <option value="WET-JuniorWaterslide">Junior Waterslide - 16 x 8</option>
                             <option value="WET-Lime">Lime Water Slide - 30 x 10</option>
                             <option value="WET-Red">Red Water Slide - 20 x 15</option>
-                            <option value="OBSTACLE-Course">Obstacle Course - 40 x 20</option>
                             <option value="ARCH-Castle">Arch Castle - 15 x 15</option>
                             <option value="PINK-Bounce">Pink Castle - 15 x 15</option>
                             <option value="BALLOON-Bounce">Balloon Bounce - 15 x 15</option>

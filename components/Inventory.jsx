@@ -29,7 +29,6 @@ export default function Inventory() {
         { id: 5, name: 'Junior Waterslide', size: '16 x 8', price: 149.95, tag: "WET", imgUrl: JUNIOR_WATERSLIDE, url: "/rentals/junior-waterslide" },
         { id: 6, name: 'Lime Water Slide', size: '30 x 10', price: 224.95, tag: "WET", imgUrl: WET_XL, url: "/rentals/lime-waterslide" },
         { id: 7, name: 'Red Water Slide', size: '20 x 15', price: 274.95, tag: "WET", imgUrl: WET_RED_SLIDE, url: "/rentals/red-waterslide" },
-        { id: 8, name: 'Obstacle Course', size: '40 x 20', price: 249.95, tag: ["DRY", "WET"], imgUrl: OBSTACLE_COURSE, url: "/rentals/obstacle-course" },
         { id: 9, name: 'Arch Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: ARCH_CASTLE, url: "/rentals/arch-bounce" },
         { id: 10, name: 'Pink Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: PINK_BOUNCE, url: "/rentals/pink-bounce" },
         { id: 11, name: 'Balloon Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: BALLOON_BOUNCE, url: "/rentals/balloon-bounce" },
