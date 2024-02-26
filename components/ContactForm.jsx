@@ -10,9 +10,10 @@ const JUNIOR_BOUNCE = "../satx-bounce-house-rental-san-antonio-junior-bounce.jpg
 const JUNIOR_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-junior-waterslide.jpg"
 const WET_RED_SLIDE = "../satx-bounce-house-rental-san-antonio-wet-xl-red.jpg"
 const OBSTACLE_COURSE = "../satx-bounce-house-rental-san-antonio-obstacle-course-2.jpg"
-const ARCH_CASTLE = "../satx-bounce-house-rental-san-antonio-arch-castle.png"
+const ARCH_CASTLE = "../satx-bounce-house-rental-san-antonio-arch-castle.jpg"
 const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.jpg"
 const BALLOON_BOUNCE = "../satx-bounce-house-rental-san-antonio-balloon-bounce.png"
+const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.png"
 const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.jpg"
 const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.png"
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
@@ -68,8 +69,8 @@ const ContactForm = () => {
                 case 'WET-Red':
                     setBouncerImage(WET_RED_SLIDE);
                     break;
-                case 'OBSTACLE-Course':
-                    setBouncerImage(OBSTACLE_COURSE);
+                case 'WHITE-Bounce':
+                    setBouncerImage(WHITE_BOUNCE);
                     break;
                 case 'ARCH-Castle':
                     setBouncerImage(ARCH_CASTLE);
@@ -185,6 +186,7 @@ const ContactForm = () => {
                             <option value="DRY-Medium">Medium Castle - 13 x 13</option>
                             <option value="DRY-JuniorBounce">Junior Bounce - 19 x 12</option>
                             <option value="WET-JuniorWaterslide">Junior Waterslide - 16 x 8</option>
+                            <option value="WHITE-Bounce">White Bouncer w/ Ball Pit - 12 x 10</option>
                             <option value="WET-Lime">Lime Water Slide - 30 x 10</option>
                             <option value="WET-Red">Red Water Slide - 20 x 15</option>
                             <option value="ARCH-Castle">Arch Castle - 15 x 15</option>
