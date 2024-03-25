@@ -9,7 +9,6 @@ const WET_LIME = "../satx-bounce-house-rental-san-antonio-wet-xl.jpg"
 const JUNIOR_BOUNCE = "../satx-bounce-house-rental-san-antonio-junior-bounce.jpg"
 const JUNIOR_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-junior-waterslide.jpg"
 const WET_RED_SLIDE = "../satx-bounce-house-rental-san-antonio-wet-xl-red.jpg"
-const OBSTACLE_COURSE = "../satx-bounce-house-rental-san-antonio-obstacle-course-2.jpg"
 const ARCH_CASTLE = "../satx-bounce-house-rental-san-antonio-arch-castle.jpg"
 const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.jpg"
 const BALLOON_BOUNCE = "../satx-bounce-house-rental-san-antonio-balloon-bounce.png"
@@ -17,6 +16,7 @@ const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.png"
 const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.jpg"
 const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.png"
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
+const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -89,6 +89,9 @@ const ContactForm = () => {
                     break;
                 case 'MINI-Bounce':
                     setBouncerImage(MINI_BOUNCE);
+                    break;
+                case 'WET-Blue':
+                    setBouncerImage(BLUE_WATERSLIDE);
                     break;
                 default:
                     setBouncerImage('');
@@ -187,8 +190,9 @@ const ContactForm = () => {
                             <option value="DRY-JuniorBounce">Junior Bounce - 19 x 12</option>
                             <option value="WET-JuniorWaterslide">Junior Waterslide - 16 x 8</option>
                             <option value="WHITE-Bounce">White Bouncer w/ Ball Pit - 12 x 10</option>
-                            <option value="WET-Lime">Lime Water Slide - 30 x 10</option>
-                            <option value="WET-Red">Red Water Slide - 20 x 15</option>
+                            <option value="WET-Red">Red Water Slide - 30 x 20</option>
+                            <option value="WET-Lime">Lime Water Slide - 25 x 15</option>
+                            <option value="WET-Blue">Blue Water Slide - 20 x 10</option>
                             <option value="ARCH-Castle">Arch Castle - 15 x 15</option>
                             <option value="PINK-Bounce">Pink Castle - 15 x 15</option>
                             <option value="BALLOON-Bounce">Balloon Bounce - 15 x 15</option>

@@ -16,6 +16,7 @@ const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-sho
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs.jpg"
 const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.png"
+const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
 
 export default function Inventory() {
     const [sortAscending, setSortAscending] = useState(false);
@@ -27,8 +28,8 @@ export default function Inventory() {
         { id: 3, name: 'Medium Castle', size: '13 x 13', price: 149.95, tag: "DRY", imgUrl: DRY_MED, url: "/rentals/medium-castle" },
         { id: 4, name: 'Junior Bounce', size: '19 x 12', price: 149.95, tag: ["DRY", "WET"], imgUrl: JUNIOR_BOUNCE, url: "/rentals/junior-bounce" },
         { id: 5, name: 'Junior Waterslide', size: '16 x 8', price: 149.95, tag: "WET", imgUrl: JUNIOR_WATERSLIDE, url: "/rentals/junior-waterslide" },
-        { id: 6, name: 'Lime Water Slide', size: '30 x 10', price: 224.95, tag: "WET", imgUrl: WET_XL, url: "/rentals/lime-waterslide" },
-        { id: 7, name: 'Red Water Slide', size: '20 x 15', price: 249.95, tag: "WET", imgUrl: WET_RED_SLIDE, url: "/rentals/red-waterslide" },
+        { id: 6, name: 'Lime Water Slide', size: '25 x 15', price: 349.95, tag: "WET", imgUrl: WET_XL, url: "/rentals/lime-waterslide" },
+        { id: 7, name: 'TALL Red Water Slide', size: '30 x 20', price: 399.95, tag: "WET", imgUrl: WET_RED_SLIDE, url: "/rentals/red-waterslide" },
         { id: 8, name: 'White Bouncer with Ball Pit', size: '12 x 10', price: 199.95, tag: "DRY", imgUrl: WHITE_BOUNCE, url: "/rentals/white-bouncer" },
         { id: 9, name: 'Arch Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: ARCH_CASTLE, url: "/rentals/arch-bounce" },
         { id: 10, name: 'Pink Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: PINK_BOUNCE, url: "/rentals/pink-bounce" },
@@ -36,7 +37,8 @@ export default function Inventory() {
         { id: 12, name: 'Balloon with Slide', size: '20 x 20', price: 224.95, tag: "DRY", imgUrl: BALLOON_COMBO, url: "/rentals/balloon-with-slide" },
         { id: 13, name: 'Basketball Shoot', size: '8 x 6', price: 49.95, tag: "DRY", imgUrl: BASKETBALL_SHOOT, url: "/rentals/basketball-shoot" },
         { id: 14, name: 'Mini Bounce', size: '6 x 6', price: 49.95, tag: ["DRY", "WET"], imgUrl: MINI_BOUNCE, url: "/rentals/mini-bounce" },
-        { id: 15, name: 'Tables and Chairs', size: '1 table / 6 chairs', tag: ["DRY", "WET"], price: 19.95, imgUrl: TABLES_CHAIRS, url: "/rentals/tables-chairs" },
+        // { id: 15, name: 'Tables and Chairs', size: '1 table / 6 chairs', tag: ["DRY", "WET"], price: 19.95, imgUrl: TABLES_CHAIRS, url: "/rentals/tables-chairs" },
+        { id: 15, name: 'Blue Water Slide', size: '20 x 10', price: 299.95, tag: "WET", imgUrl: BLUE_WATERSLIDE, url: "/rentals/blue-waterslide" },
     ];
 
     const sortedAndFilteredItems = useMemo(() => {
