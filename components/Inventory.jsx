@@ -15,7 +15,7 @@ const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.jpg
 const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.png"
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs.jpg"
-const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.png"
+const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.jpg"
 const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
 
 export default function Inventory() {
@@ -27,10 +27,10 @@ export default function Inventory() {
         { id: 2, name: 'Large Castle', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: DRY_LARGE, url: "/rentals/large-castle" },
         { id: 3, name: 'Medium Castle', size: '13 x 13', price: 149.95, tag: "DRY", imgUrl: DRY_MED, url: "/rentals/medium-castle" },
         { id: 4, name: 'Junior Bounce', size: '19 x 12', price: 149.95, tag: ["DRY", "WET"], imgUrl: JUNIOR_BOUNCE, url: "/rentals/junior-bounce" },
-        { id: 5, name: 'Junior Waterslide', size: '16 x 8', price: 149.95, tag: "WET", imgUrl: JUNIOR_WATERSLIDE, url: "/rentals/junior-waterslide" },
+        // { id: 5, name: 'Junior Waterslide', size: '16 x 8', price: 149.95, tag: "WET", imgUrl: JUNIOR_WATERSLIDE, url: "/rentals/junior-waterslide" },
         { id: 6, name: 'Lime Water Slide', size: '25 x 15', price: 349.95, tag: "WET", imgUrl: WET_XL, url: "/rentals/lime-waterslide" },
         { id: 7, name: 'TALL Red Water Slide', size: '30 x 20', price: 399.95, tag: "WET", imgUrl: WET_RED_SLIDE, url: "/rentals/red-waterslide" },
-        { id: 8, name: 'White Bouncer with Ball Pit', size: '12 x 10', price: 199.95, tag: "DRY", imgUrl: WHITE_BOUNCE, url: "/rentals/white-bouncer" },
+        { id: 8, name: 'White Bouncer', size: '13 x 12', price: 199.95, tag: "DRY", imgUrl: WHITE_BOUNCE, url: "/rentals/white-bouncer" },
         { id: 9, name: 'Arch Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: ARCH_CASTLE, url: "/rentals/arch-bounce" },
         { id: 10, name: 'Pink Bounce', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: PINK_BOUNCE, url: "/rentals/pink-bounce" },
         { id: 11, name: 'Balloon Bounce', size: '15 x 15', price: 174.95, tag: "DRY", imgUrl: BALLOON_BOUNCE, url: "/rentals/balloon-bounce" },
