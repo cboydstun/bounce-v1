@@ -12,7 +12,7 @@ const ARCH_CASTLE = "../satx-bounce-house-rental-san-antonio-arch-castle.jpg"
 const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.jpg"
 const BALLOON_BOUNCE = "../satx-bounce-house-rental-san-antonio-balloon-bounce.png"
 const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.jpg"
-const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.png"
+const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.jpg"
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs.jpg"
 const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.jpg"
@@ -20,7 +20,7 @@ const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.
 
 export default function Inventory() {
     const [sortAscending, setSortAscending] = useState(false);
-    const [filter, setFilter] = useState('DRY');
+    const [filter, setFilter] = useState('ALL');
 
     const items = [
         { id: 1, name: 'Castle with Slide', size: '25 x 15', price: 224.95, tag: "DRY", imgUrl: DRY_XL, url: "/rentals/castle-with-slide" },
@@ -37,8 +37,9 @@ export default function Inventory() {
         { id: 12, name: 'Balloon with Slide', size: '20 x 20', price: 224.95, tag: "DRY", imgUrl: BALLOON_COMBO, url: "/rentals/balloon-with-slide" },
         { id: 13, name: 'Basketball Shoot', size: '8 x 6', price: 99.95, tag: "DRY", imgUrl: BASKETBALL_SHOOT, url: "/rentals/basketball-shoot" },
         { id: 14, name: 'Mini Bounce', size: '6 x 6', price: 99.95, tag: ["DRY", "WET"], imgUrl: MINI_BOUNCE, url: "/rentals/mini-bounce" },
-        // { id: 15, name: 'Tables and Chairs', size: '1 table / 6 chairs', tag: ["DRY", "WET"], price: 19.95, imgUrl: TABLES_CHAIRS, url: "/rentals/tables-chairs" },
         { id: 15, name: 'Blue Water Slide', size: '20 x 10', price: 199.95, tag: "WET", imgUrl: BLUE_WATERSLIDE, url: "/rentals/blue-waterslide" },
+        { id: 16, name: 'Tables and Chairs', size: '1 table / 6 chairs', tag: ["ALL", "DRY", "WET"], price: 19.95, imgUrl: TABLES_CHAIRS, url: "/rentals/tables-chairs" },
+
     ];
 
     const sortedAndFilteredItems = useMemo(() => {

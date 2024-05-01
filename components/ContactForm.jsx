@@ -14,7 +14,7 @@ const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.jpg"
 const BALLOON_BOUNCE = "../satx-bounce-house-rental-san-antonio-balloon-bounce.png"
 const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.jpg"
 const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.jpg"
-const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.png"
+const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.jpg"
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
 
