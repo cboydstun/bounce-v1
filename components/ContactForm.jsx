@@ -39,11 +39,39 @@ const ContactForm = () => {
     const [bouncerImage, setBouncerImage] = useState('');
     const [agreeSMS, setAgreeSMS] = useState(false);
 
+    const formatPhoneNumber = (value) => {
+        if (!value) return value;
+
+        const phoneNumber = value.replace(/[^\d]/g, '');
+
+        const phoneNumberLength = phoneNumber.length;
+
+        if (phoneNumberLength < 4) return phoneNumber;
+
+        if (phoneNumberLength < 7) {
+            return `(${phoneNumber.slice(0, 3)})-${phoneNumber.slice(3)}`;
+        }
+
+        return `(${phoneNumber.slice(0, 3)})-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+    };
+
+    const isValidPhoneNumber = (phoneNumber) => {
+        const cleanedPhoneNumber = phoneNumber.replace(/[^\d]/g, '');
+        return cleanedPhoneNumber.length === 10;
+    };
+
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+        let formattedValue = value;
+
+        if (name === 'phone') {
+            formattedValue = formatPhoneNumber(value);
+        }
+
         setFormData({
             ...formData,
-            [name]: type === 'checkbox' ? checked : value,
+            [name]: type === 'checkbox' ? checked : formattedValue,
         });
 
         if (name === 'bouncer') {
@@ -102,9 +130,16 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         // Check for important data
         if (!formData.bouncer || !formData.email || !formData.partyDate || !formData.partyZipCode) {
             alert('Please fill out at least your favorite bouncer, email, party date, and zip code. Thanks!');
+            return;
+        }
+
+        // Check phone number validity
+        if (!isValidPhoneNumber(formData.phone)) {
+            alert('Please enter a valid 10-digit phone number. Thanks!');
             return;
         }
 
@@ -114,10 +149,11 @@ const ContactForm = () => {
             return;
         }
 
-        const url = `${import.meta.env.VITE_SERVER_URL}/api/v1/contacts`;
+        // API URL
+        const API_URL = `${import.meta.env.VITE_SERVER_URL}/api/v1/contacts`;
 
         try {
-            const response = await fetch(url, {
+            const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -126,8 +162,8 @@ const ContactForm = () => {
             });
 
             if (response.ok) {
-                const jsonResponse = await response.json();
                 // Handle successful form submission (e.g., show success message or clear form)
+                const jsonResponse = await response.json();
                 setFormData({
                     bouncer: '',
                     email: '',
@@ -147,12 +183,12 @@ const ContactForm = () => {
                 });
                 setAgreeSMS(false);
                 setBouncerImage('');
-
+                console.log('Form submission successful:', jsonResponse);
                 alert('Thank you for your submission!');
             } else {
+                // Handle form submission error (e.g., show error message)
                 const errorResponse = await response.json();
                 console.error('Form submission error:', errorResponse);
-                // Handle form submission error (e.g., show error message)
                 alert('There was an error with your submission. Please try again.');
             }
         } catch (error) {
@@ -199,8 +235,6 @@ const ContactForm = () => {
                             <option value="BALLOON-Combo">Balloon w/ Slide - 20 x 20</option>
                             <option value="BASKETBALL-Shoot">Basketball Shoot - 8 x 6</option>
                             <option value="MINI-Bounce">Mini Bounce - 6 x 6</option>
-
-
                         </select>
                     </div>
 
@@ -223,6 +257,7 @@ const ContactForm = () => {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
+                            placeholder="(###)-(###)-(####)"
                         />
                     </div>
 
