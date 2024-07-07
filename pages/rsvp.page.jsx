@@ -93,7 +93,8 @@ function Page() {
     return (
         <div className="rsvp-form-component">
             <div className="rsvp-form-container">
-                <h2>Happy Birthday Ben and Austin!</h2>
+                <h2>Happy Birthday</h2>
+                <h2>Ben and Austin!</h2>
                 <div className="image-slider">
                     <button onClick={prevImage} aria-label="Previous image">&lt;</button>
                     <img src={images[currentImageIndex]} alt={`Event preview ${currentImageIndex + 1}`} />
@@ -108,13 +109,13 @@ function Page() {
                         <li><strong>When:</strong>Sunday, July 14th, 2024</li>
                         <li><strong>Time:</strong>From 3:00 PM to 7:00 PM</li>
                         <li><strong>Provided:</strong> Snacks, drinks, and bounce houses!</li>
-                        <li><strong>What to Bring:</strong>Gifts for the boys and extra seating are optional.</li>
+                        <li><strong>What to Bring:</strong>Gifts for the boys and extra seating are <em>*optional*</em>.</li>
                     </ul>
                     <div className="wishlists">
                         <p>If you'd like to get a gift, here are the boys' wishlists:</p>
                         <ul>
-                            <li><a href="https://www.amazon.com/hz/wishlist/ls/1XHUXIQ5NUQB0?ref=cm_sw_sm_r_un_un_GNk7HzxnHIqT2">Link to Benjamin's Amazon Wishlist</a></li>
-                            <li><a href="https://www.amazon.com/hz/wishlist/ls/5J9648DBSHM0?ref=cm_sw_sm_r_un_un_pgK1jDJv3Ucbx">Link to Austin's Amazon Wishlist</a></li>
+                            <li><a href="https://www.amazon.com/hz/wishlist/ls/1XHUXIQ5NUQB0?ref=cm_sw_sm_r_un_un_GNk7HzxnHIqT2" target="_blank">Link to Benjamin's Amazon Wishlist</a></li>
+                            <li><a href="https://www.amazon.com/hz/wishlist/ls/5J9648DBSHM0?ref=cm_sw_sm_r_un_un_pgK1jDJv3Ucbx" target="_blank">Link to Austin's Amazon Wishlist</a></li>
                         </ul>
                     </div>
                 </div>
