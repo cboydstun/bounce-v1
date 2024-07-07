@@ -112,6 +112,37 @@ h3 {
   font-weight: 600;
 }
 
+.wishlists {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.wishlists p {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.wishlists ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.wishlists li {
+  margin-bottom: 5px;
+}
+
+.wishlists a {
+  color: #ffff00;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.wishlists a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .rsvp-form-container form {
   display: flex;
   justify-content: center;

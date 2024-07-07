@@ -1,14 +1,13 @@
 export { Page }
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './rsvp.css';
 
-const DRY_XL = "../satx-bounce-house-rental-san-antonio-dry-xl.jpg"
-const DRY_LARGE = "../satx-bounce-house-rental-san-antonio-dry-large.jpg"
-const DRY_MED = "../satx-bounce-house-rental-san-antonio-dry-med.jpg"
-const WET_LIME = "../satx-bounce-house-rental-san-antonio-wet-xl.jpg"
-const JUNIOR_BOUNCE = "../satx-bounce-house-rental-san-antonio-junior-bounce.jpg"
+const BEACH = "../beach.jpg"
+const SPLASH_PAD = "../splash_pad.jpg"
+const HAIRCUTS = "../haircuts.jpg"
+const CARRIED = "../carried.jpg"
 
 function Page() {
     const [formData, setFormData] = useState({
@@ -23,12 +22,21 @@ function Page() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const images = [
-        DRY_XL,
-        DRY_LARGE,
-        DRY_MED,
-        WET_LIME,
-        JUNIOR_BOUNCE
+        BEACH,
+        SPLASH_PAD,
+        HAIRCUTS,
+        CARRIED
     ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) =>
+                prevIndex === images.length - 1 ? 0 : prevIndex + 1
+            );
+        }, 5000); // Change image every 5 seconds
+
+        return () => clearInterval(interval); // Clean up the interval on component unmount
+    }, [images.length]);
 
     const nextImage = () => {
         setCurrentImageIndex((prevIndex) =>
@@ -95,13 +103,23 @@ function Page() {
                 <div className="event-details">
                     <h3>Event Information</h3>
                     <ul>
-                        <li><strong>Where:</strong> Central Park, New York City</li>
-                        <li><strong>When:</strong> Saturday, August 15, 2024</li>
-                        <li><strong>Time:</strong> 2:00 PM - 6:00 PM</li>
-                        <li><strong>What to Bring:</strong> A dish to share, lawn chairs or blankets</li>
+                        <li><strong>Where:</strong>Friesenhahn Park, San Antonio, TX</li>
+                        <li><strong>Address:</strong><a href='https://maps.app.goo.gl/ETjhEk8HXgrT1Rj6A'>15701 O'Connor Rd, San Antonio, TX 78247</a></li>
+                        <li><strong>When:</strong>Sunday, July 14th, 2024</li>
+                        <li><strong>Time:</strong>From 3:00 PM to 7:00 PM</li>
+                        <li><strong>Provided:</strong> Snacks, drinks, and bounce houses!</li>
+                        <li><strong>What to Bring:</strong>Gifts for the boys and extra seating are optional.</li>
                     </ul>
+                    <div className="wishlists">
+                        <p>If you'd like to get a gift, here are the boys' wishlists:</p>
+                        <ul>
+                            <li><a href="https://www.amazon.com/hz/wishlist/ls/1XHUXIQ5NUQB0?ref=cm_sw_sm_r_un_un_GNk7HzxnHIqT2">Link to Benjamin's Amazon Wishlist</a></li>
+                            <li><a href="https://www.amazon.com/hz/wishlist/ls/5J9648DBSHM0?ref=cm_sw_sm_r_un_un_pgK1jDJv3Ucbx">Link to Austin's Amazon Wishlist</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <form onSubmit={handleSubmit}>
+                    <h2>Please RSVP!</h2>
                     <div className="form-control">
                         <label htmlFor="name">Name:</label>
                         <input
