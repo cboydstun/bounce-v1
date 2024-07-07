@@ -93,8 +93,7 @@ function Page() {
     return (
         <div className="rsvp-form-component">
             <div className="rsvp-form-container">
-                <h2>Happy Birthday</h2>
-                <h2>Ben and Austin!</h2>
+                <h2 className='page-title'>Happy Birthday Ben and Austin!</h2>
                 <div className="image-slider">
                     <button onClick={prevImage} aria-label="Previous image">&lt;</button>
                     <img src={images[currentImageIndex]} alt={`Event preview ${currentImageIndex + 1}`} />
