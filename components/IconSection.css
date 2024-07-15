@@ -1,3 +1,50 @@
+.icon-section__reviews {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: #f0e6ff; /* Light purple background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon-section__reviews i {
+  font-size: 4rem;
+  color: gold;
+  margin-bottom: 1rem;
+}
+
+.icon-section__reviews h3 {
+  color: rebeccapurple;
+  margin-bottom: 1rem;
+}
+
+.icon-section__reviews p {
+  margin-bottom: 1.5rem;
+}
+
+.icon-section__reviews button {
+  background-color: rebeccapurple;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+  animation: pulse 2s infinite;
+}
+
+.icon-section__reviews button:hover {
+  background-color: #4b2e83;
+}
+
+.icon-section__reviews a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .icon-section__icon {
   text-align: center;
   margin-bottom: 2rem;
@@ -99,4 +146,34 @@
 
 .icon-container button:hover {
   background-color: #4b2e83;
+}
+
+/* Star animation */
+.star-pulse {
+  animation: star-pulse 2s infinite;
+}
+
+@keyframes star-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Existing pulse animation for buttons */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

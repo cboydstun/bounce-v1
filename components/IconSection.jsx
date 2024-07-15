@@ -7,6 +7,11 @@ export default function IconSection() {
         <div id="why-us" className='icon-component'>
             <div className='icon-section'>
                 <h2>Why Choose Us?</h2>
+                <div className="icon-section__reviews">
+                    <h3>⭐⭐⭐⭐⭐ <br /> 5-Star Reviews on Google</h3>
+                    <p>Our customers love us! Check out our 5-star reviews on Google to see why SATX Bounce House Rentals is the top choice for party rentals in San Antonio.</p>
+                    <button><a href="https://g.co/kgs/uUy8GLZ" target="_blank" rel="noopener noreferrer">Read Our Reviews</a></button>
+                </div>
                 <div className="icon-container">
                     <div className='icon-section__icon'>
                         <i className="fas fa-truck truck-moves"></i>
