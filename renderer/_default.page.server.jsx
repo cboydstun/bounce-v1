@@ -34,10 +34,6 @@ async function render(pageContext) {
     // About page specific head elements
     pageTitle = "About Us - SATX Bounce House and Inflatable Rentals";
     pageDescription = "Learn about SATX Bounce House and Inflatable Rentals in San Antonio, TX. Read about our story and why you should choose us for your next event.";
-  } else if (pageContext.urlPathname === "/rsvp/") {
-    // RSVP page specific head elements
-    pageTitle = "RSVP for Ben and Austin's Birthday Party";
-    pageDescription = "RSVP for Ben and Austin's Birthday Party. Fill out the form to let us know you're coming!";
   }
 
   return escapeInject`<!DOCTYPE html>
