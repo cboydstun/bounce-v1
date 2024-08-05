@@ -28,7 +28,7 @@ export default function RentalTerms() {
                     Free delivery inside Loop 1604 in San Antonio, TX only. 🚀
                 </li>
                 <li>
-                    Outside Loop 1604, a delivery fee of $50 will apply if it is an area that we service. 💲
+                    No deposit in San Antonio, TX inside Loop 1604. <br /> Outside Loop 1604, a delivery fee of $50 will apply if it is an area that we service. 💲
                 </li>
                 <li>
                     Pony rides and petting zoo provided by <br /><a className='pony-link' href="https://giddyupponyparties.com/">GIDDY UP PONY PARTIES AND PETTING ZOOS, LLC</a>. 🐴
