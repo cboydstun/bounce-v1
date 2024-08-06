@@ -87,7 +87,7 @@ export default function Inventory() {
                         <h3>{item.name}</h3>
                         <p>{item.size}</p>
                         <p>Price: ${item.price} per day</p>
-                        <button><a href='#contact-form'>Contact Now</a></button>
+                        <button className='button-container'><a href='#contact-form'>Contact Now</a></button>
                     </div>
                 ))}
             </div>

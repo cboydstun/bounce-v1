@@ -1,3 +1,4 @@
+// renderer/_default.page.server.jsx
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr'
@@ -26,11 +27,19 @@ async function onBeforeRender(pageContext) {
 async function render(pageContext) {
   const { Page, urlPathname, routeParams } = pageContext;
 
+  // Normalize the path by removing trailing slash
+  const normalizedPath = urlPathname.endsWith('/') && urlPathname !== '/'
+    ? urlPathname.slice(0, -1)
+    : urlPathname
+
   let pageComponent;
   try {
-    if (urlPathname === '/blogs') {
+    if (normalizedPath === '/') {
+      const HomePage = (await import('../pages/index/index.page')).Page;
+      pageComponent = <HomePage />;
+    } else if (normalizedPath === '/blogs') {
       pageComponent = <Blogs />;
-    } else if (urlPathname.startsWith('/blogs/')) {
+    } else if (normalizedPath.startsWith('/blogs/')) {
       pageComponent = <BlogPost id={routeParams.id} />;
     } else {
       pageComponent = <Page props={pageContext} />;
@@ -121,7 +130,11 @@ async function render(pageContext) {
             <p>Something went wrong. Please try again later.</p>
           </body>
         </html>`,
-      statusCode: 500
+      pageContext: {
+        httpResponse: {
+          statusCode: 500
+        }
+      }
     };
   }
 }

@@ -7,15 +7,21 @@ import { PageLayout } from './PageLayout'
 
 async function render(pageContext) {
   const { Page, urlPathname, routeParams } = pageContext
+  console.log('Client-side routeParams:', routeParams);
+
+  // Normalize the path by removing trailing slash
+  const normalizedPath = urlPathname.endsWith('/') && urlPathname !== '/'
+    ? urlPathname.slice(0, -1)
+    : urlPathname
 
   let pageComponent;
-  if (urlPathname === '/') {
+  if (normalizedPath === '/') {
     const HomePage = (await import('../pages/index/index.page')).Page;
     pageComponent = <HomePage />;
-  } else if (urlPathname === '/blogs') {
+  } else if (normalizedPath === '/blogs') {
     const Blogs = (await import('../components/Blogs')).default
     pageComponent = <Blogs />;
-  } else if (urlPathname.startsWith('/blogs/')) {
+  } else if (normalizedPath.startsWith('/blogs/')) {
     const BlogPost = (await import('../components/BlogPost')).default
     pageComponent = <BlogPost id={routeParams.id} />;
   } else {

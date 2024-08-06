@@ -1,12 +1,18 @@
 export default function (pageContext) {
     const { urlPathname } = pageContext
-    if (urlPathname === '/') {
+
+    // Normalize the path by removing trailing slash
+    const normalizedPath = urlPathname.endsWith('/') && urlPathname !== '/'
+        ? urlPathname.slice(0, -1)
+        : urlPathname
+
+    if (normalizedPath === '' || normalizedPath === '/') {
         return { routeParams: {} }
     }
-    if (urlPathname === '/blogs') {
+    if (normalizedPath === '/blogs') {
         return { routeParams: {} }
     }
-    const match = /^\/blogs\/([^\/]+)/.exec(urlPathname)
+    const match = /^\/blogs\/([^\/]+)/.exec(normalizedPath)
     if (match) {
         return { routeParams: { id: match[1] } }
     }
