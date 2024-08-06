@@ -1,21 +1,4 @@
-/**
- * Exports the render function.
- * 
- * Render function that hydrates the React app on the client.
- *
- * @param {Object} pageContext - Context data for the page.
- *
- * It does the following:
- *
- * 1. Destructures the Page component from pageContext.
- * 2. Calls ReactDOM's hydrateRoot method to hydrate the React app.
- * 3. Renders the PageLayout and Page components. 
- * 4. Passes pageContext as props to Page.
- *
- * This hydrates the app after the HTML is loaded on the client, 
-* connecting the rendered HTML to the React components.
-*/
-
+// _default.page.client.jsx
 export { render }
 
 import React from 'react'
@@ -23,11 +6,26 @@ import { hydrateRoot } from 'react-dom/client'
 import { PageLayout } from './PageLayout'
 
 async function render(pageContext) {
-  const { Page } = pageContext
+  const { Page, urlPathname, routeParams } = pageContext
+
+  let pageComponent;
+  if (urlPathname === '/') {
+    const HomePage = (await import('../pages/index/index.page')).Page;
+    pageComponent = <HomePage />;
+  } else if (urlPathname === '/blogs') {
+    const Blogs = (await import('../components/Blogs')).default
+    pageComponent = <Blogs />;
+  } else if (urlPathname.startsWith('/blogs/')) {
+    const BlogPost = (await import('../components/BlogPost')).default
+    pageComponent = <BlogPost id={routeParams.id} />;
+  } else {
+    pageComponent = <Page {...pageContext} />;
+  }
+
   hydrateRoot(
     document.getElementById('page-view'),
     <PageLayout>
-      <Page props={pageContext} />
+      {pageComponent}
     </PageLayout>
   )
 }

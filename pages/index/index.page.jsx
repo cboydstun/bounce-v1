@@ -1,3 +1,4 @@
+// pages/index/index.page.jsx
 export { Page }
 
 import React from 'react'
