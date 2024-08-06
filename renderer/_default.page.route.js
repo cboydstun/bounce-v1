@@ -1,5 +1,8 @@
+// _default.page.route.js
 export default function (pageContext) {
     const { urlPathname } = pageContext
+
+    console.log("Routing for:", urlPathname);
 
     // Normalize the path by removing trailing slash
     const normalizedPath = urlPathname.endsWith('/') && urlPathname !== '/'
@@ -14,8 +17,9 @@ export default function (pageContext) {
     }
     const match = /^\/blogs\/([^\/]+)/.exec(normalizedPath)
     if (match) {
-        return { routeParams: { id: match[1] } }
+        console.log("Blog post route matched. Slug:", match[1]);
+        return { routeParams: { slug: match[1] } }
     }
-    // For all other routes, return null to let vite-plugin-ssr handle them
-    return null
+    // For all other routes, return false to let vite-plugin-ssr handle them
+    return false
 }

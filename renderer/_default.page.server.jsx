@@ -1,4 +1,6 @@
 // renderer/_default.page.server.jsx
+export const passToClient = ['urlPathname', 'routeParams', 'documentProps']
+
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr'
@@ -7,17 +9,15 @@ import HeadWithGtag from '../components/HeadWithGtag'
 import Blogs from '../components/Blogs'
 import BlogPost from '../components/BlogPost'
 
-export const passToClient = ['urlPathname', 'routeParams', 'documentProps']
-
 export { render, onBeforeRender }
 
 async function onBeforeRender(pageContext) {
   const { urlPathname } = pageContext
   if (urlPathname.startsWith('/blogs/')) {
-    const blogId = urlPathname.split('/')[2]
+    const slug = urlPathname.split('/')[2]
     return {
       pageContext: {
-        routeParams: { id: blogId }
+        routeParams: { slug }
       }
     }
   }
@@ -26,6 +26,7 @@ async function onBeforeRender(pageContext) {
 
 async function render(pageContext) {
   const { Page, urlPathname, routeParams } = pageContext;
+  console.log("Server render context:", { urlPathname, routeParams });
 
   // Normalize the path by removing trailing slash
   const normalizedPath = urlPathname.endsWith('/') && urlPathname !== '/'
@@ -40,7 +41,7 @@ async function render(pageContext) {
     } else if (normalizedPath === '/blogs') {
       pageComponent = <Blogs />;
     } else if (normalizedPath.startsWith('/blogs/')) {
-      pageComponent = <BlogPost id={routeParams.id} />;
+      pageComponent = <BlogPost slug={routeParams.slug} />;
     } else {
       pageComponent = <Page props={pageContext} />;
     }

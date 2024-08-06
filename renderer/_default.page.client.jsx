@@ -7,7 +7,7 @@ import { PageLayout } from './PageLayout'
 
 async function render(pageContext) {
   const { Page, urlPathname, routeParams } = pageContext
-  console.log('Client-side routeParams:', routeParams);
+  console.log('Client-side render context:', { urlPathname, routeParams });
 
   // Normalize the path by removing trailing slash
   const normalizedPath = urlPathname.endsWith('/') && urlPathname !== '/'
@@ -23,7 +23,7 @@ async function render(pageContext) {
     pageComponent = <Blogs />;
   } else if (normalizedPath.startsWith('/blogs/')) {
     const BlogPost = (await import('../components/BlogPost')).default
-    pageComponent = <BlogPost id={routeParams.id} />;
+    pageComponent = <BlogPost slug={routeParams.slug} />;
   } else {
     pageComponent = <Page {...pageContext} />;
   }
