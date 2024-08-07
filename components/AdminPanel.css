@@ -1,0 +1,32 @@
+.admin-panel {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.admin-content {
+  display: flex;
+  gap: 20px;
+}
+
+.blog-list,
+.blog-form {
+  flex: 1;
+}
+
+.blog-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.blog-form input,
+.blog-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.blog-form button {
+  padding: 5px 10px;
+}

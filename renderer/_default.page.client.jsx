@@ -24,6 +24,12 @@ async function render(pageContext) {
   } else if (normalizedPath.startsWith('/blogs/')) {
     const BlogPost = (await import('../components/BlogPost')).default
     pageComponent = <BlogPost slug={routeParams.slug} />;
+  } else if (normalizedPath === '/admin') {
+    const AdminPanel = (await import('../components/AdminPanel')).default
+    pageComponent = <AdminPanel />;
+  } else if (normalizedPath === '/login') {
+    const Login = (await import('../components/Login')).default
+    pageComponent = <Login onLogin={() => window.location.href = '/admin'} />;
   } else {
     pageComponent = <Page {...pageContext} />;
   }

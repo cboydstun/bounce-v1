@@ -1,4 +1,3 @@
-// _default.page.route.js
 export default function (pageContext) {
     const { urlPathname } = pageContext
 
@@ -15,11 +14,17 @@ export default function (pageContext) {
     if (normalizedPath === '/blogs') {
         return { routeParams: {} }
     }
+    if (normalizedPath === '/admin') {
+        return { routeParams: {} }
+    }
+    if (normalizedPath === '/login') {
+        return { routeParams: {} }
+    }
     const match = /^\/blogs\/([^\/]+)/.exec(normalizedPath)
     if (match) {
         console.log("Blog post route matched. Slug:", match[1]);
         return { routeParams: { slug: match[1] } }
     }
-    // For all other routes, return false to let vite-plugin-ssr handle them
-    return false
+    // For all other routes, return null to let vite-plugin-ssr handle them
+    return null
 }
