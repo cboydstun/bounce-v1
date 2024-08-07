@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import './BlogForm.css';
+
 function BlogForm({ blog, onCreate, onUpdate }) {
     const [formData, setFormData] = useState({
         title: '',
@@ -14,16 +16,23 @@ function BlogForm({ blog, onCreate, onUpdate }) {
     });
 
     useEffect(() => {
+        console.log("blog:", blog);
         if (blog) {
             setFormData({
                 ...blog,
                 categories: blog.categories?.join(', ') || '',
                 tags: blog.tags?.join(', ') || '',
-                seo: blog.seo || { metaTitle: '', metaDescription: '', focusKeyword: '' },
+                seo: blog.seo ? {
+                    metaTitle: blog.seo.metaTitle || '',
+                    metaDescription: blog.seo.metaDescription || '',
+                    focusKeyword: blog.seo.focusKeyword || ''
+                } : { metaTitle: '', metaDescription: '', focusKeyword: '' },
                 isFeature: blog.isFeature || false
             });
         }
     }, [blog]);
+
+    console.log("formData:", formData);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -49,7 +58,12 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         const submitData = {
             ...formData,
             categories: formData.categories.split(',').map(cat => cat.trim()),
-            tags: formData.tags.split(',').map(tag => tag.trim())
+            tags: formData.tags.split(',').map(tag => tag.trim()),
+            seo: {
+                metaTitle: formData.seo.metaTitle,
+                metaDescription: formData.seo.metaDescription,
+                focusKeyword: formData.seo.focusKeyword
+            }
         };
         console.log('Submitting form data:', submitData);
         if (blog) {
@@ -57,6 +71,17 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         } else {
             onCreate(submitData);
         }
+        setFormData({
+            title: '',
+            content: '',
+            excerpt: '',
+            featuredImage: '',
+            categories: '',
+            tags: '',
+            status: 'draft',
+            seo: { metaTitle: '', metaDescription: '', focusKeyword: '' },
+            isFeature: false
+        });
     };
 
     return (

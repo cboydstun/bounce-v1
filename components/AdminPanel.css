@@ -1,32 +1,97 @@
+/* General styling for the admin panel */
 .admin-panel {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Header styling */
+.admin-panel h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Logout button styling */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Flexbox layout for content */
 .admin-content {
   display: flex;
   gap: 20px;
 }
 
+/* Blog list and form containers */
 .blog-list,
 .blog-form {
   flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Individual blog item styling */
 .blog-item {
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fafafa;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+.blog-item:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+/* Blog form input and textarea styling */
 .blog-form input,
 .blog-form textarea {
   width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
+.blog-form input:focus,
+.blog-form textarea:focus {
+  border-color: #007bff;
+}
+
+/* Blog form button styling */
 .blog-form button {
-  padding: 5px 10px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.blog-form button:hover {
+  background-color: #218838;
 }
