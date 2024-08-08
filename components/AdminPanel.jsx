@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import BlogList from './BlogList';
 import BlogForm from './BlogForm';
+import ErrorBoundary from './ErrorBoundary';
+
 import './AdminPanel.css';
 
 // logout button component
@@ -67,29 +69,40 @@ function AdminPanel() {
         }
     };
 
-    const handleUpdate = async (slug, blogData) => {
+    const handleUpdate = async (slug, updatedBlogData) => {
         try {
-            console.log('Updating blog with data:', blogData);
-            const token = localStorage.getItem('token');
+            console.log('Attempting to update blog:', slug);
+            console.log('Update data:', JSON.stringify(updatedBlogData, null, 2));
+
             const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs/${slug}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Ensure you're sending the auth token if required
                 },
-                body: JSON.stringify(blogData),
+                body: JSON.stringify(updatedBlogData)
             });
+
+            console.log('Response status:', response.status);
+
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.error || 'Failed to update blog');
+                console.error('Error response:', errorData);
+                throw new Error(`HTTP error! status: ${response.status}, message: ${JSON.stringify(errorData)}`);
             }
+
             const updatedBlog = await response.json();
-            console.log('Updated blog:', updatedBlog);
-            setBlogs(blogs.map(b => b.slug === slug ? updatedBlog : b));
-            setSelectedBlog(null);
+            console.log('Update successful:', updatedBlog);
+
+            // Update your state or perform any other necessary actions with the updatedBlog data
+            // For example: setBlogs(prevBlogs => prevBlogs.map(blog => blog.slug === slug ? updatedBlog : blog));
+
+            alert('Blog updated successfully!');
+
         } catch (error) {
-            console.error('Error updating blog:', error);
-            alert(error.message);
+            console.error('Error in handleUpdate:', error);
+            console.error('Error details:', error.message);
+            alert(`Error updating blog: ${error.message}`);
         }
     };
 
@@ -128,11 +141,9 @@ function AdminPanel() {
                     onEdit={setSelectedBlog}
                     onDelete={handleDelete}
                 />
-                <BlogForm
-                    blog={selectedBlog}
-                    onCreate={handleCreate}
-                    onUpdate={handleUpdate}
-                />
+                <ErrorBoundary>
+                    <BlogForm blog={selectedBlog} onCreate={handleCreate} onUpdate={handleUpdate} />
+                </ErrorBoundary>
             </div>
         </div>
     );

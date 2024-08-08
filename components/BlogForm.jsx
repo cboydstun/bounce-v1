@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 import './BlogForm.css';
 
@@ -39,6 +41,13 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         setFormData(prevData => ({
             ...prevData,
             [name]: type === 'checkbox' ? checked : value
+        }));
+    };
+
+    const handleContentChange = (content) => {
+        setFormData(prevData => ({
+            ...prevData,
+            content: content
         }));
     };
 
@@ -84,6 +93,21 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         });
     };
 
+    const modules = {
+        toolbar: [
+            [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+            [{ size: [] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' },
+            { 'indent': '-1' }, { 'indent': '+1' }],
+            ['link', 'image', 'video'],
+            ['clean']
+        ],
+        clipboard: {
+            matchVisual: false,
+        }
+    };
+
     return (
         <form onSubmit={handleSubmit} className="blog-form">
             <h2>{blog ? 'Edit Blog' : 'Create New Blog'}</h2>
@@ -95,13 +119,18 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 placeholder="Title"
                 required
             />
-            <textarea
-                name="content"
+            <ReactQuill
+                theme="snow"
                 value={formData.content}
-                onChange={handleChange}
-                placeholder="Content"
-                required
+                onChange={handleContentChange}
+                modules={modules}
+                formats={['header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video']}
+                placeholder="Write your blog content here..."
             />
+            <br />
+            <br />
+            <br />
+            <br />
             <input
                 type="text"
                 name="excerpt"

@@ -1,6 +1,8 @@
 // components/BlogPost.jsx
 import React, { useState, useEffect } from 'react';
 
+import './BlogPost.css';
+
 function BlogPost({ slug }) {
     const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -37,10 +39,12 @@ function BlogPost({ slug }) {
     if (!blog) return <div>Blog post not found</div>;
 
     return (
-        <div>
-            <h1>{blog.title}</h1>
-            <p>{blog.content}</p>
-        </div>
+        <article className="blog-post">
+            <div
+                className="blog-content"
+                dangerouslySetInnerHTML={{ __html: blog.content }}
+            />
+        </article>
     );
 }
 

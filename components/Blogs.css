@@ -45,6 +45,7 @@
 
 .blog-link:visited {
   color: #666;
+  text-decoration: none;
 }
 
 .blog-excerpt {
