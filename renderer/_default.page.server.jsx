@@ -15,13 +15,20 @@ const defaultImage = 'https://www.satxbounce.com/satx-bounce-house-rental-san-an
 
 // Function to ensure image URL is absolute
 const getAbsoluteImageUrl = (imageUrl) => {
-  if (!imageUrl) return defaultImage;
+  console.log("Input image URL:", imageUrl);
+  if (!imageUrl) {
+    console.log("No image URL provided, using default");
+    return defaultImage;
+  }
   if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+    console.log("Image URL is already absolute");
     return imageUrl;
   }
   // Remove leading slash if present
   const cleanImageUrl = imageUrl.startsWith('/') ? imageUrl.slice(1) : imageUrl;
-  return `${import.meta.env.VITE_SERVER_URL || 'https://www.satxbounce.com'}/${cleanImageUrl}`;
+  const fullUrl = `${import.meta.env.VITE_SERVER_URL || 'https://www.satxbounce.com'}/${cleanImageUrl}`;
+  console.log("Constructed full URL:", fullUrl);
+  return fullUrl;
 };
 
 async function onBeforeRender(pageContext) {
@@ -107,13 +114,22 @@ async function render(pageContext) {
     }
 
     if (normalizedPath.startsWith('/blogs/')) {
-      if (blogData && blogData.featuredImage) {
+      if (blogData) {
+        console.log("Processing blog data:", blogData);
         pageTitle = `${blogData.title} - SATX Bounce House and Inflatable Rentals`;
         pageDescription = blogData.excerpt || "Read our blog post from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
-        pageImage = getAbsoluteImageUrl(blogData.featuredImage);
-        console.log("Blog post image URL:", pageImage); // Add this line
+        if (blogData.featuredImage) {
+          pageImage = getAbsoluteImageUrl(blogData.featuredImage);
+        } else {
+          console.log("No featured image found in blog data");
+          pageImage = defaultImage;
+        }
+        console.log("Set page image to:", pageImage);
       } else {
-        console.log("Blog data or featured image not found"); // Add this line
+        console.log("Blog data not found");
+        pageTitle = "Blog Post - SATX Bounce House and Inflatable Rentals";
+        pageDescription = "Read our blog post from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
+        pageImage = defaultImage;
       }
     }
 
