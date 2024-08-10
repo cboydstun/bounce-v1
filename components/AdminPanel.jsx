@@ -45,21 +45,29 @@ function AdminPanel() {
         }
     };
 
-    const handleCreate = async (blogData) => {
+    const handleCreate = async (formData) => {
         try {
             const token = localStorage.getItem('token');
+
+            console.log('Sending blog data to server:');
+            for (let [key, value] of formData.entries()) {
+                console.log(key, value);
+            }
+
             const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Make sure this line is present
+                    'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(blogData),
+                body: formData,
             });
+
             if (!response.ok) {
                 const errorData = await response.json();
+                console.error('Server error response:', errorData);
                 throw new Error(errorData.error || 'Failed to create blog');
             }
+
             const newBlog = await response.json();
             setBlogs([...blogs, newBlog]);
             // Reset form or close modal if needed
@@ -69,18 +77,20 @@ function AdminPanel() {
         }
     };
 
-    const handleUpdate = async (slug, updatedBlogData) => {
+    const handleUpdate = async (slug, formData) => {
         try {
             console.log('Attempting to update blog:', slug);
-            console.log('Update data:', JSON.stringify(updatedBlogData, null, 2));
+            console.log('Update data:');
+            for (let [key, value] of formData.entries()) {
+                console.log(key, value);
+            }
 
             const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs/${slug}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Ensure you're sending the auth token if required
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify(updatedBlogData)
+                body: formData
             });
 
             console.log('Response status:', response.status);
@@ -94,8 +104,7 @@ function AdminPanel() {
             const updatedBlog = await response.json();
             console.log('Update successful:', updatedBlog);
 
-            // Update your state or perform any other necessary actions with the updatedBlog data
-            // For example: setBlogs(prevBlogs => prevBlogs.map(blog => blog.slug === slug ? updatedBlog : blog));
+            setBlogs(prevBlogs => prevBlogs.map(blog => blog.slug === slug ? updatedBlog : blog));
 
             alert('Blog updated successfully!');
 
@@ -150,4 +159,3 @@ function AdminPanel() {
 }
 
 export default AdminPanel;
-

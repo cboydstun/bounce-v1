@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
@@ -7,7 +7,9 @@ import './BlogForm.css';
 function BlogForm({ blog, onCreate, onUpdate }) {
     const [formData, setFormData] = useState({
         title: '',
-        content: '',
+        introduction: '',
+        body: '',
+        conclusion: '',
         excerpt: '',
         featuredImage: '',
         categories: '',
@@ -16,9 +18,11 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         seo: { metaTitle: '', metaDescription: '', focusKeyword: '' },
         isFeature: false
     });
+    const [images, setImages] = useState([]);
+    const fileInputRef = useRef(null);
+
 
     useEffect(() => {
-        console.log("blog:", blog);
         if (blog) {
             setFormData({
                 ...blog,
@@ -31,10 +35,14 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 } : { metaTitle: '', metaDescription: '', focusKeyword: '' },
                 isFeature: blog.isFeature || false
             });
+            // Convert existing image data to a format compatible with our state
+            setImages(blog.images?.map(img => ({
+                name: img.filename,
+                preview: `${import.meta.env.VITE_SERVER_URL}/uploads/${img.filename}`,
+                existing: true
+            })) || []);
         }
     }, [blog]);
-
-    console.log("formData:", formData);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -44,10 +52,11 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         }));
     };
 
-    const handleContentChange = (content) => {
+    const handleContentChange = (content, editor) => {
+        const name = editor.container.dataset.name;
         setFormData(prevData => ({
             ...prevData,
-            content: content
+            [name]: content
         }));
     };
 
@@ -62,27 +71,61 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         }));
     };
 
+    const handleImageUpload = (e) => {
+        const files = Array.from(e.target.files);
+        const newImages = files.map(file => {
+            const originalName = file.name;
+            const extension = originalName.split('.').pop();
+            const nameWithoutExtension = originalName.split('.').slice(0, -1).join('.');
+            const newFileName = `${nameWithoutExtension}-san-antonio-bounce-house-rentals-satxbounce.${extension}`;
+
+            return {
+                name: newFileName,
+                preview: URL.createObjectURL(file),
+                file: new File([file], newFileName, { type: file.type })
+            };
+        });
+        setImages(prevImages => [...prevImages, ...newImages]);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const submitData = {
+        const submitFormData = new FormData();
+
+        // Append all non-file data as a single JSON string
+        const jsonData = {
             ...formData,
-            categories: formData.categories.split(',').map(cat => cat.trim()),
-            tags: formData.tags.split(',').map(tag => tag.trim()),
-            seo: {
-                metaTitle: formData.seo.metaTitle,
-                metaDescription: formData.seo.metaDescription,
-                focusKeyword: formData.seo.focusKeyword
-            }
+            categories: formData.categories.split(',').map(item => item.trim()).filter(Boolean),
+            tags: formData.tags.split(',').map(item => item.trim()).filter(Boolean),
         };
-        console.log('Submitting form data:', submitData);
+        submitFormData.append('blogData', JSON.stringify(jsonData));
+
+        // Append each image file separately
+        images.forEach((image, index) => {
+            if (image.file) {
+                // Add index to filename to prevent conflicts
+                const fileName = `${index + 1}-${image.name}`;
+                submitFormData.append('images', image.file, fileName);
+            } else if (image.existing) {
+                submitFormData.append('existingImages', JSON.stringify(image));
+            }
+        });
+
+        console.log('Submitting form data:', jsonData);
+        console.log('Files being uploaded:', images);
+
         if (blog) {
-            onUpdate(blog.slug, submitData);
+            onUpdate(blog.slug, submitFormData);
         } else {
-            onCreate(submitData);
+            onCreate(submitFormData);
         }
+
+        // Reset form after submission
         setFormData({
             title: '',
-            content: '',
+            introduction: '',
+            body: '',
+            conclusion: '',
             excerpt: '',
             featuredImage: '',
             categories: '',
@@ -91,6 +134,10 @@ function BlogForm({ blog, onCreate, onUpdate }) {
             seo: { metaTitle: '', metaDescription: '', focusKeyword: '' },
             isFeature: false
         });
+        setImages([]);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
     };
 
     const modules = {
@@ -121,15 +168,30 @@ function BlogForm({ blog, onCreate, onUpdate }) {
             />
             <ReactQuill
                 theme="snow"
-                value={formData.content}
-                onChange={handleContentChange}
+                value={formData.introduction}
+                onChange={(content) => handleContentChange(content, { container: { dataset: { name: 'introduction' } } })}
                 modules={modules}
                 formats={['header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video']}
-                placeholder="Write your blog content here..."
+                placeholder="Write your introduction here..."
             />
             <br />
+            <ReactQuill
+                theme="snow"
+                value={formData.body}
+                onChange={(content) => handleContentChange(content, { container: { dataset: { name: 'body' } } })}
+                modules={modules}
+                formats={['header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video']}
+                placeholder="Write your main content here..."
+            />
             <br />
-            <br />
+            <ReactQuill
+                theme="snow"
+                value={formData.conclusion}
+                onChange={(content) => handleContentChange(content, { container: { dataset: { name: 'conclusion' } } })}
+                modules={modules}
+                formats={['header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video']}
+                placeholder="Write your conclusion here..."
+            />
             <br />
             <input
                 type="text"
@@ -145,6 +207,33 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 onChange={handleChange}
                 placeholder="Featured Image URL"
             />
+            <input
+                type="file"
+                name="images"
+                onChange={handleImageUpload}
+                multiple
+                ref={fileInputRef}
+            />
+            <div className="image-preview-container">
+                {images.map((image, index) => (
+                    <div key={index} className="image-preview-item">
+                        <img
+                            src={image.preview}
+                            alt={image.name}
+                            className="image-preview"
+                            crossOrigin="anonymous"
+                        />
+                        <div className="image-preview-details">
+                            <span>{image.name}</span>
+                            <button type="button" onClick={() => {
+                                setImages(images.filter((_, i) => i !== index));
+                            }}>
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
             <input
                 type="text"
                 name="categories"

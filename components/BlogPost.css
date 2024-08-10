@@ -4,9 +4,12 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .blog-title {
@@ -15,6 +18,8 @@
   margin-bottom: 20px;
   border-bottom: 2px solid rebeccapurple;
   padding-bottom: 10px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(102, 51, 153, 0.1);
 }
 
 .blog-content {
@@ -30,17 +35,20 @@
   color: rebeccapurple;
   margin-top: 30px;
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .blog-content p {
   margin-bottom: 20px;
+  text-align: justify;
 }
 
-/* .blog-content a {
+.blog-content a {
   color: rebeccapurple;
   text-decoration: none;
-  border-bottom: 1px solid rebeccapurple;
-} */
+  border-bottom: 1px dotted rebeccapurple;
+  transition: border-bottom 0.3s ease;
+}
 
 .blog-content a:hover {
   border-bottom: 2px solid rebeccapurple;
@@ -52,6 +60,9 @@
   margin-left: 0;
   font-style: italic;
   color: #666;
+  background-color: #f9f4ff;
+  padding: 15px;
+  border-radius: 0 5px 5px 0;
 }
 
 .blog-content ul,
@@ -60,12 +71,21 @@
   padding-left: 30px;
 }
 
-.blog-content img {
+.blog-content li {
+  margin-bottom: 10px;
+}
+
+.blog-image {
   max-width: 100%;
   height: auto;
-  margin: 20px 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(102, 51, 153, 0.1);
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(102, 51, 153, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.blog-image:hover {
+  transform: scale(1.02);
 }
 
 .blog-content pre {
@@ -74,11 +94,65 @@
   padding: 15px;
   overflow-x: auto;
   font-size: 0.9em;
+  border-radius: 0 5px 5px 0;
 }
 
 .blog-content code {
   background-color: #f4f0f9;
   padding: 2px 4px;
   border-radius: 3px;
-  font-family: monospace;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+
+/* Media Queries */
+
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+  .blog-post {
+    padding: 15px;
+  }
+
+  .blog-title {
+    font-size: 2em;
+  }
+
+  .blog-content {
+    font-size: 1em;
+  }
+
+  .blog-image {
+    margin: 20px 0;
+  }
+}
+
+/* Tablets */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .blog-post {
+    padding: 25px;
+  }
+
+  .blog-title {
+    font-size: 2.2em;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1920px) {
+  .blog-post {
+    max-width: 1000px;
+    padding: 40px;
+  }
+
+  .blog-title {
+    font-size: 3em;
+  }
+
+  .blog-content {
+    font-size: 1.2em;
+  }
+
+  .blog-image {
+    margin: 40px 0;
+  }
 }
