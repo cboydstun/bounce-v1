@@ -12,6 +12,15 @@ export const passToClient = ['urlPathname', 'routeParams', 'documentProps', 'blo
 
 export { render, onBeforeRender }
 
+// Function to ensure image URL is absolute
+const getAbsoluteImageUrl = (imageUrl) => {
+  if (!imageUrl) return defaultImage;
+  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+    return imageUrl;
+  }
+  return `${import.meta.env.VITE_SERVER_URL}${imageUrl}`;
+};
+
 async function onBeforeRender(pageContext) {
   const { urlPathname } = pageContext
   if (urlPathname.startsWith('/blogs/')) {
@@ -82,26 +91,22 @@ async function render(pageContext) {
       // Homepage specific head elements
       pageTitle = "SATX Bounce House and Inflatable Rentals - San Antonio, TX ";
       pageDescription = "SATX Bounce House and Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Contact now!";
-      pageImage = defaultImage;
     } else if (normalizedPath === "/faq") {
       // FAQ page specific head elements
       pageTitle = "FAQ - SATX Bounce House and Inflatable Rentals";
       pageDescription = "Find answers to frequently asked questions about SATX Bounce House and Inflatable Rentals in San Antonio, TX. Learn about our services, rentals, and more.";
-      pageImage = defaultImage;
     } else if (normalizedPath === "/about") {
       // About page specific head elements
       pageTitle = "About Us - SATX Bounce House and Inflatable Rentals";
       pageDescription = "Learn about SATX Bounce House and Inflatable Rentals in San Antonio, TX. Read about our story and why you should choose us for your next event.";
-      pageImage = defaultImage;
     } else if (normalizedPath === '/blogs') {
       pageTitle = "Blog - SATX Bounce House and Inflatable Rentals";
       pageDescription = "Read our latest blog posts about bounce houses, party planning, and more from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
-      pageImage = defaultImage;
     } else if (normalizedPath.startsWith('/blogs/')) {
       if (blogData) {
         pageTitle = `${blogData.title} - SATX Bounce House and Inflatable Rentals`;
         pageDescription = blogData.excerpt || "Read our blog post from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
-        pageImage = blogData.featuredImage || defaultImage;
+        pageImage = getAbsoluteImageUrl(blogData.featuredImage);
       } else {
         pageTitle = "Blog Post - SATX Bounce House and Inflatable Rentals";
         pageDescription = "Read our blog post from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
@@ -109,7 +114,8 @@ async function render(pageContext) {
     }
 
     // Ensure pageImage is always defined
-    pageImage = pageImage || defaultImage;
+    pageImage = getAbsoluteImageUrl(pageImage);
+    console.log("Page Image:", pageImage);
 
     return escapeInject`<!DOCTYPE html>
       <html lang="en">
