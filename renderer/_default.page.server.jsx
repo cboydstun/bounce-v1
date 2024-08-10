@@ -1,6 +1,4 @@
 // renderer/_default.page.server.jsx
-export const passToClient = ['urlPathname', 'routeParams', 'documentProps']
-
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr'
@@ -8,6 +6,9 @@ import { PageLayout } from './PageLayout'
 import HeadWithGtag from '../components/HeadWithGtag'
 import Blogs from '../components/Blogs'
 import BlogPost from '../components/BlogPost'
+import { defaultImage } from '../public/satx-bounce-house-rental-san-antonio-og-image.jpg'
+
+export const passToClient = ['urlPathname', 'routeParams', 'documentProps', 'blogData']
 
 export { render, onBeforeRender }
 
@@ -15,9 +16,28 @@ async function onBeforeRender(pageContext) {
   const { urlPathname } = pageContext
   if (urlPathname.startsWith('/blogs/')) {
     const slug = urlPathname.split('/')[2]
-    return {
-      pageContext: {
-        routeParams: { slug }
+
+    // Fetch blog post data
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs/${slug}`)
+      if (!response.ok) {
+        throw new Error('Failed to fetch blog post')
+      }
+      const blogData = await response.json()
+
+      return {
+        pageContext: {
+          routeParams: { slug },
+          blogData
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching blog post:', error)
+      return {
+        pageContext: {
+          routeParams: { slug },
+          blogData: null
+        }
       }
     }
   }
@@ -25,8 +45,8 @@ async function onBeforeRender(pageContext) {
 }
 
 async function render(pageContext) {
-  const { Page, urlPathname, routeParams } = pageContext;
-  console.log("Server render context:", { urlPathname, routeParams });
+  const { Page, urlPathname, routeParams, blogData } = pageContext;
+  console.log("Server render context:", { urlPathname, routeParams, blogData });
 
   // Normalize the path by removing trailing slash
   const normalizedPath = urlPathname.endsWith('/') && urlPathname !== '/'
@@ -56,28 +76,40 @@ async function render(pageContext) {
 
     let pageTitle = "SATX Bounce House and Inflatable Rentals - San Antonio, TX";
     let pageDescription = "SATX Bounce House and Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Contact now!";
+    let pageImage = defaultImage;
 
-    if (pageContext.urlPathname === "/") {
+    if (normalizedPath === "/") {
       // Homepage specific head elements
       pageTitle = "SATX Bounce House and Inflatable Rentals - San Antonio, TX ";
       pageDescription = "SATX Bounce House and Party Rentals in San Antonio. High-quality and affordable bounce house, inflatable, and event rentals for your events. Contact now!";
-    } else if (pageContext.urlPathname === "/faq/") {
+      pageImage = defaultImage;
+    } else if (normalizedPath === "/faq") {
       // FAQ page specific head elements
       pageTitle = "FAQ - SATX Bounce House and Inflatable Rentals";
       pageDescription = "Find answers to frequently asked questions about SATX Bounce House and Inflatable Rentals in San Antonio, TX. Learn about our services, rentals, and more.";
-    } else if (pageContext.urlPathname === "/about/") {
+      pageImage = defaultImage;
+    } else if (normalizedPath === "/about") {
       // About page specific head elements
       pageTitle = "About Us - SATX Bounce House and Inflatable Rentals";
       pageDescription = "Learn about SATX Bounce House and Inflatable Rentals in San Antonio, TX. Read about our story and why you should choose us for your next event.";
-    }
-
-    if (urlPathname === '/blogs') {
+      pageImage = defaultImage;
+    } else if (normalizedPath === '/blogs') {
       pageTitle = "Blog - SATX Bounce House and Inflatable Rentals";
       pageDescription = "Read our latest blog posts about bounce houses, party planning, and more from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
-    } else if (urlPathname.startsWith('/blogs/')) {
-      pageTitle = "Blog Post - SATX Bounce House and Inflatable Rentals";
-      pageDescription = "Read our blog post from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
+      pageImage = defaultImage;
+    } else if (normalizedPath.startsWith('/blogs/')) {
+      if (blogData) {
+        pageTitle = `${blogData.title} - SATX Bounce House and Inflatable Rentals`;
+        pageDescription = blogData.excerpt || "Read our blog post from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
+        pageImage = blogData.featuredImage || defaultImage;
+      } else {
+        pageTitle = "Blog Post - SATX Bounce House and Inflatable Rentals";
+        pageDescription = "Read our blog post from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
+      }
     }
+
+    // Ensure pageImage is always defined
+    pageImage = pageImage || defaultImage;
 
     return escapeInject`<!DOCTYPE html>
       <html lang="en">
@@ -92,8 +124,8 @@ async function render(pageContext) {
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
           <meta property="og:title" content="${pageTitle}">
           <meta property="og:description" content="${pageDescription}">
-          <meta property="og:image" content="https://www.satxbounce.com/satx-bounce-house-rental-san-antonio-og-image.jpg">
-          <meta property="og:url" content="https://www.satxbounce.com">
+          <meta property="og:image" content="${pageImage}">
+          <meta property="og:url" content="https://www.satxbounce.com${normalizedPath}">
           <meta property="og:type" content="website">
           <meta property="og:site_name" content="SATX Bounce House Rentals and More">
           <meta name="twitter:card" content="summary_large_image">
@@ -101,14 +133,14 @@ async function render(pageContext) {
           <meta name="twitter:creator" content="@satxbounce">
           <meta name="twitter:title" content="${pageTitle}">
           <meta name="twitter:description" content="${pageDescription}">
-          <meta name="twitter:image" content="https://www.satxbounce.com/satx-bounce-house-rental-san-antonio-og-image.jpg">
+          <meta name="twitter:image" content="${pageImage}">
           <meta name="twitter:image:alt" content="SATX Bounce House Rentals and More">
-          <link rel="icon" type="image/x-icon" href="favicon.ico">
-          <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-          <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-          <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+          <link rel="icon" type="image/x-icon" href="/favicon.ico">
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
           <link rel="manifest" href="/site.webmanifest">
-          <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+          <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
           ${headWithGtagHtml}
           <title>${pageTitle}</title>
         </head>
