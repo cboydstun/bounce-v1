@@ -6,11 +6,12 @@ import { PageLayout } from './PageLayout'
 import HeadWithGtag from '../components/HeadWithGtag'
 import Blogs from '../components/Blogs'
 import BlogPost from '../components/BlogPost'
-import { defaultImage } from '../public/satx-bounce-house-rental-san-antonio-og-image.jpg'
 
 export const passToClient = ['urlPathname', 'routeParams', 'documentProps', 'blogData']
 
 export { render, onBeforeRender }
+
+const defaultImage = 'https://www.satxbounce.com/satx-bounce-house-rental-san-antonio-og-image.jpg';
 
 // Function to ensure image URL is absolute
 const getAbsoluteImageUrl = (imageUrl) => {
