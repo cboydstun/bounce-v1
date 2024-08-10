@@ -167,7 +167,7 @@
 }
 
 /* Desktop */
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 769px) {
   .blog-post {
     max-width: 1000px;
     padding: 40px;
