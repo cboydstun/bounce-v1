@@ -21,12 +21,13 @@ const getAbsoluteImageUrl = (imageUrl) => {
     return defaultImage;
   }
   if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
-    console.log("Image URL is already absolute");
+    console.log("Image URL is already absolute, returning as-is");
     return imageUrl;
   }
   // Remove leading slash if present
   const cleanImageUrl = imageUrl.startsWith('/') ? imageUrl.slice(1) : imageUrl;
-  const fullUrl = `${import.meta.env.VITE_SERVER_URL || 'https://www.satxbounce.com'}/${cleanImageUrl}`;
+  const baseUrl = import.meta.env.VITE_SERVER_URL || 'https://www.satxbounce.com';
+  const fullUrl = `${baseUrl}/${cleanImageUrl}`;
   console.log("Constructed full URL:", fullUrl);
   return fullUrl;
 };
@@ -132,7 +133,7 @@ async function render(pageContext) {
         pageImage = defaultImage;
       }
     }
-
+    
     // Ensure pageImage is always defined
     pageImage = getAbsoluteImageUrl(pageImage);
     console.log("Final Page Image:", pageImage);
