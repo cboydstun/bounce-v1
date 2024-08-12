@@ -17,14 +17,6 @@ const DynamicQuillEditor = ({ value, onChange, placeholder, name }) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (editorRef.current) {
-            // Apply custom styles to the Quill editor container
-            editorRef.current.style.height = '300px';
-            editorRef.current.style.marginBottom = '20px';
-        }
-    }, [QuillComponent]);
-
     if (!QuillComponent) {
         return <div>Loading editor...</div>;
     }
@@ -47,7 +39,7 @@ const DynamicQuillEditor = ({ value, onChange, placeholder, name }) => {
     ];
 
     return (
-        <div ref={editorRef}>
+        <div ref={editorRef} className="quill-editor">
             <QuillComponent
                 theme="snow"
                 value={value}
@@ -219,7 +211,6 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 placeholder="Write your conclusion here..."
                 name="conclusion"
             />
-            <br />
             <input
                 type="text"
                 name="excerpt"

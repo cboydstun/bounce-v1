@@ -59,48 +59,33 @@
 }
 
 /* Quill editor styles */
-.blog-form .quill {
+.blog-form .quill-editor {
   margin-bottom: 30px;
 }
 
 .blog-form .ql-container {
   min-height: 200px;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  background: #fefcfc;
+}
+
+.blog-form .ql-snow.ql-toolbar {
+  display: block;
+  background: #eaecec;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
 }
 
 .blog-form .ql-editor {
   font-size: 1rem;
   line-height: 1.5;
+  min-height: 18em;
 }
 
 /* Image upload styles */
 .blog-form input[type="file"] {
   margin-bottom: 10px;
-}
-
-.blog-form .image-preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.blog-form .image-preview div {
-  display: flex;
-  align-items: center;
-  background-color: #f8f9fa;
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-
-.blog-form .image-preview button {
-  margin-left: 10px;
-  padding: 2px 5px;
-  font-size: 0.8rem;
-  background-color: #dc3545;
-}
-
-.blog-form .image-preview button:hover {
-  background-color: #c82333;
 }
 
 .image-preview-container {
@@ -145,6 +130,11 @@
   margin-top: 5px;
   padding: 2px 5px;
   font-size: 0.8em;
+  background-color: #dc3545;
+}
+
+.image-preview-details button:hover {
+  background-color: #c82333;
 }
 
 /* Responsive design */
