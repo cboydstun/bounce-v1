@@ -1,4 +1,4 @@
-// _default.page.client.jsx
+// renderer/_default.page.client.jsx
 export { render }
 
 import React from 'react'
@@ -25,8 +25,14 @@ async function render(pageContext) {
     const BlogPost = (await import('../components/BlogPost')).default
     pageComponent = <BlogPost slug={routeParams.slug} />;
   } else if (normalizedPath === '/admin') {
-    const AdminPanel = (await import('../components/AdminPanel')).default
-    pageComponent = <AdminPanel />;
+    const AdminPage = (await import('../pages/admin.page')).Page
+    pageComponent = <AdminPage />;
+  } else if (normalizedPath === '/admin/products') {
+    const ProductsPage = (await import('../pages/admin/products.page')).Page
+    pageComponent = <ProductsPage />;
+  } else if (normalizedPath === '/admin/leads') {
+    const LeadsPage = (await import('../pages/admin/leads.page')).Page
+    pageComponent = <LeadsPage />;
   } else if (normalizedPath === '/login') {
     const Login = (await import('../components/Login')).default
     pageComponent = <Login onLogin={() => window.location.href = '/admin'} />;

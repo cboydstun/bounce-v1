@@ -6,30 +6,25 @@ import ErrorBoundary from './ErrorBoundary';
 
 import './AdminPanel.css';
 
-// logout button component
-function LogoutButton() {
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        window.location.href = '/login';
-    };
-    return (
-        <button onClick={handleLogout}>Logout</button>
-    );
-}
-
 function AdminPanel() {
     const [blogs, setBlogs] = useState([]);
     const [selectedBlog, setSelectedBlog] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            window.location.href = '/login';
-        } else {
-            setIsAuthenticated(true);
-            fetchBlogs();
-        }
+        const checkAuth = () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login';
+            } else {
+                setIsAuthenticated(true);
+                fetchBlogs();
+            }
+            setIsLoading(false);
+        };
+
+        checkAuth();
     }, []);
 
     const fetchBlogs = async () => {
@@ -137,14 +132,17 @@ function AdminPanel() {
         }
     };
 
+    if (isLoading) {
+        return <div>Loading...</div>; // or a loading spinner
+    }
+
     if (!isAuthenticated) {
-        return null; // or a loading spinner
+        return null;
     }
 
     return (
         <div className="admin-panel">
-            <h1>Admin Panel</h1>
-            <LogoutButton />
+            <h1>Blog Management</h1>
             <div className="admin-content">
                 <BlogList
                     blogs={blogs}

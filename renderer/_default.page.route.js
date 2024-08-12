@@ -17,6 +17,12 @@ export default function (pageContext) {
     if (normalizedPath === '/admin') {
         return { routeParams: {} }
     }
+    if (normalizedPath === '/admin/products') {
+        return { routeParams: {} }
+    }
+    if (normalizedPath === '/admin/leads') {
+        return { routeParams: {} }
+    }
     if (normalizedPath === '/login') {
         return { routeParams: {} }
     }
