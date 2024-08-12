@@ -1,9 +1,64 @@
-// BlogForm.js
-import React, { useState, useEffect, useRef } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-
+// components/BlogForm.jsx
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './BlogForm.css';
+
+// DynamicQuillEditor component
+const DynamicQuillEditor = ({ value, onChange, placeholder, name }) => {
+    const [QuillComponent, setQuillComponent] = useState(null);
+    const editorRef = useRef(null);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            import('react-quill').then(module => {
+                setQuillComponent(() => module.default);
+            });
+            // Import Quill styles
+            import('react-quill/dist/quill.snow.css');
+        }
+    }, []);
+
+    useEffect(() => {
+        if (editorRef.current) {
+            // Apply custom styles to the Quill editor container
+            editorRef.current.style.height = '300px';
+            editorRef.current.style.marginBottom = '20px';
+        }
+    }, [QuillComponent]);
+
+    if (!QuillComponent) {
+        return <div>Loading editor...</div>;
+    }
+
+    const modules = {
+        toolbar: [
+            [{ 'header': [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+            ['link', 'image'],
+            ['clean']
+        ],
+    };
+
+    const formats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet', 'indent',
+        'link', 'image'
+    ];
+
+    return (
+        <div ref={editorRef}>
+            <QuillComponent
+                theme="snow"
+                value={value}
+                onChange={(content) => onChange(content, { container: { dataset: { name } } })}
+                modules={modules}
+                formats={formats}
+                placeholder={placeholder}
+            />
+        </div>
+    );
+};
 
 function BlogForm({ blog, onCreate, onUpdate }) {
     const [formData, setFormData] = useState({
@@ -22,7 +77,6 @@ function BlogForm({ blog, onCreate, onUpdate }) {
     const [images, setImages] = useState([]);
     const fileInputRef = useRef(null);
 
-
     useEffect(() => {
         if (blog) {
             setFormData({
@@ -36,7 +90,6 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 } : { metaTitle: '', metaDescription: '', focusKeyword: '' },
                 isFeature: blog.isFeature || false
             });
-            // Convert existing image data to a format compatible with our state
             setImages(blog.images?.map(img => ({
                 name: img.filename,
                 preview: `${import.meta.env.VITE_SERVER_URL}/uploads/${img.filename}`,
@@ -89,31 +142,10 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         setImages(prevImages => [...prevImages, ...newImages]);
     };
 
-    const handleImageRemove = async (imageName) => {
-        try {
-            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs/${blog.slug}/images/${imageName}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to remove image');
-            }
-
-            setImages(prevImages => prevImages.filter(img => img.name !== imageName));
-        } catch (error) {
-            console.error('Error removing image:', error);
-            alert('Failed to remove image. Please try again.');
-        }
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const submitFormData = new FormData();
 
-        // Append all non-file data as a single JSON string
         const jsonData = {
             ...formData,
             categories: formData.categories.split(',').map(item => item.trim()).filter(Boolean),
@@ -121,10 +153,8 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         };
         submitFormData.append('blogData', JSON.stringify(jsonData));
 
-        // Append each image file separately
         images.forEach((image, index) => {
             if (image.file) {
-                // Add index to filename to prevent conflicts
                 const fileName = `${index + 1}-${image.name}`;
                 submitFormData.append('images', image.file, fileName);
             } else if (image.existing) {
@@ -141,7 +171,6 @@ function BlogForm({ blog, onCreate, onUpdate }) {
             onCreate(submitFormData);
         }
 
-        // Reset form after submission
         setFormData({
             title: '',
             introduction: '',
@@ -161,21 +190,6 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         }
     };
 
-    const modules = {
-        toolbar: [
-            [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
-            [{ size: [] }],
-            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' },
-            { 'indent': '-1' }, { 'indent': '+1' }],
-            ['link', 'image', 'video'],
-            ['clean']
-        ],
-        clipboard: {
-            matchVisual: false,
-        }
-    };
-
     return (
         <form onSubmit={handleSubmit} className="blog-form">
             <h2>{blog ? 'Edit Blog' : 'Create New Blog'}</h2>
@@ -187,31 +201,23 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 placeholder="Title"
                 required
             />
-            <ReactQuill
-                theme="snow"
+            <DynamicQuillEditor
                 value={formData.introduction}
-                onChange={(content) => handleContentChange(content, { container: { dataset: { name: 'introduction' } } })}
-                modules={modules}
-                formats={['header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video']}
+                onChange={handleContentChange}
                 placeholder="Write your introduction here..."
+                name="introduction"
             />
-            <br />
-            <ReactQuill
-                theme="snow"
+            <DynamicQuillEditor
                 value={formData.body}
-                onChange={(content) => handleContentChange(content, { container: { dataset: { name: 'body' } } })}
-                modules={modules}
-                formats={['header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video']}
+                onChange={handleContentChange}
                 placeholder="Write your main content here..."
+                name="body"
             />
-            <br />
-            <ReactQuill
-                theme="snow"
+            <DynamicQuillEditor
                 value={formData.conclusion}
-                onChange={(content) => handleContentChange(content, { container: { dataset: { name: 'conclusion' } } })}
-                modules={modules}
-                formats={['header', 'font', 'size', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video']}
+                onChange={handleContentChange}
                 placeholder="Write your conclusion here..."
+                name="conclusion"
             />
             <br />
             <input
@@ -246,7 +252,9 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                         />
                         <div className="image-preview-details">
                             <span>{image.name}</span>
-                            <button type="button" onClick={() => handleImageRemove(image.name)}>
+                            <button type="button" onClick={() => {
+                                setImages(images.filter((_, i) => i !== index));
+                            }}>
                                 Remove
                             </button>
                         </div>
