@@ -1,3 +1,4 @@
+// BlogForm.js
 import React, { useState, useEffect, useRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -86,6 +87,26 @@ function BlogForm({ blog, onCreate, onUpdate }) {
             };
         });
         setImages(prevImages => [...prevImages, ...newImages]);
+    };
+
+    const handleImageRemove = async (imageName) => {
+        try {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs/${blog.slug}/images/${imageName}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to remove image');
+            }
+
+            setImages(prevImages => prevImages.filter(img => img.name !== imageName));
+        } catch (error) {
+            console.error('Error removing image:', error);
+            alert('Failed to remove image. Please try again.');
+        }
     };
 
     const handleSubmit = (e) => {
@@ -225,9 +246,7 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                         />
                         <div className="image-preview-details">
                             <span>{image.name}</span>
-                            <button type="button" onClick={() => {
-                                setImages(images.filter((_, i) => i !== index));
-                            }}>
+                            <button type="button" onClick={() => handleImageRemove(image.name)}>
                                 Remove
                             </button>
                         </div>
