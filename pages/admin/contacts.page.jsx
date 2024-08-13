@@ -35,17 +35,21 @@ function ContactManagement() {
         fetchContacts();
     }, []);
 
-    useEffect(() => {
-        const sortedContacts = [...contacts].sort((a, b) => {
+    const sortedContacts = () => {
+        return [...contacts].sort((a, b) => {
+            let aKey = a[sortConfig.key];
+            let bKey = b[sortConfig.key];
+
             if (sortConfig.key === 'partyDate') {
-                return sortConfig.direction === 'desc'
-                    ? new Date(b.partyDate) - new Date(a.partyDate)
-                    : new Date(a.partyDate) - new Date(b.partyDate);
+                aKey = new Date(aKey);
+                bKey = new Date(bKey);
             }
+
+            if (aKey < bKey) return sortConfig.direction === 'desc' ? 1 : -1;
+            if (aKey > bKey) return sortConfig.direction === 'desc' ? -1 : 1;
             return 0;
         });
-        setContacts(sortedContacts);
-    }, [sortConfig]);
+    };
 
     const handleSort = (key) => {
         setSortConfig(prevConfig => ({
@@ -116,7 +120,7 @@ function ContactManagement() {
     const totalEntries = contacts.length;
     const totalPages = Math.ceil(totalEntries / entriesPerPage);
     const startIndex = (currentPage - 1) * entriesPerPage;
-    const currentContacts = contacts.slice(startIndex, startIndex + entriesPerPage);
+    const currentContacts = sortedContacts().slice(startIndex, startIndex + entriesPerPage);
 
     if (loading) return <p>Loading contacts...</p>;
     if (error) return <p>Error loading contacts: {error}</p>;
