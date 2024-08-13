@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import DashboardLayout from '../../components/DashboardLayout';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import ContactModal from '../../components/ContactModal';
-
 import './contacts.css';
 
 function ContactManagement() {
@@ -14,8 +13,8 @@ function ContactManagement() {
     const [entriesPerPage, setEntriesPerPage] = useState(50);
     const [selectedContact, setSelectedContact] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
+    const [isCreatingNew, setIsCreatingNew] = useState(false); // New state to differentiate between editing and creating
 
-    // Fetch contacts and set loading/error state
     useEffect(() => {
         const fetchContacts = async () => {
             try {
@@ -36,7 +35,6 @@ function ContactManagement() {
         fetchContacts();
     }, []);
 
-    // Sort contacts based on sortConfig
     useEffect(() => {
         const sortedContacts = [...contacts].sort((a, b) => {
             if (sortConfig.key === 'partyDate') {
@@ -74,19 +72,31 @@ function ContactManagement() {
             if (!response.ok) throw new Error('Failed to fetch contact');
             const data = await response.json();
             setSelectedContact(data);
+            setIsCreatingNew(false); // Set to false when editing an existing contact
             setModalOpen(true);
         } catch (error) {
             console.error('Error fetching contact:', error);
         }
     };
 
+    const handleCreateNewClick = () => {
+        setSelectedContact(null); // Clear selected contact
+        setIsCreatingNew(true); // Set to true when creating a new contact
+        setModalOpen(true);
+    };
+
     const handleModalClose = () => {
         setModalOpen(false);
         setSelectedContact(null);
+        setIsCreatingNew(false); // Reset to false when closing the modal
     };
 
     const handleContactUpdate = (updatedContact) => {
-        setContacts(contacts.map(contact => contact._id === updatedContact._id ? updatedContact : contact));
+        if (isCreatingNew) {
+            setContacts([...contacts, updatedContact]);
+        } else {
+            setContacts(contacts.map(contact => contact._id === updatedContact._id ? updatedContact : contact));
+        }
     };
 
     const totalEntries = contacts.length;
@@ -100,23 +110,26 @@ function ContactManagement() {
     return (
         <div className="contact-table-container">
             <h2>Contacts</h2>
-            <div className="pagination-controls">
-                <label htmlFor="entriesPerPage">Entries per page:</label>
-                <select id="entriesPerPage" value={entriesPerPage} onChange={handleEntriesPerPageChange}>
-                    <option value={25}>25</option>
-                    <option value={50}>50</option>
-                    <option value={100}>100</option>
-                </select>
-                <div className="pagination">
-                    {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
-                        <button
-                            key={page}
-                            onClick={() => handlePageChange(page)}
-                            className={`page-button ${page === currentPage ? 'active' : ''}`}
-                        >
-                            {page}
-                        </button>
-                    ))}
+            <div className="control-container">
+                <button className="create-contact-button" onClick={handleCreateNewClick}>Create New Contact</button>
+                <div className="pagination-controls">
+                    <label htmlFor="entriesPerPage">Entries per page:</label>
+                    <select id="entriesPerPage" value={entriesPerPage} onChange={handleEntriesPerPageChange}>
+                        <option value={25}>25</option>
+                        <option value={50}>50</option>
+                        <option value={100}>100</option>
+                    </select>
+                    <div className="pagination">
+                        {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+                            <button
+                                key={page}
+                                onClick={() => handlePageChange(page)}
+                                className={`page-button ${page === currentPage ? 'active' : ''}`}
+                            >
+                                {page}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
             <table className="contact-table">
@@ -155,7 +168,9 @@ function ContactManagement() {
                     })}
                 </tbody>
             </table>
-            {selectedContact && (
+
+            {/* Contact Modal */}
+            {modalOpen && (
                 <ContactModal
                     isOpen={modalOpen}
                     onClose={handleModalClose}

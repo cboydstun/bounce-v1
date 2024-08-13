@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './ContactModal.css'; // Create and style this CSS file accordingly
 
 const ContactModal = ({ isOpen, onClose, contact, onUpdate }) => {
-    const [formData, setFormData] = useState({ ...contact });
+    // Initialize formData based on whether contact is provided or not
+    const [formData, setFormData] = useState(() => ({ ...contact }));
 
     useEffect(() => {
-        setFormData({ ...contact });
+        setFormData(() => ({ ...contact }));
     }, [contact]);
 
     const handleChange = (e) => {
@@ -20,20 +21,22 @@ const ContactModal = ({ isOpen, onClose, contact, onUpdate }) => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/contacts/${contact._id}`, {
-                method: 'PUT',
+            const url = contact ? `${import.meta.env.VITE_SERVER_URL}/api/v1/contacts/${contact._id}` : `${import.meta.env.VITE_SERVER_URL}/api/v1/contacts`;
+            const method = contact ? 'PUT' : 'POST';
+            const response = await fetch(url, {
+                method,
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
             });
-            if (!response.ok) throw new Error('Failed to update contact');
+            if (!response.ok) throw new Error(contact ? 'Failed to update contact' : 'Failed to create contact');
             const updatedContact = await response.json();
             onUpdate(updatedContact);
             onClose();
         } catch (error) {
-            console.error('Error updating contact:', error);
+            console.error('Error handling contact:', error);
         }
     };
 
@@ -46,7 +49,7 @@ const ContactModal = ({ isOpen, onClose, contact, onUpdate }) => {
         <div className="modal-overlay">
             <div className="modal-content">
                 <button className="close-button" onClick={onClose}>✖</button>
-                <h2>Update Contact</h2>
+                <h2>{contact ? 'Update Contact' : 'Create New Contact'}</h2>
                 <form onSubmit={handleSubmit}>
                     <label>
                         Bouncer:
@@ -162,7 +165,9 @@ const ContactModal = ({ isOpen, onClose, contact, onUpdate }) => {
                             onChange={handleChange}
                         />
                     </label>
-                    <button type="submit">Update</button>
+                    <button type="submit">
+                        {contact ? 'Update' : 'Create'}
+                    </button>
                 </form>
             </div>
         </div>

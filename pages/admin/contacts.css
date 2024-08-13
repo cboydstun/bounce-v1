@@ -11,40 +11,73 @@
   margin-bottom: 20px;
 }
 
-.pagination-controls {
-  margin-bottom: 20px;
+/* Container for controls */
+.control-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Vertically align items */
+  margin-bottom: 20px; /* Space below the container */
 }
 
+/* Styling for the "Create New Contact" button */
+.create-contact-button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue background */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.create-contact-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styling for pagination controls container */
+.pagination-controls {
+  display: flex;
+  align-items: center; /* Vertically center the elements */
+  justify-content: space-between; /* Space between elements */
+  gap: 20px; /* Space between elements */
+}
+
+/* Styling for the entries per page label and select */
 .pagination-controls label {
   margin-right: 10px;
+  font-size: 1rem;
 }
 
 .pagination-controls select {
   padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
+/* Styling for pagination buttons */
 .pagination {
   display: flex;
-  gap: 5px;
+  gap: 5px; /* Space between pagination buttons */
 }
 
 .page-button {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  color: #333;
+  font-size: 1rem;
   cursor: pointer;
+  text-align: center;
 }
 
 .page-button.active {
-  background-color: #e0e0e0;
-  font-weight: bold;
+  background-color: #007bff; /* Blue background for active page */
+  color: #fff;
 }
 
 .page-button:hover {
-  background-color: #d0d0d0;
+  background-color: #e2e6ea; /* Light gray background on hover */
 }
 
 .contact-table {
