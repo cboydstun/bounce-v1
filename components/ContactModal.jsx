@@ -41,7 +41,6 @@ const ContactModal = ({ isOpen, onClose, contact, onUpdate }) => {
 
     // Format date to YYYY-MM-DD for input field
     const formattedPartyDate = formData.partyDate ? new Date(formData.partyDate).toISOString().split('T')[0] : '';
-    console.log("// ContactModal.jsx date:", formattedPartyDate);
 
     return (
         <div className="modal-overlay">
@@ -74,7 +73,7 @@ const ContactModal = ({ isOpen, onClose, contact, onUpdate }) => {
                         <input
                             type="date"
                             name="partyDate"
-                            value={formData.partyDate ? formData.partyDate.slice(0, 10) : ''}
+                            value={formData.partyDate ? formattedPartyDate : ''}
                             onChange={handleChange}
                             required
                         />
@@ -98,8 +97,6 @@ const ContactModal = ({ isOpen, onClose, contact, onUpdate }) => {
                             required
                         />
                     </label>
-
-                    {/* Checkbox grid */}
                     <div className="checkbox-grid">
                         <label>
                             Tables Chairs:

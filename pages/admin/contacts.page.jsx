@@ -15,6 +15,7 @@ function ContactManagement() {
     const [selectedContact, setSelectedContact] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
 
+    // Fetch contacts and set loading/error state
     useEffect(() => {
         const fetchContacts = async () => {
             try {
@@ -35,6 +36,7 @@ function ContactManagement() {
         fetchContacts();
     }, []);
 
+    // Sort contacts based on sortConfig
     useEffect(() => {
         const sortedContacts = [...contacts].sort((a, b) => {
             if (sortConfig.key === 'partyDate') {
