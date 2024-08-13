@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import DashboardLayout from '../../components/DashboardLayout';
 import ErrorBoundary from '../../components/ErrorBoundary';
+import ContactModal from '../../components/ContactModal';
 
 import './contacts.css';
-
-export { Page };
 
 function ContactManagement() {
     const [contacts, setContacts] = useState([]);
@@ -13,6 +12,8 @@ function ContactManagement() {
     const [sortConfig, setSortConfig] = useState({ key: 'partyDate', direction: 'desc' });
     const [currentPage, setCurrentPage] = useState(1);
     const [entriesPerPage, setEntriesPerPage] = useState(50);
+    const [selectedContact, setSelectedContact] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         const fetchContacts = async () => {
@@ -23,7 +24,7 @@ function ContactManagement() {
                 });
                 if (!response.ok) throw new Error('Failed to fetch contacts');
                 const data = await response.json();
-                setContacts(data.sort((a, b) => new Date(a.partyDate) - new Date(b.partyDate)));
+                setContacts(data);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -34,34 +35,23 @@ function ContactManagement() {
         fetchContacts();
     }, []);
 
-    const handleSort = (key) => {
-        let direction = 'desc';
-        if (sortConfig.key === key && sortConfig.direction === 'desc') {
-            direction = 'asc';
-        }
-
+    useEffect(() => {
         const sortedContacts = [...contacts].sort((a, b) => {
-            if (key === 'partyDate') {
-                return direction === 'desc'
-                    ? new Date(a.partyDate) - new Date(b.partyDate)
-                    : new Date(b.partyDate) - new Date(a.partyDate);
-            } else if (typeof a[key] === 'boolean') {
-                return direction === 'desc'
-                    ? (a[key] === b[key] ? 0 : a[key] ? -1 : 1)
-                    : (a[key] === b[key] ? 0 : a[key] ? 1 : -1);
-            } else {
-                if (a[key] < b[key]) {
-                    return direction === 'desc' ? -1 : 1;
-                }
-                if (a[key] > b[key]) {
-                    return direction === 'desc' ? 1 : -1;
-                }
-                return 0;
+            if (sortConfig.key === 'partyDate') {
+                return sortConfig.direction === 'desc'
+                    ? new Date(b.partyDate) - new Date(a.partyDate)
+                    : new Date(a.partyDate) - new Date(b.partyDate);
             }
+            return 0;
         });
-
         setContacts(sortedContacts);
-        setSortConfig({ key, direction });
+    }, [sortConfig]);
+
+    const handleSort = (key) => {
+        setSortConfig(prevConfig => ({
+            key,
+            direction: prevConfig.key === key && prevConfig.direction === 'desc' ? 'asc' : 'desc'
+        }));
     };
 
     const handleEntriesPerPageChange = (event) => {
@@ -71,6 +61,30 @@ function ContactManagement() {
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
+    };
+
+    const handleRowClick = async (contactId) => {
+        try {
+            const token = localStorage.getItem('token');
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/contacts/${contactId}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!response.ok) throw new Error('Failed to fetch contact');
+            const data = await response.json();
+            setSelectedContact(data);
+            setModalOpen(true);
+        } catch (error) {
+            console.error('Error fetching contact:', error);
+        }
+    };
+
+    const handleModalClose = () => {
+        setModalOpen(false);
+        setSelectedContact(null);
+    };
+
+    const handleContactUpdate = (updatedContact) => {
+        setContacts(contacts.map(contact => contact._id === updatedContact._id ? updatedContact : contact));
     };
 
     const totalEntries = contacts.length;
@@ -115,28 +129,44 @@ function ContactManagement() {
                     </tr>
                 </thead>
                 <tbody>
-                    {currentContacts.map((contact) => (
-                        <tr key={contact._id}>
-                            <td>{new Date(contact.partyDate).toLocaleDateString()}</td>
-                            <td>{contact.bouncer}</td>
-                            <td>{contact.email}</td>
-                            <td>{contact.partyZipCode}</td>
-                            <td>{contact.phone || 'N/A'}</td>
-                            <td>{contact.tablesChairs ? '✅' : '❌'}</td>
-                            <td>{contact.generator ? '✅' : '❌'}</td>
-                            <td>{contact.popcornMachine ? '✅' : '❌'}</td>
-                            <td>{contact.cottonCandyMachine ? '✅' : '❌'}</td>
-                            <td>{contact.snowConeMachine ? '✅' : '❌'}</td>
-                            <td>{contact.overnight ? '✅' : '❌'}</td>
-                            <td>{contact.confirmed ? '✅' : '❌'}</td>
-                            <td>{contact.message || 'N/A'}</td>
-                        </tr>
-                    ))}
+                    {currentContacts.map((contact) => {
+                        const partyDate = new Date(contact.partyDate);
+                        partyDate.setDate(partyDate.getDate() + 1); // Add one day
+
+                        return (
+                            <tr key={contact._id} onClick={() => handleRowClick(contact._id)}>
+                                <td>{partyDate.toLocaleDateString()}</td>
+                                <td>{contact.bouncer}</td>
+                                <td>{contact.email}</td>
+                                <td>{contact.partyZipCode}</td>
+                                <td>{contact.phone || 'N/A'}</td>
+                                <td>{contact.tablesChairs ? '✅' : '❌'}</td>
+                                <td>{contact.generator ? '✅' : '❌'}</td>
+                                <td>{contact.popcornMachine ? '✅' : '❌'}</td>
+                                <td>{contact.cottonCandyMachine ? '✅' : '❌'}</td>
+                                <td>{contact.snowConeMachine ? '✅' : '❌'}</td>
+                                <td>{contact.overnight ? '✅' : '❌'}</td>
+                                <td>{contact.confirmed ? '✅' : '❌'}</td>
+                                <td>{contact.message || 'N/A'}</td>
+                            </tr>
+                        );
+                    })}
+
                 </tbody>
             </table>
+
+            {/* Contact Modal */}
+            {selectedContact && (
+                <ContactModal
+                    isOpen={modalOpen}
+                    onClose={handleModalClose}
+                    contact={selectedContact}
+                    onUpdate={handleContactUpdate}
+                />
+            )}
         </div>
     );
-};
+}
 
 function Page() {
     return (
@@ -147,3 +177,5 @@ function Page() {
         </DashboardLayout>
     );
 }
+
+export { Page };
