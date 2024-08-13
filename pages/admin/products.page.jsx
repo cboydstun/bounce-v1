@@ -7,7 +7,7 @@ function ProductsManagement() {
     return (
         <div>
             <h1>Products Management</h1>
-            {/* Add your products management content here */}
+            <p>UNDER CONSTRUCTION</p>
         </div>
     );
 }

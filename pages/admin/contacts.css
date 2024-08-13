@@ -1,0 +1,83 @@
+.contact-table-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.contact-table-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.pagination-controls {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination-controls label {
+  margin-right: 10px;
+}
+
+.pagination-controls select {
+  padding: 5px;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.page-button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.page-button.active {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+.page-button:hover {
+  background-color: #d0d0d0;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.contact-table th,
+.contact-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.contact-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.contact-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.contact-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.contact-table td {
+  color: #555;
+}
+
+.contact-table th:hover {
+  background-color: #e0e0e0;
+}

@@ -31,8 +31,8 @@ async function render(pageContext) {
     const ProductsPage = (await import('../pages/admin/products.page')).Page
     pageComponent = <ProductsPage />;
   } else if (normalizedPath === '/admin/leads') {
-    const LeadsPage = (await import('../pages/admin/leads.page')).Page
-    pageComponent = <LeadsPage />;
+    const ContactsPage = (await import('../pages/admin/contacts.page')).Page
+    pageComponent = <ContactsPage />;
   } else if (normalizedPath === '/login') {
     const Login = (await import('../components/Login')).default
     pageComponent = <Login onLogin={() => window.location.href = '/admin'} />;

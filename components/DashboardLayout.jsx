@@ -25,7 +25,7 @@ const DashboardLayout = ({ children }) => {
                             <a href="/admin/products">Products</a>
                         </li>
                         <li className={currentPath === '/admin/leads' ? 'active' : ''}>
-                            <a href="/admin/leads">Leads</a>
+                            <a href="/admin/leads">Contacts</a>
                         </li>
                     </ul>
                 </nav>
