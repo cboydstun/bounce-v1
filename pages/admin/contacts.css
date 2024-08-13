@@ -64,6 +64,7 @@
 .contact-table th {
   background-color: #f2f2f2;
   color: #333;
+  text-align: center;
 }
 
 .contact-table tr:nth-child(even) {
@@ -78,6 +79,18 @@
   color: #555;
 }
 
+/* Center align the content for specific columns */
+.contact-table tr {
+  text-align: center;
+}
+
+/* Make the 'Message' column wider */
+.contact-table td.message {
+  width: 600px !important; /* Adjust width as needed */
+  white-space: pre-wrap; /* Preserve spaces and wrap long text */
+}
+
+/* Header styles */
 .contact-table th:hover {
   background-color: #e0e0e0;
 }

@@ -30,7 +30,7 @@ async function render(pageContext) {
   } else if (normalizedPath === '/admin/products') {
     const ProductsPage = (await import('../pages/admin/products.page')).Page
     pageComponent = <ProductsPage />;
-  } else if (normalizedPath === '/admin/leads') {
+  } else if (normalizedPath === '/admin/contacts') {
     const ContactsPage = (await import('../pages/admin/contacts.page')).Page
     pageComponent = <ContactsPage />;
   } else if (normalizedPath === '/login') {

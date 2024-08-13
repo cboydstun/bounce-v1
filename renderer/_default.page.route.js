@@ -20,7 +20,7 @@ export default function (pageContext) {
     if (normalizedPath === '/admin/products') {
         return { routeParams: {} }
     }
-    if (normalizedPath === '/admin/leads') {
+    if (normalizedPath === '/admin/contacts') {
         return { routeParams: {} }
     }
     if (normalizedPath === '/login') {
