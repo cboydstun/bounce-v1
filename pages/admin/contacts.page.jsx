@@ -151,11 +151,8 @@ function ContactManagement() {
                             </tr>
                         );
                     })}
-
                 </tbody>
             </table>
-
-            {/* Contact Modal */}
             {selectedContact && (
                 <ContactModal
                     isOpen={modalOpen}
