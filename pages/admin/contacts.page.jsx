@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DashboardLayout from '../../components/DashboardLayout';
+import ErrorBoundary from '../../components/ErrorBoundary';
 
 import './contacts.css';
 
@@ -9,9 +10,9 @@ function ContactManagement() {
     const [contacts, setContacts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [sortConfig, setSortConfig] = useState({ key: 'partyDate', direction: 'asc' });
+    const [sortConfig, setSortConfig] = useState({ key: 'partyDate', direction: 'desc' });
     const [currentPage, setCurrentPage] = useState(1);
-    const [entriesPerPage, setEntriesPerPage] = useState(10);
+    const [entriesPerPage, setEntriesPerPage] = useState(50);
 
     useEffect(() => {
         const fetchContacts = async () => {
@@ -34,22 +35,26 @@ function ContactManagement() {
     }, []);
 
     const handleSort = (key) => {
-        let direction = 'asc';
-        if (sortConfig.key === key && sortConfig.direction === 'asc') {
-            direction = 'desc';
+        let direction = 'desc';
+        if (sortConfig.key === key && sortConfig.direction === 'desc') {
+            direction = 'asc';
         }
 
         const sortedContacts = [...contacts].sort((a, b) => {
             if (key === 'partyDate') {
-                return direction === 'asc'
+                return direction === 'desc'
                     ? new Date(a.partyDate) - new Date(b.partyDate)
                     : new Date(b.partyDate) - new Date(a.partyDate);
+            } else if (typeof a[key] === 'boolean') {
+                return direction === 'desc'
+                    ? (a[key] === b[key] ? 0 : a[key] ? -1 : 1)
+                    : (a[key] === b[key] ? 0 : a[key] ? 1 : -1);
             } else {
                 if (a[key] < b[key]) {
-                    return direction === 'asc' ? -1 : 1;
+                    return direction === 'desc' ? -1 : 1;
                 }
                 if (a[key] > b[key]) {
-                    return direction === 'asc' ? 1 : -1;
+                    return direction === 'desc' ? 1 : -1;
                 }
                 return 0;
             }
@@ -82,7 +87,6 @@ function ContactManagement() {
             <div className="pagination-controls">
                 <label htmlFor="entriesPerPage">Entries per page:</label>
                 <select id="entriesPerPage" value={entriesPerPage} onChange={handleEntriesPerPageChange}>
-                    <option value={10}>10</option>
                     <option value={25}>25</option>
                     <option value={50}>50</option>
                     <option value={100}>100</option>
@@ -102,35 +106,30 @@ function ContactManagement() {
             <table className="contact-table">
                 <thead>
                     <tr>
-                        <th onClick={() => handleSort('bouncer')}>
-                            Bouncer {sortConfig.key === 'bouncer' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
-                        </th>
-                        <th onClick={() => handleSort('email')}>
-                            Email {sortConfig.key === 'email' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
-                        </th>
-                        <th onClick={() => handleSort('partyDate')}>
-                            Party Date {sortConfig.key === 'partyDate' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
-                        </th>
-                        <th onClick={() => handleSort('partyZipCode')}>
-                            Party Zip Code {sortConfig.key === 'partyZipCode' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
-                        </th>
-                        <th onClick={() => handleSort('phone')}>
-                            Phone {sortConfig.key === 'phone' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
-                        </th>
-                        <th onClick={() => handleSort('confirmed')}>
-                            Confirmed {sortConfig.key === 'confirmed' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
-                        </th>
+                        {['partyDate', 'bouncer', 'email', 'partyZipCode', 'phone', 'tablesChairs', 'generator', 'popcornMachine', 'cottonCandyMachine', 'snowConeMachine', 'overnight', 'confirmed', 'message'].map(field => (
+                            <th key={field} onClick={() => handleSort(field)}>
+                                {field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')}
+                                {sortConfig.key === field && (sortConfig.direction === 'asc' ? ' ▲' : ' ▼')}
+                            </th>
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
                     {currentContacts.map((contact) => (
                         <tr key={contact._id}>
+                            <td>{new Date(contact.partyDate).toLocaleDateString()}</td>
                             <td>{contact.bouncer}</td>
                             <td>{contact.email}</td>
-                            <td>{new Date(contact.partyDate).toLocaleDateString()}</td>
                             <td>{contact.partyZipCode}</td>
                             <td>{contact.phone || 'N/A'}</td>
-                            <td>{contact.confirmed ? 'Yes' : 'No'}</td>
+                            <td>{contact.tablesChairs ? '✅' : '❌'}</td>
+                            <td>{contact.generator ? '✅' : '❌'}</td>
+                            <td>{contact.popcornMachine ? '✅' : '❌'}</td>
+                            <td>{contact.cottonCandyMachine ? '✅' : '❌'}</td>
+                            <td>{contact.snowConeMachine ? '✅' : '❌'}</td>
+                            <td>{contact.overnight ? '✅' : '❌'}</td>
+                            <td>{contact.confirmed ? '✅' : '❌'}</td>
+                            <td>{contact.message || 'N/A'}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -142,7 +141,9 @@ function ContactManagement() {
 function Page() {
     return (
         <DashboardLayout>
-            <ContactManagement />
+            <ErrorBoundary>
+                <ContactManagement />
+            </ErrorBoundary>
         </DashboardLayout>
     );
 }
