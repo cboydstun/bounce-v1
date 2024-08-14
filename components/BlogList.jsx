@@ -1,3 +1,4 @@
+// components/BlogList.jsx
 import React from 'react';
 
 function BlogList({ blogs, onEdit, onDelete }) {

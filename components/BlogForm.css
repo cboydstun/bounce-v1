@@ -137,6 +137,52 @@
   background-color: #c82333;
 }
 
+/* BlogForm.css */
+
+/* ... (previous styles) ... */
+
+.seo-input-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.seo-input-container input,
+.seo-input-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.seo-input-container textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.character-count {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.character-count-low {
+  color: #12a4f3;
+}
+
+.character-count-optimal {
+  color: #27ae60;
+}
+
+.character-count-high {
+  color: #e74c3c;
+}
+
+/* ... (rest of the styles) ... */
+
 /* Responsive design */
 @media (max-width: 768px) {
   .blog-form {

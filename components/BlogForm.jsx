@@ -1,56 +1,7 @@
 // components/BlogForm.jsx
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import DynamicQuillEditor from './DynamicQuillEditor';
 import './BlogForm.css';
-
-// DynamicQuillEditor component
-const DynamicQuillEditor = ({ value, onChange, placeholder, name }) => {
-    const [QuillComponent, setQuillComponent] = useState(null);
-    const editorRef = useRef(null);
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            import('react-quill').then(module => {
-                setQuillComponent(() => module.default);
-            });
-            // Import Quill styles
-            import('react-quill/dist/quill.snow.css');
-        }
-    }, []);
-
-    if (!QuillComponent) {
-        return <div>Loading editor...</div>;
-    }
-
-    const modules = {
-        toolbar: [
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-            ['link'],
-            ['clean']
-        ],
-    };
-
-    const formats = [
-        'header',
-        'bold', 'italic', 'underline', 'strike', 'blockquote',
-        'list', 'bullet', 'indent',
-        'link',
-    ];
-
-    return (
-        <div ref={editorRef} className="quill-editor">
-            <QuillComponent
-                theme="snow"
-                value={value}
-                onChange={(content) => onChange(content, { container: { dataset: { name } } })}
-                modules={modules}
-                formats={formats}
-                placeholder={placeholder}
-            />
-        </div>
-    );
-};
 
 function BlogForm({ blog, onCreate, onUpdate }) {
     const [formData, setFormData] = useState({
@@ -163,6 +114,7 @@ function BlogForm({ blog, onCreate, onUpdate }) {
             onCreate(submitFormData);
         }
 
+        // Reset form (you might want to keep this logic or modify it)
         setFormData({
             title: '',
             introduction: '',
@@ -180,6 +132,12 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         if (fileInputRef.current) {
             fileInputRef.current.value = '';
         }
+    };
+
+    const getCharacterCountClass = (count, min, max) => {
+        if (count < min) return 'character-count-low';
+        if (count > max) return 'character-count-high';
+        return 'character-count-optimal';
     };
 
     return (
@@ -276,20 +234,31 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 <option value="draft">Draft</option>
                 <option value="published">Published</option>
             </select>
-            <input
-                type="text"
-                name="metaTitle"
-                value={formData.seo.metaTitle}
-                onChange={handleSEOChange}
-                placeholder="SEO Meta Title"
-            />
-            <input
-                type="text"
-                name="metaDescription"
-                value={formData.seo.metaDescription}
-                onChange={handleSEOChange}
-                placeholder="SEO Meta Description"
-            />
+            <div className="seo-input-container">
+                <input
+                    type="text"
+                    name="metaTitle"
+                    value={formData.seo.metaTitle}
+                    onChange={handleSEOChange}
+                    placeholder="SEO Meta Title"
+                    maxLength="160"
+                />
+                <div className={`character-count ${getCharacterCountClass(formData.seo.metaTitle.length, 140, 160)}`}>
+                    {formData.seo.metaTitle.length}/160
+                </div>
+            </div>
+            <div className="seo-input-container">
+                <textarea
+                    name="metaDescription"
+                    value={formData.seo.metaDescription}
+                    onChange={handleSEOChange}
+                    placeholder="SEO Meta Description"
+                    maxLength="160"
+                />
+                <div className={`character-count ${getCharacterCountClass(formData.seo.metaDescription.length, 120, 160)}`}>
+                    {formData.seo.metaDescription.length}/160
+                </div>
+            </div>
             <input
                 type="text"
                 name="focusKeyword"
