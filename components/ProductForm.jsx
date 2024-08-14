@@ -139,10 +139,30 @@ function ProductForm({ product, onCreate, onUpdate }) {
                 const updatedProduct = await onUpdate(submitFormData);
                 console.log('Product updated:', updatedProduct);
                 alert('Product updated successfully!');
+                // reset form
+                setFormData({
+                    ...product,
+                    setupRequirements: {
+                        ...product.setupRequirements,
+                        surfaceType: product.setupRequirements?.surfaceType?.join(', ') || ''
+                    },
+                    features: product.features?.join(', ') || '',
+                    weatherRestrictions: product.weatherRestrictions?.join(', ') || ''
+                });
             } else {
                 const newProduct = await onCreate(submitFormData);
                 console.log('New product created:', newProduct);
                 alert('Product created successfully!');
+                // reset form
+                setFormData({
+                    ...product,
+                    setupRequirements: {
+                        ...product.setupRequirements,
+                        surfaceType: product.setupRequirements?.surfaceType?.join(', ') || ''
+                    },
+                    features: product.features?.join(', ') || '',
+                    weatherRestrictions: product.weatherRestrictions?.join(', ') || ''
+                });
             }
         } catch (error) {
             console.error('Error submitting product:', error);
