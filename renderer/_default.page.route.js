@@ -1,3 +1,4 @@
+// renderer/_default.page.route.js
 export default function (pageContext) {
     const { urlPathname } = pageContext
 
@@ -14,6 +15,9 @@ export default function (pageContext) {
     if (normalizedPath === '/blogs') {
         return { routeParams: {} }
     }
+    if (normalizedPath === '/products') {
+        return { routeParams: {} }
+    }
     if (normalizedPath === '/admin') {
         return { routeParams: {} }
     }
@@ -26,10 +30,15 @@ export default function (pageContext) {
     if (normalizedPath === '/login') {
         return { routeParams: {} }
     }
-    const match = /^\/blogs\/([^\/]+)/.exec(normalizedPath)
-    if (match) {
-        console.log("Blog post route matched. Slug:", match[1]);
-        return { routeParams: { slug: match[1] } }
+    const blogMatch = /^\/blogs\/([^\/]+)/.exec(normalizedPath)
+    if (blogMatch) {
+        console.log("Blog post route matched. Slug:", blogMatch[1]);
+        return { routeParams: { slug: blogMatch[1] } }
+    }
+    const productMatch = /^\/products\/([^\/]+)/.exec(normalizedPath)
+    if (productMatch) {
+        console.log("Product route matched. Slug:", productMatch[1]);
+        return { routeParams: { slug: productMatch[1] } }
     }
     // For all other routes, return null to let vite-plugin-ssr handle them
     return null

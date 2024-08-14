@@ -24,6 +24,12 @@ async function render(pageContext) {
   } else if (normalizedPath.startsWith('/blogs/')) {
     const BlogPost = (await import('../components/BlogPost')).default
     pageComponent = <BlogPost slug={routeParams.slug} />;
+  } else if (normalizedPath === '/products') {
+    const Products = (await import('../components/Products')).default
+    pageComponent = <Products />;
+  } else if (normalizedPath.startsWith('/products/')) {
+    const ProductPage = (await import('../components/ProductPage')).default
+    pageComponent = <ProductPage slug={routeParams.slug} />;
   } else if (normalizedPath === '/admin') {
     const AdminPage = (await import('../pages/admin.page')).Page
     pageComponent = <AdminPage />;

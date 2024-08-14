@@ -6,8 +6,10 @@ import { PageLayout } from './PageLayout'
 import HeadWithGtag from '../components/HeadWithGtag'
 import Blogs from '../components/Blogs'
 import BlogPost from '../components/BlogPost'
+import Products from '../components/Products'
+import ProductPage from '../components/ProductPage'
 
-export const passToClient = ['urlPathname', 'routeParams', 'documentProps', 'blogData']
+export const passToClient = ['urlPathname', 'routeParams', 'documentProps', 'blogData', 'productData']
 
 export { render, onBeforeRender }
 
@@ -36,14 +38,12 @@ async function onBeforeRender(pageContext) {
   const { urlPathname } = pageContext
   if (urlPathname.startsWith('/blogs/')) {
     const slug = urlPathname.split('/')[2]
-
     try {
       const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs/${slug}`)
       if (!response.ok) {
         throw new Error('Failed to fetch blog post')
       }
       const blogData = await response.json()
-      console.log("Fetched blog data:", blogData) // Add this line
       return {
         pageContext: {
           routeParams: { slug },
@@ -59,13 +59,36 @@ async function onBeforeRender(pageContext) {
         }
       }
     }
+  } else if (urlPathname.startsWith('/products/')) {
+    const slug = urlPathname.split('/')[2]
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/products/${slug}`)
+      if (!response.ok) {
+        throw new Error('Failed to fetch product')
+      }
+      const productData = await response.json()
+      return {
+        pageContext: {
+          routeParams: { slug },
+          productData
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching product:', error)
+      return {
+        pageContext: {
+          routeParams: { slug },
+          productData: null
+        }
+      }
+    }
   }
   return {}
 }
 
 async function render(pageContext) {
-  const { Page, urlPathname, routeParams, blogData } = pageContext;
-  console.log("Server render context:", { urlPathname, routeParams, blogData });
+  const { Page, urlPathname, routeParams, blogData, productData } = pageContext;
+  console.log("Server render context:", { urlPathname, routeParams, blogData, productData });
 
   // Normalize the path by removing trailing slash
   const normalizedPath = urlPathname.endsWith('/') && urlPathname !== '/'
@@ -81,6 +104,10 @@ async function render(pageContext) {
       pageComponent = <Blogs />;
     } else if (normalizedPath.startsWith('/blogs/')) {
       pageComponent = <BlogPost slug={routeParams.slug} />;
+    } else if (normalizedPath === '/products') {
+      pageComponent = <Products />;
+    } else if (normalizedPath.startsWith('/products/')) {
+      pageComponent = <ProductPage slug={routeParams.slug} />;
     } else {
       pageComponent = <Page props={pageContext} />;
     }
@@ -133,7 +160,27 @@ async function render(pageContext) {
         pageImage = defaultImage;
       }
     }
-    
+
+    if (normalizedPath.startsWith('/products/')) {
+      if (productData) {
+        console.log("Processing product data:", productData);
+        pageTitle = `${productData.name} - SATX Bounce House and Inflatable Rentals`;
+        pageDescription = productData.description.substring(0, 160) || "View our product from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
+        if (productData.images && productData.images.length > 0) {
+          pageImage = getAbsoluteImageUrl(productData.images[0].url);
+        } else {
+          console.log("No image found in product data");
+          pageImage = defaultImage;
+        }
+        console.log("Set page image to:", pageImage);
+      } else {
+        console.log("Product data not found");
+        pageTitle = "Product - SATX Bounce House and Inflatable Rentals";
+        pageDescription = "View our product from SATX Bounce House and Inflatable Rentals in San Antonio, TX.";
+        pageImage = defaultImage;
+      }
+    }
+
     // Ensure pageImage is always defined
     pageImage = getAbsoluteImageUrl(pageImage);
     console.log("Final Page Image:", pageImage);
@@ -179,17 +226,17 @@ async function render(pageContext) {
     console.error('Error rendering page:', error);
     return {
       documentHtml: escapeInject`<!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Error</title>
-          </head>
-          <body>
-            <h1>500 Internal Server Error</h1>
-            <p>Something went wrong. Please try again later.</p>
-          </body>
-        </html>`,
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Error</title>
+            </head>
+            <body>
+              <h1>500 Internal Server Error</h1>
+              <p>Something went wrong. Please try again later.</p>
+            </body>
+          </html>`,
       pageContext: {
         httpResponse: {
           statusCode: 500
