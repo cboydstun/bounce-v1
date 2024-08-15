@@ -4,7 +4,7 @@ import DynamicQuillEditor from './DynamicQuillEditor';
 import './BlogForm.css';
 
 function BlogForm({ blog, onCreate, onUpdate }) {
-    const [formData, setFormData] = useState({
+    const initialFormState = {
         title: '',
         introduction: '',
         body: '',
@@ -16,8 +16,11 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         status: 'draft',
         seo: { metaTitle: '', metaDescription: '', focusKeyword: '' },
         isFeature: false
-    });
+    };
+
+    const [formData, setFormData] = useState(initialFormState);
     const [images, setImages] = useState([]);
+    const [imagesToDelete, setImagesToDelete] = useState([]);
     const fileInputRef = useRef(null);
 
     useEffect(() => {
@@ -38,6 +41,9 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 preview: `${import.meta.env.VITE_SERVER_URL}/uploads/${img.filename}`,
                 existing: true
             })) || []);
+            setImagesToDelete([]);
+        } else {
+            resetForm();
         }
     }, [blog]);
 
@@ -85,6 +91,22 @@ function BlogForm({ blog, onCreate, onUpdate }) {
         setImages(prevImages => [...prevImages, ...newImages]);
     };
 
+    const handleImageDelete = (image, index) => {
+        if (image.existing) {
+            setImagesToDelete(prev => [...prev, image.name]);
+        }
+        setImages(prevImages => prevImages.filter((_, i) => i !== index));
+    };
+
+    const resetForm = () => {
+        setFormData(initialFormState);
+        setImages([]);
+        setImagesToDelete([]);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const submitFormData = new FormData();
@@ -95,18 +117,13 @@ function BlogForm({ blog, onCreate, onUpdate }) {
             tags: formData.tags.split(',').map(item => item.trim()).filter(Boolean),
         };
         submitFormData.append('blogData', JSON.stringify(jsonData));
+        submitFormData.append('imagesToDelete', JSON.stringify(imagesToDelete));
 
-        images.forEach((image, index) => {
+        images.forEach((image) => {
             if (image.file) {
-                const fileName = `${index + 1}-${image.name}`;
-                submitFormData.append('images', image.file, fileName);
-            } else if (image.existing) {
-                submitFormData.append('existingImages', JSON.stringify(image));
+                submitFormData.append('images', image.file, image.name);
             }
         });
-
-        console.log('Submitting form data:', jsonData);
-        console.log('Files being uploaded:', images);
 
         if (blog) {
             onUpdate(blog.slug, submitFormData);
@@ -114,24 +131,9 @@ function BlogForm({ blog, onCreate, onUpdate }) {
             onCreate(submitFormData);
         }
 
-        // Reset form (you might want to keep this logic or modify it)
-        setFormData({
-            title: '',
-            introduction: '',
-            body: '',
-            conclusion: '',
-            excerpt: '',
-            featuredImage: '',
-            categories: '',
-            tags: '',
-            status: 'draft',
-            seo: { metaTitle: '', metaDescription: '', focusKeyword: '' },
-            isFeature: false
-        });
-        setImages([]);
-        if (fileInputRef.current) {
-            fileInputRef.current.value = '';
-        }
+        // Reset the form after submission
+        resetForm();
+        if (onReset) onReset();
     };
 
     const getCharacterCountClass = (count, min, max) => {
@@ -201,9 +203,7 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                         />
                         <div className="image-preview-details">
                             <span>{image.name}</span>
-                            <button type="button" onClick={() => {
-                                setImages(images.filter((_, i) => i !== index));
-                            }}>
+                            <button type="button" onClick={() => handleImageDelete(image, index)}>
                                 Remove
                             </button>
                         </div>
@@ -276,6 +276,7 @@ function BlogForm({ blog, onCreate, onUpdate }) {
                 Featured Post
             </label>
             <button type="submit">{blog ? 'Update' : 'Create'}</button>
+            <button type="button" onClick={resetForm}>Reset Form</button>
         </form>
     );
 }

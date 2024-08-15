@@ -44,12 +44,6 @@ function AdminPanel() {
     const handleCreate = async (formData) => {
         try {
             const token = localStorage.getItem('token');
-
-            console.log('Sending blog data to server:');
-            for (let [key, value] of formData.entries()) {
-                console.log(key, value);
-            }
-
             const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs`, {
                 method: 'POST',
                 headers: {
@@ -60,13 +54,13 @@ function AdminPanel() {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                console.error('Server error response:', errorData);
                 throw new Error(errorData.error || 'Failed to create blog');
             }
 
             const newBlog = await response.json();
             setBlogs([...blogs, newBlog]);
-            // Reset form or close modal if needed
+            setSelectedBlog(null); // Reset selected blog after creation
+            alert('Blog created successfully!');
         } catch (error) {
             console.error('Error creating blog:', error);
             alert(error.message);
@@ -75,12 +69,6 @@ function AdminPanel() {
 
     const handleUpdate = async (slug, formData) => {
         try {
-            console.log('Attempting to update blog:', slug);
-            console.log('Update data:');
-            for (let [key, value] of formData.entries()) {
-                console.log(key, value);
-            }
-
             const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/v1/blogs/${slug}`, {
                 method: 'PUT',
                 headers: {
@@ -89,26 +77,23 @@ function AdminPanel() {
                 body: formData
             });
 
-            console.log('Response status:', response.status);
-
             if (!response.ok) {
                 const errorData = await response.json();
-                console.error('Error response:', errorData);
                 throw new Error(`HTTP error! status: ${response.status}, message: ${JSON.stringify(errorData)}`);
             }
 
             const updatedBlog = await response.json();
-            console.log('Update successful:', updatedBlog);
-
             setBlogs(prevBlogs => prevBlogs.map(blog => blog.slug === slug ? updatedBlog : blog));
-
+            setSelectedBlog(null); // Reset selected blog after update
             alert('Blog updated successfully!');
-
         } catch (error) {
             console.error('Error in handleUpdate:', error);
-            console.error('Error details:', error.message);
             alert(`Error updating blog: ${error.message}`);
         }
+    };
+
+    const handleReset = () => {
+        setSelectedBlog(null);
     };
 
     const handleDelete = async (slug) => {
@@ -150,7 +135,12 @@ function AdminPanel() {
                     onDelete={handleDelete}
                 />
                 <ErrorBoundary>
-                    <BlogForm blog={selectedBlog} onCreate={handleCreate} onUpdate={handleUpdate} />
+                    <BlogForm
+                        blog={selectedBlog}
+                        onCreate={handleCreate}
+                        onUpdate={handleUpdate}
+                        onReset={handleReset}
+                    />
                 </ErrorBoundary>
             </div>
         </div>
