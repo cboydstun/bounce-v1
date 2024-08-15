@@ -26,6 +26,11 @@ export default function Navigation() {
                             </a>
                         </li>
                         <li>
+                            <a className="navitem" href="/blogs/">
+                                Blogs
+                            </a>
+                        </li>
+                        <li>
                             <a className="navitem" href="/#inventory-component">
                                 Inventory
                             </a>
