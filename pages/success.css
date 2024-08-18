@@ -1,0 +1,103 @@
+.success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f8ff;
+  padding: 20px;
+}
+
+.success-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.success-title {
+  color: #4caf50;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.success-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.success-message {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.success-info {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.success-details {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.success-details p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.success-details ul {
+  padding-left: 20px;
+}
+
+.success-details li {
+  margin-bottom: 5px;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 480px) {
+  .success-content {
+    padding: 20px;
+  }
+
+  .success-title {
+    font-size: 2rem;
+  }
+
+  .success-icon {
+    font-size: 3rem;
+  }
+
+  .success-message {
+    font-size: 1rem;
+  }
+
+  .success-info {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet breakpoint */
+@media (min-width: 481px) and (max-width: 768px) {
+  .success-content {
+    padding: 30px;
+  }
+
+  .success-title {
+    font-size: 2.2rem;
+  }
+
+  .success-icon {
+    font-size: 3.5rem;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 769px) {
+  .success-content {
+    padding: 40px;
+  }
+}

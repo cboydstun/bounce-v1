@@ -1,3 +1,4 @@
+// components/ContactForm.jsx
 import React, { useState } from 'react';
 
 import './ContactForm.css';
@@ -184,7 +185,9 @@ const ContactForm = () => {
                 setAgreeSMS(false);
                 setBouncerImage('');
                 console.log('Form submission successful:', jsonResponse);
-                alert('Thank you for your submission!');
+
+                // Redirect to the success page
+                window.location.href = '/success';
             } else {
                 // Handle form submission error (e.g., show error message)
                 const errorResponse = await response.json();
