@@ -1,5 +1,5 @@
 // components/ContactForm.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './ContactForm.css';
 
@@ -35,10 +35,19 @@ const ContactForm = () => {
         pettingZoo: false,
         ponyRides: false,
         dj: false,
-        message: ''
+        message: '',
+        sourcePage: '',
     });
     const [bouncerImage, setBouncerImage] = useState('');
     const [agreeSMS, setAgreeSMS] = useState(false);
+
+    useEffect(() => {
+        // Set the sourcePage when the component mounts
+        setFormData(prevData => ({
+            ...prevData,
+            sourcePage: window.location.pathname
+        }));
+    }, []);
 
     const formatPhoneNumber = (value) => {
         if (!value) return value;
