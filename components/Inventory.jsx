@@ -20,7 +20,7 @@ const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.
 
 export default function Inventory() {
     const [sortAscending, setSortAscending] = useState(false);
-    const [filter, setFilter] = useState('ALL');
+    const [filter, setFilter] = useState('DRY');
 
     const items = [
         { id: 1, name: 'Castle with Slide', size: '25 x 15', price: 224.95, tag: "DRY", imgUrl: DRY_XL, url: "/rentals/castle-with-slide" },
