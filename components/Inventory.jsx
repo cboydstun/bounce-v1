@@ -6,7 +6,6 @@ const DRY_LARGE = "../satx-bounce-house-rental-san-antonio-dry-large.jpg"
 const DRY_MED = "../satx-bounce-house-rental-san-antonio-dry-med.jpg"
 const WET_XL = "../satx-bounce-house-rental-san-antonio-wet-xl.jpg"
 const JUNIOR_BOUNCE = "../satx-bounce-house-rental-san-antonio-junior-bounce.jpg"
-const JUNIOR_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-junior-waterslide.jpg"
 const WET_RED_SLIDE = "../satx-bounce-house-rental-san-antonio-wet-xl-red.jpg"
 const ARCH_CASTLE = "../satx-bounce-house-rental-san-antonio-arch-castle.jpg"
 const PINK_BOUNCE = "../satx-bounce-house-rental-san-antonio-pink-bounce.jpg"
@@ -17,6 +16,7 @@ const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs.jpg"
 const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.jpg"
 const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
+const TROPICAL_COMBO = "../satx-bounce-house-rental-san-antonio-tropical-combo.png"
 
 export default function Inventory() {
     const [sortAscending, setSortAscending] = useState(false);
@@ -27,7 +27,7 @@ export default function Inventory() {
         { id: 2, name: 'Large Castle', size: '15 x 15', price: 199.95, tag: "DRY", imgUrl: DRY_LARGE, url: "/rentals/large-castle" },
         { id: 3, name: 'Medium Castle', size: '13 x 13', price: 149.95, tag: "DRY", imgUrl: DRY_MED, url: "/rentals/medium-castle" },
         { id: 4, name: 'Junior Bounce', size: '19 x 12', price: 149.95, tag: ["DRY", "WET"], imgUrl: JUNIOR_BOUNCE, url: "/rentals/junior-bounce" },
-        // { id: 5, name: 'Junior Waterslide', size: '16 x 8', price: 149.95, tag: "WET", imgUrl: JUNIOR_WATERSLIDE, url: "/rentals/junior-waterslide" },
+        { id: 5, name: 'Tropical Combo', size: '20 x 15', price: 199.95, tag: ["DRY", "WET"], imgUrl: TROPICAL_COMBO, url: "/rentals/tropical-combo" },
         { id: 6, name: 'Lime Water Slide', size: '25 x 15', price: 224.95, tag: "WET", imgUrl: WET_XL, url: "/rentals/lime-waterslide" },
         { id: 7, name: 'TALL Red Water Slide', size: '30 x 20', price: 249.95, tag: "WET", imgUrl: WET_RED_SLIDE, url: "/rentals/red-waterslide" },
         { id: 8, name: 'White Bouncer', size: '13 x 12', price: 199.95, tag: "DRY", imgUrl: WHITE_BOUNCE, url: "/rentals/white-bouncer" },

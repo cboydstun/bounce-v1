@@ -18,6 +18,7 @@ const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.jpg
 const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.jpg"
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
+const TROPICAL_COMBO = "../satx-bounce-house-rental-san-antonio-tropical-combo.png"
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -131,6 +132,9 @@ const ContactForm = () => {
                 case 'WET-Blue':
                     setBouncerImage(BLUE_WATERSLIDE);
                     break;
+                case 'TROPICAL-Combo':
+                    setBouncerImage(TROPICAL_COMBO);
+                    break;
                 default:
                     setBouncerImage('');
                     break;
@@ -236,7 +240,7 @@ const ContactForm = () => {
                             <option value="DRY-Large">Large Castle - 15 x 15</option>
                             <option value="DRY-Medium">Medium Castle - 13 x 13</option>
                             <option value="DRY-JuniorBounce">Junior Bounce - 19 x 12</option>
-                            {/* <option value="WET-JuniorWaterslide">Junior Waterslide - 16 x 8</option> */}
+                            <option value="TROPICAL-Combo">Tropical Combo - 20 x 15</option>
                             <option value="WHITE-Bounce">White Bouncer - 13 x 12</option>
                             <option value="WET-Red">Red Water Slide - 30 x 20</option>
                             <option value="WET-Lime">Lime Water Slide - 25 x 15</option>
