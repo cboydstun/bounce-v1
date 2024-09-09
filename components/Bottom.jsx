@@ -29,6 +29,10 @@ export default function Bottom() {
           <a href="tel:512-210-0194" aria-label='SATX Bounce Phone Number'>
             <i className="fas fa-phone-alt"></i> 512-210-0194
           </a>
+
+          <a href="https://www.satxbounce.com/tos" aria-label='SATX Bounce Terms of Service'>
+            Terms of Service
+          </a>
         </div>
       </div>
     </footer>
