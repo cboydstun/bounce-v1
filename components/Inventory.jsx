@@ -17,6 +17,8 @@ const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs
 const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.jpg"
 const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
 const TROPICAL_COMBO = "../satx-bounce-house-rental-san-antonio-tropical-combo.jpg"
+const POPCORN_MACHINE = "../satx-bounce-house-rental-san-antonio-popcorn-maker.jpg"
+const SNOW_CONE_MACHINE = "../satx-bounce-house-rental-san-antonio-snow-cone-machine.png"
 
 export default function Inventory() {
     const [sortAscending, setSortAscending] = useState(false);
@@ -39,6 +41,8 @@ export default function Inventory() {
         { id: 14, name: 'Mini Bounce', size: '6 x 6', price: 99.95, tag: ["DRY", "WET"], imgUrl: MINI_BOUNCE, url: "/rentals/mini-bounce" },
         { id: 15, name: 'Blue Water Slide', size: '20 x 10', price: 199.95, tag: "WET", imgUrl: BLUE_WATERSLIDE, url: "/rentals/blue-waterslide" },
         { id: 16, name: 'Tables and Chairs', size: '1 table / 6 chairs', tag: ["ALL", "DRY", "WET"], price: 19.95, imgUrl: TABLES_CHAIRS, url: "/rentals/tables-chairs" },
+        { id: 17, name: 'Popcorn Machine', size: ">100 servings", price: 49.95, tag: ["ALL", "DRY", "WET"], imgUrl: POPCORN_MACHINE, url: "/rentals/popcorn-machine" },
+        { id: 18, name: 'Snow Cone Machine', size: "~50 servings", price: 49.95, tag: ["ALL", "DRY", "WET"], imgUrl: SNOW_CONE_MACHINE, url: "/rentals/snow-cone-machine" },
 
     ];
 
