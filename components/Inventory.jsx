@@ -16,7 +16,7 @@ const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 const TABLES_CHAIRS = "../satx-bounce-house-rental-san-antonio-tables-and-chairs.jpg"
 const WHITE_BOUNCE = "../satx-bounce-house-rental-san-antonio-white-bouncer.jpg"
 const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
-const TROPICAL_COMBO = "../satx-bounce-house-rental-san-antonio-tropical-combo.png"
+const TROPICAL_COMBO = "../satx-bounce-house-rental-san-antonio-tropical-combo.jpg"
 
 export default function Inventory() {
     const [sortAscending, setSortAscending] = useState(false);

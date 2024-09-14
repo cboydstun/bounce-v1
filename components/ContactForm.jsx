@@ -18,7 +18,7 @@ const BALLOON_COMBO = "../satx-bounce-house-rental-san-antonio-balloon-combo.jpg
 const BASKETBALL_SHOOT = "../satx-bounce-house-rental-san-antonio-basketball-shoot.jpg"
 const MINI_BOUNCE = "../satx-bounce-house-rental-san-antonio-mini-bounce.jpg"
 const BLUE_WATERSLIDE = "../satx-bounce-house-rental-san-antonio-wet-large-blue.jpg"
-const TROPICAL_COMBO = "../satx-bounce-house-rental-san-antonio-tropical-combo.png"
+const TROPICAL_COMBO = "../satx-bounce-house-rental-san-antonio-tropical-combo.jpg"
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
