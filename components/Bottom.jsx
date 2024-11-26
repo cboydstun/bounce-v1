@@ -33,6 +33,9 @@ export default function Bottom() {
           <a href="https://www.satxbounce.com/tos" aria-label='SATX Bounce Terms of Service'>
             Terms of Service
           </a>
+          <a href="https://www.satxbounce.com/privacy-policy" aria-label='SATX Bounce Privacy Policy'>
+            Privacy Policy
+          </a>
         </div>
       </div>
     </footer>
